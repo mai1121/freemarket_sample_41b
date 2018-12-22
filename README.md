@@ -2,8 +2,8 @@
 # DB設計
 
 ## user table
-|Column|Type|Options|
-|------|----|-------|
+|Column|Type|Options|excuse|
+|------|----|-------|--------------------|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
@@ -27,8 +27,8 @@
  - has_many :items
 
 ## item table
-|Column|Type|Options|
-|------|----|-------|
+|Column|Type|Options|excuse|
+|------|----|-------|--------------------|
 |name|string|null: false|
 |buyer_id|string||
 |description|text||
