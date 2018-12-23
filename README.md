@@ -1,18 +1,19 @@
 # freemarket_sample_41b
 # DB設計
 
-## user table
+## users table
 |Column|Type|Options|excuse|
 |------|----|-------|--------------------|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
+|nickname|string|null: false|
 |postal_code|int|null: false|
 |prefecture|int|null: false| 多分enum
 |city|string|null: false|
 |address|string|null: false|
-|building_name|string|null: false|
+|building_name|string||
 |phone_number|int|null: false|
 |phone_number_confirmed|boolean|null: false, default: false|
 |credit_card_num|int||
@@ -23,38 +24,45 @@
 
 
 ### Association
- - has_many :items, through: :nices
+ - has_many :items, through: :likes
  - has_many :items
+ - has_many :likes
 
-## item table
+## items table
 |Column|Type|Options|excuse|
 |------|----|-------|--------------------|
 |name|string|null: false|
 |buyer_id|string||
 |description|text||
+|size|int||多分enum
 |status|int||多分enum
-|配送料の負担|int||多分enum
-|発送元の地域|int||多分enum
-|発送までの日数|int||多分enum
+|delivery_fee_method|int||多分enum
+|delivery_method|int||多分enum
+|ships_from|int||多分enum
+|days_to_ship|int||多分enum
 |price|int|null: false|
+|category|references|foreign_key: true|
+|user|references|foreign_key: true|
+|brand|references|foreign_key: true|
 
 ### Association
 - belongs_to :category
 - belongs_to :user
 - belongs_to :brand
-- has_many :users, through: :nices
-- has_many :item_image
+- has_many :users, through: :likes
+- has_many :item_images
 
-## item_image table
+## item_images table
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
+|item|references|foreign_key: true|
 
 ### Association
 - belongs_to :item
 
 
-## nices table
+## likes table
 |Column|Type|Options|
 |------|----|-------|
 |user|references|foreign_key: true|
@@ -70,13 +78,13 @@
 |name|string|null: false|
 
 ### Association
- - has_many :item
+ - has_many :items
 
-## category table
+## categories table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |path_to_root|string|null: false|
 
 ### Association
- - has_many :item
+ - has_many :items
