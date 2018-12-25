@@ -26,7 +26,7 @@
 ### Association
  - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
  - has_many :saling_items, foreign_key: "saler_id", class_name: "Item"
- - has_many :likes
+ - has_many :likes, dependent: :destroy
  - has_many :favorite_items, through: :likes, source: :item
 
 ## items table
@@ -51,8 +51,9 @@
 - belongs_to :saler_id, class_name: "User"
 - belongs_to :buyer_id, class_name: "User"
 - belongs_to :brand
+- has_many :likes, dependent: :destroy
 - has_many :users, through: :likes
-- has_many :item_images
+- has_many :item_images, dependent: :destroy
 
 ## item_images table
 |Column|Type|Options|
