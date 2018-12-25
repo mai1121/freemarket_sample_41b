@@ -1,0 +1,47 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+	color: rgb(51, 51, 51);
+	background-color: rgb(245, 245, 245);
+	font-size: 14px;
+	position: relative;
+	min-height: 100%;
+	line-height: 1;
+	display: block;
+}
+
+h1{
+	display: block;
+	font-weight: bold;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+h2{
+	font-size: 22px;
+    line-height: 1.4;
+}
+
+form{
+	display: block;
+}
+
+input{
+	text-align: start;
+	outline: 0;
+	// color:#0099e8;
+}
+
+input :focus{
+	border: 1px solid #0099e8;
+    outline: 0;
+}
+
+a{
+	text-decoration: none;
+}
