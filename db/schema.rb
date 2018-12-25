@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20181225073431) do
 
   create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "item_id",    null: false
+    t.string   "image",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_item_images_on_item_id", using: :btree
