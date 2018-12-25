@@ -2,15 +2,15 @@
 # DB設計
 
 ## users table
-|Column|Type|Options|excuse|
-|------|----|-------|--------------------|
+|Column|Type|Options|
+|------|----|-------|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |nickname|string|null: false|
 |postal_code|int|null: false|
-|prefecture|int|null: false| 多分enum
+|prefecture|int|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string||
@@ -30,16 +30,16 @@
  - has_many :favorite_items, through: :likes, source: :item
 
 ## items table
-|Column|Type|Options|excuse|
-|------|----|-------|--------------------|
+|Column|Type|Options|
+|------|----|-------|
 |name|string|null: false|
 |description|text||
-|size|int||多分enum
-|status|int||多分enum
-|delivery_fee_method|int||多分enum
-|delivery_method|int||多分enum
-|ships_from|int||多分enum
-|days_to_ship|int||多分enum
+|size|int||
+|status|int||
+|delivery_fee_method|int||
+|delivery_method|int||
+|ships_from|int||
+|days_to_ship|int||
 |price|int|null: false|
 |category|references|foreign_key: true|
 |saler|references|foreign_key: true, class_name: "User"|
