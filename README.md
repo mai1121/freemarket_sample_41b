@@ -42,7 +42,7 @@
 |days_to_ship|int||
 |price|int|null: false|
 |category|references|foreign_key: true|
-|saler|references|foreign_key: true, class_name: "User"|
+|saler|references|foreign_key: true, class_name: "User",null: false|
 |buyer|references|foreign_key: true, class_name: "User"|
 |brand|references|foreign_key: true|
 
@@ -59,7 +59,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item|references|foreign_key: true|
+|item|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :item
