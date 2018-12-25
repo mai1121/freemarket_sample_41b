@@ -24,9 +24,10 @@
 
 
 ### Association
- - has_many :items, through: :likes
- - has_many :items
+ - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+ - has_many :saling_items, foreign_key: "saler_id", class_name: "Item"
  - has_many :likes
+ - has_many :favorite_items, through: :likes, source: :item
 
 ## items table
 |Column|Type|Options|excuse|
@@ -42,12 +43,14 @@
 |days_to_ship|int||多分enum
 |price|int|null: false|
 |category|references|foreign_key: true|
-|user|references|foreign_key: true|
+|saler|references|foreign_key: true, class_name: "User"|
+|buyer|references|foreign_key: true, class_name: "User"|
 |brand|references|foreign_key: true|
 
 ### Association
 - belongs_to :category
-- belongs_to :user
+- belongs_to :saler_id, class_name: "User"
+- belongs_to :buyer_id, class_name: "User"
 - belongs_to :brand
 - has_many :users, through: :likes
 - has_many :item_images
