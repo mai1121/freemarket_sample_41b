@@ -1,0 +1,120 @@
+.top-images{
+	height: 390px;
+	overflow: hidden;
+	position: relative;
+	&__outer{
+		height: 100%;
+	}
+	&__area{
+		height: 100%;
+	}
+	&__item{
+		width:1440px;
+		height: 100%;
+		min-height: 1px;
+    	float: left;
+	}
+	&__main-image{
+		display: block;
+		background-image: url('https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg');
+		background-size: cover;
+		height: 390px;
+	}
+	&__main-image-wrapper{
+		max-width: 860px;
+		margin: 0 auto;
+		height: 100%;
+		position: relative;
+		.top-images__text-content{
+			position: absolute;
+		    top: 240px;
+		    transform: translate(0, -50%);
+		    left: 0;
+		    height: 100%;
+		    width:480px;
+		    h2{
+		    	font-size: 60px;
+		    	font-weight: bold;
+    			line-height: 1.2;  			
+		    }
+		    p{
+		    	font-size: 18px;
+			    line-height: 1.77778;
+			    margin: 16px 0 0;
+		    }
+		    .top-images__download-btn{
+		    	margin: 24px 0 0;
+    			line-height: 0;
+    			.btn-left{
+    				margin: 0;
+    				width: 170px;
+    				height: 50px;
+    				display: inline-block;
+    				vertical-align: top;
+    				img{
+    					width: 100%;
+    				}
+    			}
+    			.btn-right{
+    				width: 170px;
+    				height: 50px;
+    				display: inline-block;
+    				vertical-align: top;
+    				margin: 0 0 0 8px;
+    				img{
+    					width: 100%;
+    				}
+    			}
+		    }
+		    .clearfix{
+		    	&:after{
+					@include clearfix;
+				}
+		    }		    
+		}
+		.top-images__phone-image{
+		    	position: absolute;
+			    top: 0;
+			    right: 0;
+			    height: 100%;
+			    width: auto;
+			    float: right;
+		}
+	}
+	&__nav{
+		height: 0;
+		&--prev{
+			background-image: url('https://www.mercari.com/jp/assets/img/common/jp/top/carousel-prev.png');
+			left:60px;
+			@include nav-image;
+		}
+		&--next{
+			background-image: url('https://www.mercari.com/jp/assets/img/common/jp/top/carousel-next.png');
+			right:60px;
+			@include nav-image;
+		}
+	}
+	&__dots{
+		display: block;
+		margin: -30px;
+    	text-align: center;
+	}
+	&__dot{
+		background-color: #fff;
+		border-radius: 50%;
+		height: 12px;
+		margin-right: 15px;
+    	width: 12px;
+    	position: relative;
+	    overflow: hidden;
+	    display: inline-block;
+	}
+	
+}
+
+
+.dot-active{
+	background-color: rgba(0,0,0,0.5);
+}
+
+
