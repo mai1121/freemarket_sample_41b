@@ -9,11 +9,6 @@
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |nickname|string|null: false|
-|postal_code|int|null: false|
-|prefecture|int|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|building_name|string||
 |phone_number|int|null: false|
 |phone_number_confirmed|boolean|null: false, default: false|
 |credit_card_num|int||
@@ -24,10 +19,24 @@
 
 
 ### Association
+ - has_one :user_address
  - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
  - has_many :saling_items, foreign_key: "saler_id", class_name: "Item"
  - has_many :likes, dependent: :destroy
  - has_many :favorite_items, through: :likes, source: :item
+
+## user_addresses table
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|int|null: false|
+|prefecture|int|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|building_name|string||
+
+### Association
+ - belongs_to :user
+
 
 ## items table
 |Column|Type|Options|
@@ -52,7 +61,6 @@
 - belongs_to :buyer, class_name: "User"
 - belongs_to :brand
 - has_many :likes, dependent: :destroy
-- has_many :users, through: :likes
 - has_many :item_images, dependent: :destroy
 
 ## item_images table
