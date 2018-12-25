@@ -33,7 +33,6 @@
 |Column|Type|Options|excuse|
 |------|----|-------|--------------------|
 |name|string|null: false|
-|buyer_id|string||
 |description|text||
 |size|int||多分enum
 |status|int||多分enum
