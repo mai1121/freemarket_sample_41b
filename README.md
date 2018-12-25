@@ -48,8 +48,8 @@
 
 ### Association
 - belongs_to :category
-- belongs_to :saler_id, class_name: "User"
-- belongs_to :buyer_id, class_name: "User"
+- belongs_to :saler, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 - belongs_to :brand
 - has_many :likes, dependent: :destroy
 - has_many :users, through: :likes
