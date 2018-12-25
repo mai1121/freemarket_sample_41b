@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :item do
-    name                   {"test"}
+    name                   {Faker::Commerce.product_name()}
     description            {"test"}
     size                    {1}
     status                  {1}
@@ -9,7 +9,7 @@ FactoryBot.define do
     delivery_method         {1}
     ships_from              {1}
     days_to_ship            {1}
-    price                   {1200}
+    price                   {Faker::Commerce.price()}
   end
 
 end
