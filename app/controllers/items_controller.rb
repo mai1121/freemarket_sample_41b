@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	def index
-		
-	end
+  def index
+    @items = Item.includes(:item_images).all
+  end
 end
