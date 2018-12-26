@@ -1,16 +1,10 @@
 require 'rails_helper'
-require 'pry-rails'
 
 describe ItemsController do
   describe 'GET #index' do
     before do
       num_of_samples = 4
-      @items = create_list(:item, num_of_samples)
-      @item_images = []
-      @items.each do |item|
-        create_list(:item_image, num_of_samples, item: item)
-      end
-
+      @items = create_list(:item_with_images, num_of_samples,)
       get :index
     end
 
