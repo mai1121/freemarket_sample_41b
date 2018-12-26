@@ -1,7 +1,8 @@
 class CreateCategories < ActiveRecord::Migration[5.0]
   def change
     create_table :categories do |t|
-
+      t.string :name, null: false
+      t.string :path_to_root
       t.timestamps
     end
   end
