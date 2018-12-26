@@ -1,9 +1,16 @@
 require 'rails_helper'
+require 'pry-rails'
 
 describe ItemsController do
   describe 'GET #index' do
     before do
-      @items = create_list(:item, 4)
+      num_of_samples = 4
+      @items = create_list(:item, num_of_samples)
+      @item_images = []
+      @items.each do |item|
+        create_list(:item_image, num_of_samples, item: item)
+      end
+
       get :index
     end
 
@@ -15,8 +22,8 @@ describe ItemsController do
       expect(assigns(:items)).to eq(@items)
     end
 
-    it "assigns the first_id image to each items" do
-
+    it "assigns the item_images to an item" do
+      expect(assigns(:items)[0].item_images).to match(@items[0].item_images)
     end
 
   end

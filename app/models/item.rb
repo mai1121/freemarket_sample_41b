@@ -5,7 +5,4 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
 
-  def set_main_image(image)
-    self.main_image = image
-  end
 end
