@@ -13,11 +13,3 @@
 	text-align: center;
 }
 
-@mixin nav-image{
-	height: 46px;
-	width: 31px;
-    position: absolute;
-    top: 50%;		    
-    cursor: pointer;
-    transform: translateY(-23px);
-}
