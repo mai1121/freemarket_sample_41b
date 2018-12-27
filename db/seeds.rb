@@ -1212,67 +1212,18 @@ test_array = [
   ["child", "その他"]
 ]
 
-class Cateparent
-  @@parent_count = 0
-
-  def initialize(name)
-    @name = name
-
-    @@parent_count += 1
-    @id = @@parent_count.to_s
-  end
-
-  def create
-    Category.create(name: @name, path_to_root: @id)
-  end
-end
-
-class Catechild < Cateparent
-  @@child_count = 0
-  def initialize(name)
-    @name = name
-
-    @@child_count += 1
-    @id = @@parent_count.to_s + "-" +@@child_count.to_s
-  end
-
-  def self.reset
-    @@child_count = 0
-  end
-end
-
-class Categrand_child < Catechild
-  @@grand_child_count = 0
-  def initialize(name)
-    @name = name
-
-    @@grand_child_count += 1
-    @id = @@parent_count.to_s + "-" +@@child_count.to_s + "-" + @@grand_child_count.to_s
-  end
-
-  def self.reset
-    @@grand_child_count = 0
-  end
-end
-
-parents = []
-childs = []
-grand_childs = []
+parent = ""
+child = ""
+grand_child = ""
 
 test_array.each do |ele|
   case ele[0]
   when "parent"
-    Catechild.reset()
-    Categrand_child.reset()
-    parent = Cateparent.new(ele[1])
-    parent.create()
+    parent = Category.create({name: ele[1]})
   when "child"
-    Categrand_child.reset()
-    child = Catechild.new(ele[1])
-    child.create()
+    child = parent.children.create({name: ele[1]})
   when "grand-child"
-    grand_child = Categrand_child.new(ele[1])
-    grand_child.create()
+    grand_child = child.children.create({name: ele[1]})
   end
 end
 
