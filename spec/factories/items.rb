@@ -9,7 +9,8 @@ FactoryBot.define do
     ships_from              {1}
     days_to_ship            {1}
     price                   {Faker::Commerce.price()}
-
+    category_id             {3}
+    brand_id                {3}
   end
 
   factory :item_with_an_image, parent: :item do

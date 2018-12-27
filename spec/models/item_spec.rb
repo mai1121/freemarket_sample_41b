@@ -29,5 +29,22 @@ describe Item do
      expect(item.errors[:item_images]).to include("is too short (minimum is 1 character)")
     end
 
+    it "is invalid without category_id" do
+      item = build(:item_with_an_image, category_id: "")
+      item.valid?
+      expect(item.errors[:category]).to include("must exist")
+    end
+
+    it "is invalid with category_id that doesn't exist in categories table" do
+      item = build(:item_with_an_image, category_id: 999999)
+      item.valid?
+      expect(item.errors[:category]).to include("must exist")
+    end
+
+    it "is valid without brand_id" do
+      item = build(:item_with_an_image, brand_id: "")
+      expect(item).to be_valid
+    end
+
   end
 end
