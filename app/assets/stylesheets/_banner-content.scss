@@ -1,0 +1,45 @@
+.banner-content{
+  background-image: url('/images/banner-back-image.jpg');
+  &__image{
+    margin: 0 auto;
+    width: 750px;
+    height: 260px;
+    color: #fff;
+    position: relative;
+  }
+  &__main-box{
+    position: absolute;
+    left:0;
+    top: 25%;
+    h2{
+      line-height: 1.4;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    p{
+      font-size: 35px;
+      margin: 5px 0 0 0;
+    }
+  }
+  &__icons-box{
+    margin:20px 0 0;
+    display: inline-block;
+    ul{
+      float:right;
+      margin: 20px 0 0 20px;
+      line-height: 68px;
+      li{
+        float:left;
+        margin-right: 10px;
+      }
+    }   
+  }
+  &__mercari-icon{
+      float:left;
+  }
+  figure{
+    position: absolute;
+    right:0;
+    width: 300px;
+  }
+}
