@@ -47,7 +47,10 @@
     		}
 		}
 		&__navbox{
-			margin: 8px 0 0;			
+			margin: 8px 0 0;
+      li{
+        position: relative;
+      }			
 		}
 		&__left{
 			float: left;
@@ -72,6 +75,38 @@
 			    line-height: 32px;
 			}
 		}
+    &__category-nav{
+      z-index: 1000;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+      position: absolute;
+      top: 38px;
+        li{
+        // display: none!important;
+        width: 224px;
+        background-color: #fff;
+        }
+          h3{
+            font-weight: 400;
+            font-size: 14px;
+            a{
+              padding: 0 16px;
+              line-height: 44px;
+            }
+          }
+          &--child-wrap{
+            position: absolute;
+            top: 0;
+            left: 224px;
+            li{
+              line-height: 32px;
+              a{
+              font-size: 14px;
+              padding: 8px 16px;
+              }
+            }
+            
+          }  
+    }
 		&__right{
 			float: right;
 			ul{
