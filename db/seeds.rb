@@ -1,3 +1,5 @@
+require './seeds/brands.rb'
+
 test_array = [
   ["parent", "レディース"],
   ["child", "トップス"],
