@@ -9,6 +9,7 @@ FactoryBot.define do
     ships_from              {1}
     days_to_ship            {1}
     price                   {Faker::Commerce.price()}
+    category_id             {3}
 
   end
 
