@@ -9,19 +9,36 @@
 	.header-innner__clearfix.header-innner__navbox
 		%nav.header-innner__left
 			%ul.header-innner__nav
-				%li
+				%li.header-innner__nav-category
 					%h2
 						%a(href='' class='header-innner__nav-root')カテゴリーから探す
 					%ul.header-innner__category-nav
-						%li.header-innner__category-nav--parent
-							%h3
-								%a(href='')レディース
-							%ul.header-innner__category-nav--child-wrap
-								%li.header-innner__category-nav--child
-									%a(href='')トップス			
-				%li
+						-@parent_categories.each do |parent_category|
+							%li.header-innner__category-nav--parent
+								%h3
+									%a(href='' class='header-innner__category-nav--parent-name')
+										=parent_category.name
+								%ul.header-innner__category-nav--child-wrap
+									-parent_category.children.each do |child_category|
+										%li.header-innner__category-nav--child
+											%a(href='')
+												=child_category.name
+											%ul.header-innner__category-nav--grand-child-wrap
+												-child_category.children.each do |grand_child_category|
+													%li.header-innner__category-nav--grand-child
+														%a(href='')
+															=grand_child_category.name
+
+				%li.header-innner__nav-bland
 					%h2
 						%a(href='' class='header-innner__nav-root')ブランドから探す
+					%ul.header-innner__bland-nav
+						-@blands.each do |bland|
+							%li.header-innner__bland-nav-list
+								%h3
+									%a(href='' class='header-innner__bland-nav-name')
+										=bland
+
 
 		.header-innner__right
 			%ul.header-innner__login-nav
@@ -29,3 +46,4 @@
 					%a(href='' class='header-innner__header-btn--login')ログイン
 				%li.header-innner__signup
 					%a(href='' class='header-innner__header-btn--signup')新規会員登録
+					

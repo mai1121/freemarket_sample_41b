@@ -47,18 +47,15 @@
     		}
 		}
 		&__navbox{
-			margin: 8px 0 0;
-      li{
-        position: relative;
-      }			
+			margin: 8px 0 0;	
 		}
 		&__left{
 			float: left;
 			.header-innner__nav{
+        position: relative;
 				li{
-					position: relative;
     				display: inline-block;
-    				padding-right: 16px;
+    				padding: 0 16px 0 0;
     				h2{
     					font-size: 14px;
     					font-weight: 400;
@@ -69,21 +66,17 @@
     				}
 				}
 			}
-			.header-innner__nav-root{
-				position: relative;
-			    height: 38px;
-			    line-height: 32px;
+			.header-innner__nav-category{
+			 height: 38px;
+       h2{
+        line-height: 38px;
+       }
 			}
 		}
     &__category-nav{
-      z-index: 1000;
-      box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
-      position: absolute;
-      top: 38px;
-        li{
-        // display: none!important;
-        width: 224px;
-        background-color: #fff;
+      @include nav-box;
+        li.header-innner__category-nav--parent{
+        @include nav-bar;
         }
           h3{
             font-weight: 400;
@@ -91,22 +84,48 @@
             a{
               padding: 0 16px;
               line-height: 44px;
+              @include nav-text;
             }
           }
           &--child-wrap{
-            position: absolute;
-            top: 0;
-            left: 224px;
-            li{
+            @include nav-wrapper;
+            li.header-innner__category-nav--child{
+              @include nav-bar;
               line-height: 32px;
               a{
               font-size: 14px;
-              padding: 8px 16px;
+              padding: 0 16px;
+              @include nav-text;
+              }
+            }       
+          }
+          &--grand-child-wrap{
+            @include nav-wrapper;
+            li{
+              width: 300px;
+              a{
+                @include nav-text;
               }
             }
-            
-          }  
+          }      
     }
+    &__nav-bland{
+        height: 38px;
+        h2{
+          line-height: 38px;
+        }
+        ul.header-innner__bland-nav{
+          @include nav-box;
+        }
+        li.header-innner__bland-nav-list{
+          width: 224px;
+          a{
+            padding: 0 16px;
+            line-height: 44px;
+            @include nav-text;
+          }
+        }
+      }  
 		&__right{
 			float: right;
 			ul{
@@ -116,7 +135,7 @@
 					.header-innner__header-btn--login{
 						background-color: #ea352d;
 						border: 1px solid #ea352d;
-    					color: #fff;
+    				color: #fff;
 						@include header-btn;
 					}
 				}
@@ -124,10 +143,10 @@
 					margin: 0 0 0 8px;
 					.header-innner__header-btn--signup{
 						margin: 0;
-					    border: 1px solid #0099e8;
-					    background: #fff;
-					    color: #0099e8;
-    					@include header-btn;
+				    border: 1px solid #0099e8;
+				    background: #fff;
+				    color: #0099e8;
+  					@include header-btn;
 					}
 				}
 			}

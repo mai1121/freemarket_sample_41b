@@ -13,3 +13,34 @@
 	text-align: center;
 }
 
+@mixin nav-box{
+  z-index: 1000;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+  background-color: #fff;
+  position: absolute;
+  top: 38px;
+  width: 224px;
+  display: none;
+}
+
+@mixin nav-wrapper{
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+  position: absolute;
+  top: 0;
+  left: 224px;
+  display: none;
+  height: 100%;
+}
+
+
+@mixin nav-bar{
+  width: 224px;
+  background-color: #fff;
+}
+
+@mixin nav-text{
+  text-decoration: none;
+  color: #333;
+}
+
