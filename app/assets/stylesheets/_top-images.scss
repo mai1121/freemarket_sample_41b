@@ -18,10 +18,17 @@
       width: 100%;
       display: block;
     }
+    a.banner-welcome{
+      height: 390px;
+      width: 100%;
+      display: block;
+      background-image:url('/images/banner-welcome.png');
+      background-position: center;
+    }
 	}
 	&__main-image{
 		display: block;
-		background-image: url('https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg');
+		background-image: url('/images/top_back_image.jpg');
 		background-size: cover;
 		height: 390px;
 	}
@@ -52,20 +59,14 @@
     			line-height: 0;
     			.btn-left{
     				margin: 0;
-    				width: 170px;
-    				height: 50px;
-    				display: inline-block;
-    				vertical-align: top;
+            @include top-images-btn;
     				img{
     					width: 100%;
     				}
     			}
     			.btn-right{
-    				width: 170px;
-    				height: 50px;
-    				display: inline-block;
-    				vertical-align: top;
     				margin: 0 0 0 8px;
+            @include top-images-btn;
     				img{
     					width: 100%;
     				}
@@ -87,5 +88,3 @@
 		}
 	}
 }
-
-

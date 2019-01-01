@@ -18,14 +18,14 @@ body{
 h1{
 	display: block;
 	font-weight: bold;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 h2{
 	font-size: 22px;
-    line-height: 1.4;
-    display: block;
+  line-height: 1.4;
+  display: block;
 }
 
 h3{
@@ -34,10 +34,6 @@ h3{
 
 p{
 	display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
 }
 
 form{
@@ -47,12 +43,6 @@ form{
 input{
 	text-align: start;
 	outline: 0;
-	// color:#0099e8;
-}
-
-input :focus{
-	border: 1px solid #0099e8;
-    outline: 0;
 }
 
 a{

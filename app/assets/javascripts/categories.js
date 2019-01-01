@@ -41,5 +41,4 @@ $(document).on('turbolinks:load', function() {
       $(this).find('a').css('color','');
     });
   });
-
 });
