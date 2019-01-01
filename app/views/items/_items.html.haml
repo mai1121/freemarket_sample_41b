@@ -2,56 +2,47 @@
   %h2.items__head ピックアップカテゴリー
   %section.items__box.clearfix
     %h3.items__title-text
-      %a(href='') レディース新着アイテム
+      =link_to 'レディース新着アイテム'
     .items__box-contents.clearfix
-      %section.items__box-content
-        %a(href='')
-          %figure.items__box-content-photo
-            =image_tag '/images/Hana.jpeg', :size =>'213x213'
-          .items__box-content-text
-            %h3.item__box-content-text-name デッドデッドデーモンズデデデデデデストラクション
-            .items__box-content-text-num.clearfix
-              .items__box-content-text-price ¥9,000
-              .items__box-content-text-likes
-                =fa_icon 'heart',class: 'like-icon'
-                %span 22
-              %p.items__box-content-text-tax (税込)
-      %section.items__box-content
-        %a(href='')
-          %figure.items__box-content-photo
-            =image_tag '/Hana.jpeg', :size =>'213x213'
-          .items__box-content-text
-            %h3.item__box-content-text-name デッドデッドデーモンズデデデデデデストラクション
-            .items__box-content-text-num.clearfix
-              .items__box-content-text-price ¥9,000
-              .items__box-content-text-likes
-                =fa_icon 'heart',class: 'like-icon'
-                %span 22
-              %p.items__box-content-text-tax (税込)
-      %section.items__box-content
-        %a(href='')
-          %figure.items__box-content-photo
-            =image_tag '/Hana.jpeg', :size =>'213x213'
-          .items__box-content-text
-            %h3.item__box-content-text-name デッドデッドデーモンズデデデデデデストラクション
-            .items__box-content-text-num.clearfix
-              .items__box-content-text-price ¥9,000
-              .items__box-content-text-likes
-                =fa_icon 'heart',class: 'like-icon'
-                %span 22
-              %p.items__box-content-text-tax (税込)
-      %section.items__box-content
-        %a(href='')
-          %figure.items__box-content-photo
-            =image_tag '/Hana.jpeg', :size =>'213x213'
-          .items__box-content-text
-            %h3.item__box-content-text-name デッドデッドデーモンズデデデデデデストラクション
-            .items__box-content-text-num.clearfix
-              .items__box-content-text-price ¥9,000
-              .items__box-content-text-likes
-                =fa_icon 'heart',class: 'like-icon'
-                %span 22
-              %p.items__box-content-text-tax (税込)
+      -@items.each do |item|
+        %section.items__box-content
+          =link_to () do
+            %figure.items__box-content-photo
+              =image_tag "#{item.item_images[0][:image]}"
+            .items__box-content-text
+              %h3.item__box-content-text-name 
+                =item.name
+              .items__box-content-text-num.clearfix
+                .items__box-content-text-price 
+                  =item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+                .items__box-content-text-likes
+                  =fa_icon 'heart',class: 'like-icon'
+                  %span 22
+                %p.items__box-content-text-tax (税込)
     .items__view-all
-      %a(href='')すべての商品を見る
+      =link_to "すべての商品を見る"
+      
+%section.items
+  %h2.items__head ピックアップブランド
+  %section.items__box.clearfix
+    %h3.items__title-text
+      =link_to 'シャネル新着アイテム'
+    .items__box-contents.clearfix
+      -@items.each do |item|
+        %section.items__box-content
+          =link_to () do
+            %figure.items__box-content-photo
+              =image_tag "#{item.item_images[0][:image]}"
+            .items__box-content-text
+              %h3.item__box-content-text-name 
+                =item.name
+              .items__box-content-text-num.clearfix
+                .items__box-content-text-price 
+                  =item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+                .items__box-content-text-likes
+                  =fa_icon 'heart',class: 'like-icon'
+                  %span 22
+                %p.items__box-content-text-tax (税込)
+    .items__view-all
+      =link_to "すべての商品を見る"
 

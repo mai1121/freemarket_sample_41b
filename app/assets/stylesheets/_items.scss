@@ -40,7 +40,6 @@
           overflow: hidden;
           position: relative;
           img{
-            height: 213px;
             vertical-align: middle; 
             position: absolute;
             top: 0;
@@ -54,22 +53,20 @@
         .items__box-content-text{
           height: 110px;
           padding: 16px;
-          &-name{
-            font-size: 16px;
-            overflow: hidden;
-            line-height: 1.5;   
-          }
           h3{
             margin: 0;
             font-size: 16px;
             font-weight: normal;
+            text-align: left;
+            overflow: hidden;
+            line-height: 1.5;
           }
           &-num{
             margin: 8px 0 0;
           }
           &-price{
             font-size: 20px;
-            font-weight: 6000;
+            font-weight: 500;
             float: left;
           }
           &-likes{
