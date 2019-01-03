@@ -23,9 +23,6 @@
         @include clearfix;
       }
     }
-    &__box-contents{
-
-    }
     &__box-content{
       width: 213px;
       margin: 0 0 0 20px;
@@ -60,6 +57,17 @@
             text-align: left;
             overflow: hidden;
             line-height: 1.5;
+            position: relative;
+            &:after{
+              background-image: linear-gradient(to right, rgba(255,255,255,0) , #fff 72%);
+              content: "";
+              display: block;
+              height: 1.5em;
+              width: 50%;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+            }
           }
           &-num{
             margin: 8px 0 0;
