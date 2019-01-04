@@ -7,19 +7,19 @@
     width: 1020px;
     margin: 0 auto;
     padding: 8px 0 0;
-		&__clearfix{
-			&:after{
-				@include clearfix;
-			}
-		}
-		&__left{
-			float: left;
-		}
-		&__link{
-			display: block;
-			color: #333;
-			text-decoration: none;
-		}
+    &__clearfix{
+      &:after{
+        @include clearfix;
+      }
+    }
+    &__left{
+      float: left;
+    }
+    &__link{
+      display: block;
+      color: #333;
+      text-decoration: none;
+    }
     &__form{
       position: relative;
       width: calc(100% - (134px + 16px));
