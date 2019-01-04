@@ -1,8 +1,8 @@
 .header-content{
   display: block;
-	position: relative;
-	z-index: 1001;
-	background-color: #fff;
+  position: relative;
+  z-index: 1001;
+  background-color: #fff;
 	.header-innner{
 		width: 1020px;
 		margin: 0 auto;
@@ -20,8 +20,8 @@
 			color: #333;
 			text-decoration: none;
 		}
-		&__form{
-			position: relative;
+    &__form{
+      position: relative;
       width: calc(100% - (134px + 16px));
       float: right;
       .header-innner__input{
