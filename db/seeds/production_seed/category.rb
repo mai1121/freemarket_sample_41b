@@ -1,4 +1,3 @@
-
 test_array = [
   ["parent", "レディース"],
   ["child", "トップス"],
@@ -1220,31 +1219,11 @@ grand_child = ""
 test_array.each do |ele|
   case ele[0]
   when "parent"
-    parent = Category.create({name: ele[1]})
+    parent = Category.create!({name: ele[1]})
   when "child"
     child = parent.children.create({name: ele[1]})
   when "grand-child"
     grand_child = child.children.create({name: ele[1]})
   end
 end
-
-item = Item.new(id:1, name: "魔法少女まどか☆マギカDVDボックス", description: "とても思い入れのある作品ですが、引っ越しに伴い手放すことにしました。保存状態良好です。", price: 15000, category_id: 581)
-image = item.item_images.new(item_id: 1, image: "item1_madomagi.jpeg")
-item.save
-
-item = Item.new(id:2, name: "新世紀ヱヴァンゲリヲン初号機フィギュア", description: "高さは50センチです。表面の色のハゲなどはありません。", price: 3000, category_id: 581)
-image = item.item_images.new(item_id: 2, image: "item2_eva.jpeg")
-item.save
-
-item = Item.new(id:3, name: "おやすみプンプン全巻セット", description: "セットでの販売です。", price: 3000, category_id: 534)
-image = item.item_images.new(item_id: 3, image: "item3_punpun.jpeg")
-item.save
-
-item = Item.new(id:4, name: "100万円の女達全巻セットああああああああああ", description: "ドラマ化した話題作です。", price: 2500, category_id: 534)
-image = item.item_images.new(item_id: 4, image: "item4_100million.jpeg")
-item.save
-
-
-
-load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
 
