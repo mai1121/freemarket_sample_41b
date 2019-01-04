@@ -3,10 +3,10 @@
   position: relative;
   z-index: 1001;
   background-color: #fff;
-	.header-innner{
-		width: 1020px;
-		margin: 0 auto;
-		padding: 8px 0 0;
+  .header-innner{
+    width: 1020px;
+    margin: 0 auto;
+    padding: 8px 0 0;
 		&__clearfix{
 			&:after{
 				@include clearfix;
