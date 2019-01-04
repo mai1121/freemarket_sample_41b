@@ -25,66 +25,66 @@
       background-image:url('/images/banner-welcome.png');
       background-position: center;
     }
-	}
-	&__main-image{
-		display: block;
-		background-image: url('/images/top_back_image.jpg');
-		background-size: cover;
-		height: 390px;
-	}
-	&__main-image-wrapper{
-		max-width: 860px;
-		margin: 0 auto;
-		height: 100%;
-		position: relative;
-		.top-images__text-content{
-			position: absolute;
-		    top: 240px;
-		    transform: translate(0, -50%);
-		    left: 0;
-		    height: 100%;
-		    width:480px;
-		    h2{
-		    	font-size: 60px;
-		    	font-weight: bold;
-    			line-height: 1.2;  			
-		    }
-		    p{
-		    	font-size: 18px;
-			    line-height: 1.77778;
-			    margin: 16px 0 0;
-		    }
-		    .top-images__download-btn{
-		    	margin: 24px 0 0;
-    			line-height: 0;
-    			.btn-left{
-    				margin: 0;
-            @include top-images-btn;
-    				img{
-    					width: 100%;
-    				}
-    			}
-    			.btn-right{
-    				margin: 0 0 0 8px;
-            @include top-images-btn;
-    				img{
-    					width: 100%;
-    				}
-    			}
-		    }
-		    .clearfix{
-		    	&:after{
-					@include clearfix;
-				}
-		    }		    
-		}
-		.top-images__phone-image{
-		    	position: absolute;
-			    top: 0;
-			    right: 0;
-			    height: 100%;
-			    width: auto;
-			    float: right;
-		}
-	}
+  }
+  &__main-image{
+    display: block;
+    background-image: url('/images/top_back_image.jpg');
+    background-size: cover;
+    height: 390px;
+  }
+  &__main-image-wrapper{
+    max-width: 860px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    .top-images__text-content{
+     position: absolute;
+     top: 240px;
+     transform: translate(0, -50%);
+     left: 0;
+     height: 100%;
+     width:480px;
+     h2{
+       font-size: 60px;
+       font-weight: bold;
+       line-height: 1.2;  			
+     }
+     p{
+       font-size: 18px;
+       line-height: 1.77778;
+       margin: 16px 0 0;
+     }
+     .top-images__download-btn{
+       margin: 24px 0 0;
+       line-height: 0;
+       .btn-left{
+        margin: 0;
+        @include top-images-btn;
+        img{
+         width: 100%;
+       }
+     }
+     .btn-right{
+      margin: 0 0 0 8px;
+      @include top-images-btn;
+      img{
+       width: 100%;
+     }
+   }
+ }
+ .clearfix{
+   &:after{
+     @include clearfix;
+   }
+ }		    
+}
+.top-images__phone-image{
+ position: absolute;
+ top: 0;
+ right: 0;
+ height: 100%;
+ width: auto;
+ float: right;
+}
+}
 }
