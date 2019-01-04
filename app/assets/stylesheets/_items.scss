@@ -1,0 +1,105 @@
+.items{
+  padding: 40px 0;
+    h2{
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+    &__box{
+      width: 940px;
+      margin: 0 auto;
+      h3{
+        margin: 26px 11px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+        a{
+          color: #0099e8;
+        }
+      }
+    }
+    .clearfix{
+      &:after{
+        @include clearfix;
+      }
+    }
+    &__box-content{
+      width: 213px;
+      margin: 0 0 0 20px;
+      float: left;
+      background-color: #fff;
+      a{
+        color: #333;
+        display: block;
+        figure{
+          width: 213px;
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+          img{
+            vertical-align: middle; 
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+          }
+        }
+        .items__box-content-text{
+          height: 110px;
+          padding: 16px;
+          h3{
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
+            overflow: hidden;
+            line-height: 1.5;
+            position: relative;
+            &:after{
+              background-image: linear-gradient(to right, rgba(255,255,255,0) , #fff 72%);
+              content: "";
+              display: block;
+              height: 1.5em;
+              width: 50%;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+            }
+          }
+          &-num{
+            margin: 8px 0 0;
+          }
+          &-price{
+            font-size: 20px;
+            font-weight: 500;
+            float: left;
+          }
+          &-likes{
+            float: right;
+            i.like-icon{
+              margin: 0 4px 0 0;
+              color: #ccc;
+              font-size: 1.2em;
+            }
+          }
+          &-tax{
+            font-size: 10px;
+          }
+          &-tax{
+            clear:both;
+          }
+        }
+      }
+    }
+    &__view-all{
+      padding: 20px 0 30px;
+      width: 99.5%;
+      text-align: right;
+      a{
+        color: #0099e8;
+      }
+    }
+}

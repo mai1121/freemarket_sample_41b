@@ -1,0 +1,48 @@
+%section.items
+  %h2.items__head ピックアップカテゴリー
+  %section.items__box.clearfix
+    %h3.items__title-text
+      =link_to 'レディース新着アイテム'
+    .items__box-contents.clearfix
+      -@items.each do |item|
+        %section.items__box-content
+          =link_to () do
+            %figure.items__box-content-photo
+              =image_tag "#{item.item_images[0][:image]}"
+            .items__box-content-text
+              %h3.item__box-content-text-name 
+                =item.name
+              .items__box-content-text-num.clearfix
+                .items__box-content-text-price 
+                  =item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+                .items__box-content-text-likes
+                  %i.far.fa-heart.like-icon
+                  %span 22
+                %p.items__box-content-text-tax (税込)
+    .items__view-all
+      =link_to "すべての商品を見る"
+      
+%section.items
+  %h2.items__head ピックアップブランド
+  %section.items__box.clearfix
+    %h3.items__title-text
+      =link_to 'シャネル新着アイテム'
+    .items__box-contents.clearfix
+      -@items.each do |item|
+        %section.items__box-content
+          =link_to () do
+            %figure.items__box-content-photo
+              =image_tag "#{item.item_images[0][:image]}"
+            .items__box-content-text
+              %h3.item__box-content-text-name 
+                =item.name
+              .items__box-content-text-num.clearfix
+                .items__box-content-text-price 
+                  =item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+                .items__box-content-text-likes
+                  %i.far.fa-heart.like-icon
+                  %span 22
+                %p.items__box-content-text-tax (税込)
+    .items__view-all
+      =link_to "すべての商品を見る"
+

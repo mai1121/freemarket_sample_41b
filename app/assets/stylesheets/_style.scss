@@ -16,32 +16,35 @@ body{
 }
 
 h1{
-	display: block;
-	font-weight: bold;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+  display: block;
+  font-weight: bold;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 h2{
-	font-size: 22px;
-    line-height: 1.4;
+  font-size: 22px;
+  line-height: 1.4;
+  display: block;
+}
+
+h3{
+  display: block;
+}
+
+p{
+  display: block;
 }
 
 form{
-	display: block;
+  display: block;
 }
 
 input{
-	text-align: start;
-	outline: 0;
-	// color:#0099e8;
-}
-
-input :focus{
-	border: 1px solid #0099e8;
-    outline: 0;
+  text-align: start;
+  outline: 0;
 }
 
 a{
-	text-decoration: none;
+  text-decoration: none;
 }
