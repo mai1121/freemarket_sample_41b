@@ -1219,7 +1219,7 @@ grand_child = ""
 test_array.each do |ele|
   case ele[0]
   when "parent"
-    parent = Category.create({name: ele[1]})
+    parent = Category.create!({name: ele[1]})
   when "child"
     child = parent.children.create({name: ele[1]})
   when "grand-child"
