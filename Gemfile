@@ -77,3 +77,4 @@ gem "font-awesome-rails"
 
 gem 'ancestry'
 
+gem 'devise'
