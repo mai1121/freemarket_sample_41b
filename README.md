@@ -31,11 +31,14 @@
 ## user_addresses table
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|int|null: false|
+|postal_code|int||
 |prefecture|int|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string||
+|birth_year|int|null: false|
+|birth_month|int|null: false|
+|birth_day|int|null: false|
 
 ### Association
  - belongs_to :user
