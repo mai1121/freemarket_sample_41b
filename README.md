@@ -11,8 +11,10 @@
 |last_name_kana|string|null: false|
 |nickname|string|null: false|
 |phone_number|int|null: false|
-|phone_number_confirmed|boolean|null: false, default: false|
-|credit_card_num|int||
+|credit_card_num|int|null: false|
+|credit_card_expiration_month|int|null: false|
+|credit_card_expiration_year|int|null: false|
+|credit_card_security_num|int|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true |
 |profile|text||
