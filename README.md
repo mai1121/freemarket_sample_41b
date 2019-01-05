@@ -39,6 +39,7 @@
 |birth_year|int|null: false|
 |birth_month|int|null: false|
 |birth_day|int|null: false|
+|user|references|foreign_key: true|
 
 ### Association
  - belongs_to :user
