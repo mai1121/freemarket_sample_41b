@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190106064921) do
+ActiveRecord::Schema.define(version: 20190106102157) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -51,21 +51,6 @@ ActiveRecord::Schema.define(version: 20190106064921) do
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
   end
 
-  create_table "user_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "postal_code"
-    t.integer  "prefecture",    null: false
-    t.string   "city",          null: false
-    t.string   "address",       null: false
-    t.string   "building_name"
-    t.integer  "birth_year",    null: false
-    t.integer  "birth_month",   null: false
-    t.integer  "birth_day",     null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_user_addresses_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                      default: "", null: false
     t.string   "encrypted_password",                         default: "", null: false
@@ -86,6 +71,14 @@ ActiveRecord::Schema.define(version: 20190106064921) do
     t.integer  "credit_card_security_num",                                null: false
     t.text     "profile",                      limit: 65535
     t.string   "icon_image"
+    t.string   "postal_code"
+    t.string   "prefecture",                                              null: false
+    t.string   "city",                                                    null: false
+    t.string   "address",                                                 null: false
+    t.string   "building_name"
+    t.integer  "birth_year",                                              null: false
+    t.integer  "birth_month",                                             null: false
+    t.integer  "birth_day",                                               null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -93,5 +86,4 @@ ActiveRecord::Schema.define(version: 20190106064921) do
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "user_addresses", "users"
 end
