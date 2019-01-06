@@ -1,0 +1,127 @@
+
+.progress-bar {
+  font-size: 0;
+  text-align: center
+}
+
+@media screen and (min-width:768px) {
+  .progress-bar {
+    display: inline-block;
+    vertical-align: top
+  }
+
+}
+
+.progress-bar ol {
+  margin: 0
+}
+
+.progress-bar li {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 40px;
+  margin: 0 5% 0 0;
+  font-size: 12px;
+  color: #888
+}
+
+@media screen and (min-width:768px) {
+  .progress-bar li {
+    min-width: 60px
+  }
+
+}
+
+@media screen and (min-width:768px) {
+  .progress-bar li {
+    margin: 0 40px 0 0
+  }
+
+}
+
+.progress-bar li:first-child .progress-status:before {
+  display: none
+}
+
+.progress-bar li:last-child {
+  margin: 0
+}
+
+.progress-bar li:last-child .progress-status:after {
+  display: none
+}
+
+.progress-bar li.active {
+  font-weight: 600;
+  color: #ea352d
+}
+
+.progress-bar li.active .progress-status {
+  background: #ea352d
+}
+
+.progress-bar li.active .progress-status:before {
+  background: #ea352d
+}
+
+.progress-bar li.through .progress-status {
+  background: #ea352d
+}
+
+.progress-bar li.through .progress-status:before,
+.progress-bar li.through .progress-status:after {
+  background: #ea352d
+}
+
+.progress-status {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  background: #ccc;
+  border-radius: 50%
+}
+
+.progress-status.no-cicle {
+  width: 0;
+  border-radius: 0;
+  background: #ccc
+}
+
+.progress-status:before,
+.progress-status:after {
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #ccc
+}
+
+.progress-status:before {
+  right: 50%
+}
+
+.progress-status:after {
+  left: 50%
+}
+
+.signup-bar.progress-bar {
+  padding: 16px 0;
+  border-top: 1px solid #eee
+}
+
+@media screen and (min-width:768px) {
+  .signup-bar.progress-bar {
+    padding: 40px 0 0 44px;
+    border: 0
+  }
+
+}
+
+.signup-card-list {
+  margin: 8px 0 0;
+  font-size: 0
+}

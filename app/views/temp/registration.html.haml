@@ -1,0 +1,33 @@
+.signup-container
+  %header.signup-header
+    =render 'headerLogo'
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li.active 会員情報
+        %li 電話番号認証
+        %li 住所入力
+        %li 支払い方法
+        %li 完了
+  %main.signup-main
+    %section.l-signup-container
+      %h2.l-signup-head 会員情報入力
+      %form.l-signup-inner
+        .l-signup-content
+          .form-group
+            %label ニックネーム
+            %span.form-require
+            %input.input-default{:type => "text", :placeholder => "例）メルカリ太郎"}
+          .form-group
+            %label パスワード
+            %span.form-require 必須
+            %input.input-default{:type => "password", :placeholder => "6文字以上"}
+          .form-group
+            %label パスワード(確認)
+            %span.form-require 必須
+            %input.input-default{:type => "password", :placeholder => "6文字以上"}
+          .form-group
+            .g-recaptcha.signup-recaptcha{data: {sitekey: ""}}
+              %div{style:"width: 304px; height: 78px;"}
+          %button.btn-default.btn-red{type: "submit"} 次へ進む
+  %footer.signup-footer
+    =render 'footer'
