@@ -27,5 +27,4 @@ class User < ApplicationRecord
 
   #アソシエーションは各テーブル作成時に追加
 
-  
 end
