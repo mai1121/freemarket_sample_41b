@@ -4,12 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :first_name, :last_name,:prefecture, :city, :address, :birth_year,:birth_month, :birth_day, presence: true
-  validates :first_name_kana, :last_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
-  validates :phone_number, presence: true, format: { with: /\A0[5789]0[-(]?\d{4}[-)]?\d{4}\z/ }
+  validates :first_name_kana, :last_name_kana, presence: true, format: { with: /\A[\p{katakana}]+\z/}
+  validates :phone_number, presence: true, format: { with: /\A0[5789]0\d{8}\z/ }, length: { is: 11}
   validates :nickname, presence: true
   validates :credit_card_num, presence: true, format: { with: /\A[0-9]+\z/}
-  validates :credit_card_expiration_month, :credit_card_expiration_year, presence: true, format: { with: /\A[0-9]{2}\z/}
+  validates :credit_card_expiration_month, :credit_card_expiration_year, presence: true, format: { with: /\A[0-9]{2}\z/}, length: { is: 2}
   validates :credit_card_security_num, presence: true, format: { with: /\A[0-9]+\z/}
+  validates :postal_code, format: {with: /\A\d{7}\z/}, allow_blank: true, length: { is: 7}
   validates :password, confirmation: true, length: { minimum: 6 }, presence: true
   validates :email, uniqueness: true, presence: true
 
