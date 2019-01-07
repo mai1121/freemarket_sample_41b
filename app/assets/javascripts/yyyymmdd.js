@@ -7,6 +7,7 @@ $(document).on('turbolinks:load', function(){
       var day = 1;
       const INITIALOPTIONS = '<option value="notSelect" selected="selected">' + '-' + '</option>';
       var yearOptions= INITIALOPTIONS;
+      var yyYearOptions= INITIALOPTIONS;
       var monthOptions = INITIALOPTIONS;
       var dayOptions = INITIALOPTIONS;
       if(!startyear || startyear == ""){
@@ -26,20 +27,15 @@ $(document).on('turbolinks:load', function(){
           }
       }
       for (i=1; i<=12; i++){
-          if(month == i){
-              monthOptions += '<option value="' + zeroPadding(i,2) + '">' + zeroPadding(i,2) + '</option>';
-          }else{
-              monthOptions += '<option value="' + zeroPadding(i,2) +'">' + zeroPadding(i,2) + '</option>';
-          }
+        monthOptions += '<option value="' + zeroPadding(i,2) +'">' + zeroPadding(i,2) + '</option>';
+      }
+      for (i=1; i<=99; i++){
+        yyYearOptions += '<option value="' + zeroPadding(i,2) + '">' + zeroPadding(i,2) + '</option>';
       }
       for (i=1; i<=31; i++){
-          if(day == i){
-              dayOptions += '<option value="' + zeroPadding(i,2) + '">' + zeroPadding(i,2) + '</option>';
-          }else{
-              dayOptions += '<option value="' + zeroPadding(i,2) +'">' + zeroPadding(i,2) + '</option>';
-          }
+        dayOptions += '<option value="' + zeroPadding(i,2) + '">' + zeroPadding(i,2) + '</option>';
       }
-      $('#expirationYear').html(yearOptions);
+      $('#expirationYear').html(yyYearOptions);
       $('#expirationMonth').html(monthOptions);
       $('#day').html(dayOptions);
       $('#birthYear').html(yearOptions);
