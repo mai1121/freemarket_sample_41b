@@ -185,14 +185,11 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-<<<<<<< HEAD
     recaptcha (4.13.1)
       json
-=======
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
->>>>>>> 30f1f0bef4bb7414cda21a95b683b2d39de317fc
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
