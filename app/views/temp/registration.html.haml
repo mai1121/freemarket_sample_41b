@@ -15,8 +15,12 @@
         .l-signup-content
           .form-group
             %label ニックネーム
-            %span.form-require
+            %span.form-require 必須
             %input.input-default{:type => "text", :placeholder => "例）メルカリ太郎"}
+          .form-group
+            %label メールアドレス
+            %span.form-require 必須
+            %input.input-default{:type => "email", :placeholder => "PC・携帯どちらでも可"}
           .form-group
             %label パスワード
             %span.form-require 必須

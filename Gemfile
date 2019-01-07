@@ -76,4 +76,5 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 
 gem 'ancestry'
+gem "recaptcha", require: "recaptcha/rails"
 
