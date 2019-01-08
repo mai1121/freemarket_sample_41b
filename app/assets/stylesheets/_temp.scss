@@ -199,3 +199,30 @@
     }
   }
 }
+
+.birthday-select-wrap {
+  display: block
+}
+
+@media screen and (min-width:768px) {
+  .birthday-select-wrap {
+    display: inline-block
+  }
+
+}
+
+.birthday-select-wrap .select-wrap {
+  display: inline-block;
+  width: 200px
+}
+
+@media screen and (min-width:768px) {
+  .birthday-select-wrap .select-wrap {
+    width: 140px
+  }
+
+}
+
+.birthday-select-wrap .select-wrap+span {
+  margin: 0 8px
+}

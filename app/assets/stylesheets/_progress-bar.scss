@@ -44,6 +44,11 @@
   display: none
 }
 
+
+.progress-bar #progress0 .progress-status:before {
+  display: none
+}
+
 .progress-bar li:last-child {
   margin: 0
 }

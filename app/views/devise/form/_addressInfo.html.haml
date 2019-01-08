@@ -41,6 +41,17 @@
   %span.form-require 必須
   /横並びにならない fixme
   %br/
-  = f.select :birth_year, {}, {}, {id: "birthYear",class: "input-default" }
-  = f.select :birth_month, {}, {}, {id: "birthMonth",class: "input-default" }
-  = f.select :birth_day, {}, {}, {id: "birthDay",class: "input-default" }
+  .select-wrap
+    .birthday-select-wrap
+      = f.select :birth_year, {}, {}, {id: "birthYear",class: "input-default" }
+    .birthday-select-wrap
+      %span 年
+    .birthday-select-wrap
+      = f.select :birth_month, {}, {}, {id: "birthMonth",class: "input-default" }
+    .birthday-select-wrap
+      %span 月
+    .birthday-select-wrap
+      = f.select :birth_day, {}, {}, {id: "birthDay",class: "input-default" }
+    .birthday-select-wrap
+      %span 日
+
