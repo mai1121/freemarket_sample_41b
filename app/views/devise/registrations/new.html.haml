@@ -1,0 +1,34 @@
+.signup-container
+  %header.signup-header
+    =render '/layouts/accounts/headerLogo'
+    %nav.progress-bar.signup-bar
+  %main.signup-main
+    %section.l-signup-container
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        %fieldset
+          %h2.l-signup-head#userInfo 会員情報入力
+          .l-signup-inner
+            .l-signup-content
+              = render '/devise/form/userinfo', {f: f}
+        %fieldset
+          %h2.l-signup-head#phoneNumberConfirmation 電話番号の確認
+          .l-signup-inner
+            .l-signup-content
+              = render '/devise/form/phoneNumberComfirmation.html', {f: f}
+        %fieldset
+          %h2.l-signup-head#addressInfo 住所入力
+          .l-signup-inner
+            .l-signup-content
+              = render '/devise/form/addressInfo', {f: f}
+        %fieldset
+          %h2.l-signup-head#address-info 支払い方法
+          .l-signup-inner
+            .l-signup-content
+              = render '/devise/form/cardInfo', {f: f}
+              %br/
+              %br/
+              .actions
+                = f.submit "次へ進む", id: "SaveAccount", class: "btn-default btn-red"
+  %footer.signup-footer
+    =render '/layouts/accounts/footer'
