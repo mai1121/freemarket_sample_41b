@@ -7,11 +7,16 @@
   = f.label :credit_card_expiration, "有効期限"
   %span.form-require 必須
   %br/
-  = f.select :credit_card_expiration_month, {}, {},{id: "expirationMonth",class: "input-default"}
-  月
-  %br/
-  = f.select :credit_card_expiration_year, {}, {},{id: "expirationYear",class: "input-default"}
-  年
+  .select-wrap
+    .birthday-select-wrap
+      = f.select :credit_card_expiration_month, {}, {},{id: "expirationMonth",class: "input-default"}
+    .birthday-select-wrap
+      %span 月
+      %br/
+    .birthday-select-wrap
+      = f.select :credit_card_expiration_year, {}, {},{id: "expirationYear",class: "input-default"}
+    .birthday-select-wrap
+      %span 年
 .form-group
   = f.label :credit_card_security_num, "セキュリティコード"
   %span.form-require 必須

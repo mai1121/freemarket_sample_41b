@@ -3,11 +3,21 @@
     =render '/layouts/accounts/headerLogo'
     %nav.progress-bar.signup-bar
       %ol.clearfix
-        %li 会員情報
-        %li 電話番号認証
-        %li 住所入力
-        %li 支払い方法
-        %li.active 完了
+        %li.progress.through#step
+          会員情報
+          .progress-status
+        %li.progress.through#step
+          電話番号認証
+          .progress-status
+        %li.progress.through#step
+          住所入力
+          .progress-status
+        %li.progress.through#step
+          支払い方法
+          .progress-status
+        %li.progress.active#step
+          完了
+          .progress-status
   %main.signup-main
     %section.l-signup-container
       %h2.l-signup-head 会員登録完了
