@@ -111,6 +111,16 @@
     <%= f.text_field :credit_card_security_num %>
   </div>
 
+  <div class="field">
+    <%= f.text_field :uid, type: "hidden"  %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :provider, type: "hidden"  %>
+  </div>
+
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
