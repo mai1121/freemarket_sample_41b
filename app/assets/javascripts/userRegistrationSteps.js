@@ -184,8 +184,4 @@ $(document).on('turbolinks:load', function() {
     $( '#btn_next' ).click( function() {
         $signupForm.formToWizard( 'NextStep' );
     });
-
-    $( '#btn_prev' ).click( function() {
-        $signupForm.formToWizard( 'PreviousStep' );
-    });
 });
