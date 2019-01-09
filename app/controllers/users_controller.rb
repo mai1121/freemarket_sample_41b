@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   def registration
   end
 
+  def identification
+    
+  end
+
   def show
     @user = current_user if user_signed_in?
     unless @user
