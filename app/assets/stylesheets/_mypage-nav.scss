@@ -22,7 +22,7 @@
             color: #CCCCCC;
             position: absolute;
             top: 50%;
-            right: 10px;
+            right: 9px;
             margin-top: -25px;
           }
         }
@@ -31,6 +31,17 @@
           text-decoration: none;
           margin: auto 15px;
           position: relative;
+        }
+        li:hover {
+          background: #fafafa;
+          text-decoration: none;
+          opacity: 1;
+          &:after{
+            -webkit-transition: 0.2s ease-in-out;
+            right: 6px;
+            font-weight: bold;
+            color: black;
+          }
         }
       }
     &-head{
@@ -41,7 +52,3 @@
   }
 }
 
-.icon-arrow-right::before{
-  font-size: 16px;
-  text-align: right;
-}
