@@ -1,0 +1,24 @@
+.form-group
+  = f.label :credit_card_num, "カード番号"
+  %span.form-require 必須
+  %br/
+  = f.text_field :credit_card_num, placeholder: "半角数字のみ", class: "input-default"
+.form-group
+  = f.label :credit_card_expiration, "有効期限"
+  %span.form-require 必須
+  %br/
+  .select-wrap
+    .birthday-select-wrap
+      = f.select :credit_card_expiration_month, {}, {},{id: "expirationMonth",class: "input-default"}
+    .birthday-select-wrap
+      %span 月
+      %br/
+    .birthday-select-wrap
+      = f.select :credit_card_expiration_year, {}, {},{id: "expirationYear",class: "input-default"}
+    .birthday-select-wrap
+      %span 年
+.form-group
+  = f.label :credit_card_security_num, "セキュリティコード"
+  %span.form-require 必須
+  %br/
+  = f.text_field :credit_card_security_num, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default"

@@ -1,6 +1,6 @@
 .signup-container
   %header.signup-header
-    =render 'headerLogo'
+    =render '/layouts/accounts/headerLogo'
     %nav.progress-bar.signup-bar
       %ol.clearfix
         %li.active 会員情報
@@ -34,4 +34,4 @@
               %div{style:"width: 304px; height: 78px;"}
           %button.btn-default.btn-red{type: "submit"} 次へ進む
   %footer.signup-footer
-    =render 'footer'
+    =render '/layouts/accounts/footer'

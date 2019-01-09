@@ -1,0 +1,31 @@
+.signup-container
+  %header.signup-header
+    =render '/layouts/accounts/headerLogo'
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li.progress.through#step
+          会員情報
+          .progress-status
+        %li.progress.through#step
+          電話番号認証
+          .progress-status
+        %li.progress.through#step
+          住所入力
+          .progress-status
+        %li.progress.through#step
+          支払い方法
+          .progress-status
+        %li.progress.active#step
+          完了
+          .progress-status
+  %main.signup-main
+    %section.l-signup-container
+      %h2.l-signup-head 会員登録完了
+      .l-signup-inner
+        .l-signup-content
+          ありがとうございます。
+          %br/
+          会員登録が完了しました。
+        =link_to "メルカリをはじめる", root_path, class: 'button btn-default btn-red'
+  %footer.signup-footer
+    =render '/layouts/accounts/footer'

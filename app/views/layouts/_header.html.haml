@@ -10,7 +10,7 @@
       %ul.header-innner__nav
         %li.header-innner__nav-category
           %h2
-            =link_to "カテゴリーから探す", class: 'header-innner__nav-root' 
+            =link_to "カテゴリーから探す", class: 'header-innner__nav-root'
           %ul.header-innner__category-nav
             -@parent_categories.each do |parent_category|
               %li.header-innner__category-nav--parent
@@ -27,7 +27,7 @@
 
         %li.header-innner__nav-bland
           %h2
-            =link_to "ブランドから探す", '',class: 'header-innner__nav-root' 
+            =link_to "ブランドから探す", '',class: 'header-innner__nav-root'
           %ul.header-innner__bland-nav
             -@blands.each do |bland|
               %li.header-innner__bland-nav-list
