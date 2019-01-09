@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout "mypage_layout", only: [:show]
+
   def top
   end
 
