@@ -11,6 +11,9 @@
   %body
     %header.header-content
       =render '/layouts/header'
+    %main.mypage-container
+      %aside.mypage-sidebar
+        =render '/users/sidebar'
 
     = yield
 
