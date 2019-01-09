@@ -78,6 +78,7 @@ gem "font-awesome-rails"
 gem 'ancestry'
 gem "recaptcha", require: "recaptcha/rails"
 
+# ユーザー認証に係るgem
 gem 'devise'
 
 gem 'omniauth'
