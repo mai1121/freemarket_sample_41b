@@ -27,6 +27,8 @@
 |birth_year|int|null: false|
 |birth_month|int|null: false|
 |birth_day|int|null: false|
+|uid|string||
+|provider|string||
 
 
 ### Association
