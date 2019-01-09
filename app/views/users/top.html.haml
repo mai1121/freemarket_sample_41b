@@ -9,5 +9,14 @@
           =link_to new_user_registration_path, class: 'btn-default btn-mail' do
             %i.btn-mail.far.fa-envelope
             メールアドレスで登録
+          %br/
+          %btn#facebook-login.btn-default.btn-sns.btn-sns-facebook
+            %i.icon-facebook.fab.fa-facebook-f
+            Facebookで登録
+          %br/
+          %btn#google-login.btn-default.btn-sns.btn-sns-google
+            %i.icon-google-plus.fab.fa-google-plus-g
+            Googleで登録
+        </button>
   %footer.signup-footer
     =render '/layouts/accounts/footer'

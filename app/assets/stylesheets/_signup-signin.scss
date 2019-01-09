@@ -144,11 +144,25 @@
   background: #888;
   color: #fff
 }
+.icon-facebook{position: relative;}
+.icon-google-plus{position: relative;}
 
 .btn-mail {
   position: relative;
   background: #eee;
   color: #000
+}
+
+.btn-sns-facebook {
+  position: relative;
+  background: #385185;
+  color: #FFFFFF
+}
+
+.btn-sns-google {
+  position: relative;
+  background: #DC4E41;
+  color: #FFFFFF
 }
 
 .btn-mail .fa-envelope{
