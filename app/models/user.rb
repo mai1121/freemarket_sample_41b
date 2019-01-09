@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-  validates :first_name, :last_name,:prefecture, :city, :address, :birth_year,:birth_month, :birth_day, presence: true, if: "uid.nil?"
+  validates :first_name, :last_name,:prefecture, :city, :address, :birth_year,:birth_month, :birth_day, presence: true
   validates :first_name_kana, :last_name_kana, presence: true, format: { with: /\A[\p{katakana}]+\z/}
   validates :phone_number, presence: true, format: { with: /\A0[5789]0\d{8}\z/ }, length: { is: 11}
   validates :nickname, presence: true
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
 
   def self.find_for_omniauth(auth)
-    user = User.where(email: auth.info.email).first
+    user = User.where(email: auth.info.email, provider: auth.provider).first
     unless user
       user = User.new(nickname:auth.info.name,
                        provider: auth.provider,
