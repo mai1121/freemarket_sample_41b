@@ -38,7 +38,7 @@
     .header-innner__right
       %ul.header-innner__login-nav
         %li
-          =link_to "ログイン", '',class: 'header-innner__header-btn--login'
+          =link_to "ログイン", new_user_session_path,class: 'header-innner__header-btn--login'
         %li.header-innner__signup
           =link_to "新規会員登録", '/users/sign_up_top',class: 'header-innner__header-btn--signup'
           =link_to "ログアウト", destroy_user_session_path, method: :delete
