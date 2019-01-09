@@ -1,13 +1,24 @@
-%header.header-content
-  =render '/layouts/header'
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FreemarketSample41b
+    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+    = csrf_meta_tags
+    = favicon_link_tag('favicon.ico')
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.header-content
+      =render '/layouts/header'
 
-= yield
+    = yield
 
-#aside.banner-content
-  =render '/layouts/banner-content'
+    #aside.banner-content
+      =render '/layouts/banner-content'
 
-#footer.footer-content
-  =render '/layouts/footer'
+    #footer.footer-content
+      =render '/layouts/footer'
 
-%a(class='sell-btn' href='')
-  =render '/layouts/sell-btn'
+    %a(class='sell-btn' href='')
+      =render '/layouts/sell-btn'
