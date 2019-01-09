@@ -12,11 +12,13 @@
   = f.label :password, "パスワード"
   %span.form-require 必須
   %br/
-  = f.password_field :password, placeholder: "6文字以上", autocomplete: "new-password", class: "input-default"
+  = f.text_field :password, placeholder: "6文字以上", autocomplete: "new-password", class: "input-default"
 .form-group
   = f.label :password_confirmation, "パスワード（確認)"
   %span.form-require 必須
   %br/
   = f.password_field :password_confirmation, placeholder: "6文字以上", autocomplete: "new-password", class: "input-default"
+  = f.text_field :uid, type: "hidden"
+  = f.text_field :provider, type: "hidden"
 .form-group
   = recaptcha_tags
