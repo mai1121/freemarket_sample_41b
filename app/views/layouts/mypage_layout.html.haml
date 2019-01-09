@@ -11,13 +11,12 @@
   %body
     %header.header-content
       =render '/layouts/header'
-    %main.mypage-container
+    .mypage-container.clearfix
+      %main.mypage-content
+        = yield
       %aside.mypage-sidebar
         =render '/users/sidebar'
-
-    = yield
-
-    #aside.banner-content
+    #aside.banner-content.clearfix
       =render '/layouts/banner-content'
 
     #footer.footer-content
