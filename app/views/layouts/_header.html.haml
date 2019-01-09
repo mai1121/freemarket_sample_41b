@@ -41,7 +41,7 @@
           =link_to "ログアウト", destroy_user_session_path, method: :delete
         -else
           %li
-            =link_to "ログイン", '',class: 'header-innner__header-btn--login'
+            =link_to "ログイン", new_user_session_path,class: 'header-innner__header-btn--login'
           %li.header-innner__signup
-            =link_to "新規会員登録", '',class: 'header-innner__header-btn--signup'
+            =link_to "新規会員登録", users_sign_up_top_path,class: 'header-innner__header-btn--signup'
 					
