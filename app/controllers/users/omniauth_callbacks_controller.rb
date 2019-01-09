@@ -5,7 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
     else
-      render :template => "devise/registrations/new"
+      render template: 'devise/registrations/new'
     end
   end
 
@@ -14,7 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
     else
-      render :template => "devise/registrations/new"
+      render template: 'devise/registrations/new'
     end
   end
 end
