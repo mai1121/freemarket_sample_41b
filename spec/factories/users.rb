@@ -22,6 +22,8 @@ FactoryBot.define do
     building_name                  {"aaaビル"}
     birth_year                     {"1992"}
     birth_month                    {"11"}
-    birth_day                      {"21"}    
+    birth_day                      {"21"}
+    uid                            {"00000000000"}
+    provider                       {"facebook"}    
   end
 end
