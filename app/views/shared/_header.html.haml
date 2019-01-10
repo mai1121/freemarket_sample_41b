@@ -12,7 +12,7 @@
           %h2
             = link_to "カテゴリーから探す", class: 'header-innner__nav-root'
           %ul.header-innner__category-nav
-            -@parent_categories.each do |parent_category|
+            - Category.roots().each do |parent_category|
               %li.header-innner__category-nav--parent
                 %h3
                   = link_to "#{parent_category.name}", '',class: "header-innner__category-nav--parent-name"

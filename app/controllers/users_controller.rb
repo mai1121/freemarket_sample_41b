@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout "mypage_layout", only: [:show]
+  layout "mypage_layout", only: [:show, :logout]
 
   def top
   end
@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @user = current_user
 
     redirect_to root_path, notice: "not signed in!!" unless @user
+  end
 
-    @parent_categories = Category.roots()
+  def logout
   end
 end
