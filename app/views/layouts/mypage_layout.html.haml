@@ -10,17 +10,17 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.header-content
-      =render '/layouts/header'
+      = render '/layouts/header'
     .mypage-container.clearfix
       %main.mypage-content
         = yield
       %aside.mypage-sidebar
-        =render '/users/sidebar'
+        = render '/users/sidebar'
     #aside.banner-content.clearfix
-      =render '/layouts/banner-content'
+      = render '/layouts/banner-content'
 
     #footer.footer-content
-      =render '/layouts/footer'
+      = render '/layouts/footer'
 
     %a(class='sell-btn' href='')
-      =render '/layouts/sell-btn'
+      = render '/layouts/sell-btn'
