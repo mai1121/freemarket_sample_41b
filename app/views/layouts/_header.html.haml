@@ -1,7 +1,7 @@
 .header-innner
   .header-innner__clearfix
     %h1.header-innner__left
-      =link_to image_tag('/images/mercari.png', size: '134x36'), '',class: 'header-innner__link'
+      = link_to image_tag('/images/mercari.png', size: '134x36'), '',class: 'header-innner__link'
     %form(action='' class='header-innner__form')
       %input(type='search' name='keyword' placeholder='キーワードから探す' class='header-innner__input')
         =fa_icon "search", class: 'header-innner__search-icon'
@@ -10,38 +10,38 @@
       %ul.header-innner__nav
         %li.header-innner__nav-category
           %h2
-            =link_to "カテゴリーから探す", class: 'header-innner__nav-root'
+            = link_to "カテゴリーから探す", class: 'header-innner__nav-root'
           %ul.header-innner__category-nav
             -@parent_categories.each do |parent_category|
               %li.header-innner__category-nav--parent
                 %h3
-                  =link_to "#{parent_category.name}", '',class: "header-innner__category-nav--parent-name"
+                  = link_to "#{parent_category.name}", '',class: "header-innner__category-nav--parent-name"
                 %ul.header-innner__category-nav--child-wrap
                   -parent_category.children.each do |child_category|
                     %li.header-innner__category-nav--child
-                      =link_to "#{child_category.name}",''
+                      = link_to "#{child_category.name}",''
                       %ul.header-innner__category-nav--grand-child-wrap
                         -child_category.children.each do |grand_child_category|
                           %li.header-innner__category-nav--grand-child
-                            =link_to "#{grand_child_category.name}",''
+                            = link_to "#{grand_child_category.name}",''
 
         %li.header-innner__nav-bland
           %h2
-            =link_to "ブランドから探す", '',class: 'header-innner__nav-root'
+            = link_to "ブランドから探す", '',class: 'header-innner__nav-root'
           %ul.header-innner__bland-nav
             -@blands.each do |bland|
               %li.header-innner__bland-nav-list
                 %h3
-                  =link_to "#{bland}", '',class: "header-innner__bland-nav-name"
+                  = link_to "#{bland}", '',class: "header-innner__bland-nav-name"
 
 
     .header-innner__right
       %ul.header-innner__login-nav
         -if user_signed_in?
-          =link_to "ログアウト", destroy_user_session_path, method: :delete
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
         -else
           %li
-            =link_to "ログイン", new_user_session_path,class: 'header-innner__header-btn--login'
+            = link_to "ログイン", new_user_session_path,class: 'header-innner__header-btn--login'
           %li.header-innner__signup
-            =link_to "新規会員登録", users_sign_up_top_path,class: 'header-innner__header-btn--signup'
+            = link_to "新規会員登録", users_sign_up_top_path,class: 'header-innner__header-btn--signup'
 
