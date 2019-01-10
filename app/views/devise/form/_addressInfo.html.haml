@@ -43,15 +43,14 @@
   %br/
   .select-wrap
     .birthday-select-wrap
-      = f.select :birth_year, {}, {}, {id: "birthYear",class: "input-default" }
+      = f.select :birth_year, options_for_select(["-"]+(1950..2018).to_a, selected: @user.birth_year),{},{id: "",class: "input-default"}
     .birthday-select-wrap
       %span 年
     .birthday-select-wrap
-      = f.select :birth_month, {}, {}, {id: "birthMonth",class: "input-default" }
+      = f.select :birth_month, options_for_select(["-"]+(01..12).to_a, selected: @user.birth_month),{},{id: "",class: "input-default"}
     .birthday-select-wrap
       %span 月
     .birthday-select-wrap
-      = f.select :birth_day, {}, {}, {id: "birthDay",class: "input-default" }
+      = f.select :birth_day, options_for_select(["-"]+(01..31).to_a, selected: @user.birth_day),{},{id: "",class: "input-default"}
     .birthday-select-wrap
       %span 日
-

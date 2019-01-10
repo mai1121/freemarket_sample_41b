@@ -1,0 +1,15 @@
+.identification-content
+  %h2.identification-content__header-text 本人情報の登録
+  %p.identification-content__text お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+  = form_for @user, url: user_registration_path do |f|
+    = render '/devise/form/addressInfo', {f: f}
+
+    %p.identification-content__birthday-text ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+    .actions
+    = f.submit "登録する", id: "SaveAccount", class: "btn-default btn-red"
+    .identification-content__bottom-text
+      %p 
+        =link_to "" do
+          本人情報の確認について
+          %i.icon-arrow-right 
+

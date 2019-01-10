@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :credit_card_expiration_month, :credit_card_expiration_year, presence: true, format: { with: /\A[0-9]{2}\z/}, length: { is: 2}
   validates :credit_card_security_num, presence: true, format: { with: /\A[0-9]+\z/}
   validates :postal_code, format: {with: /\A\d{7}\z/}, allow_blank: true, length: { is: 7}
-  validates :password, confirmation: true, length: { minimum: 6 }, presence: true
+  validates :password, confirmation: true, length: { minimum: 6 }, presence: true, on: :create
   validates :email, uniqueness: true, presence: true
 
   def self.find_for_omniauth(auth)
@@ -34,6 +34,18 @@ class User < ApplicationRecord
     鳥取県:31,島根県:32,岡山県:33,広島県:34,山口県:35,
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47}
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
 
   #アソシエーションは各テーブル作成時に追加
 
