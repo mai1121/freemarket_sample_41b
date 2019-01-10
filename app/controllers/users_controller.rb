@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "not signed in!!"
     else
       @parent_categories = Category.roots()
-      @blands = ['シャネル','ナイキ','ルイ　ヴィトン','シュプリーム','アディダス','ブランド一覧']
+      @blands = Brand.recommend_items.keys
     end
   end
 end
