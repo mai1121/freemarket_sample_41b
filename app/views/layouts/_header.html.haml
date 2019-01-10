@@ -39,6 +39,14 @@
       %ul.header-innner__login-nav
         -if user_signed_in?
           =link_to "ログアウト", destroy_user_session_path, method: :delete
+          %ul.header-innner__login-user
+            %li
+              =link_to users_mypage_path do
+                .header-innner__icon-image
+                  =image_tag '', size: '32x32'
+                .header-innner__mypage-text マイページ
+            %li
+            %li
         -else
           %li
             =link_to "ログイン", new_user_session_path,class: 'header-innner__header-btn--login'
