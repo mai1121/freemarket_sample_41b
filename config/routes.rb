@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/signup/registration' => 'users#registration'
   get '/users/mypage/' => 'users#show'
   get '/users/mypage/identification' => 'users#identification'
+  # patch '/users/mypage/update'=> 'users#update'
 end
