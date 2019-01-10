@@ -1,0 +1,42 @@
+.user-info.clearfix
+  %img.user-background{src:"/images/moyamoya.jpg"}
+  .user-image
+    %img{src:"/images/unsetted-user-image.jpg"}
+    %p
+      = @user.nickname
+    %p 評価 0 出品数 0
+%section.mypage-tab-container-notification-todo.clearfix
+  .tabs
+    %input#notification{type: "radio", name: "user-info-tab-item",checked:"checked"}
+    %label.tab_item{for: "notification"}
+      %h3
+        お知らせ
+    %input#todo{type: "radio", name: "user-info-tab-item"}
+    %label.tab_item{for: "todo"}
+      %h3
+        やることリスト
+    .tab_content#notification_content
+      %ul#mypage-tab-notification.mypage-item-list.tab-pane
+        %li.mypage-item-not-found.bold 現在、お知らせはありません
+    .tab_content#todo_content
+      %ul#mypage-tab-todo.mypage-item-list.tab-pane
+        %li.mypage-item-not-found.bold 現在、やることリストはありません
+
+.items-info
+  .items-info-title
+    %h3 購入した商品
+  .tabs
+    %input#selling_items{type: "radio", name: "items-info-tab-item",checked:"checked"}
+    %label.tab_item{for: "selling_items"}
+      %h3
+        取引中
+    %input#sold_items{type: "radio", name: "items-info-tab-item"}
+    %label.tab_item{for: "sold_items"}
+      %h3
+        過去の取引
+    .tab_content#selling_items_content
+      %ul#mypage-tab-selling_items.mypage-item-list.tab-pane
+        %li.mypage-item-not-found.bold 取引中の商品がありません
+    .tab_content#sold_items_content
+      %ul#mypage-tab-sold_items.mypage-item-list.tab-pane
+        %li.mypage-item-not-found.bold 過去に取引した商品がありません

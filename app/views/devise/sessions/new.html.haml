@@ -1,22 +1,22 @@
 .signin-container
   %header.signup-header
-    =render '/layouts/accounts/headerLogo'
+    = render '/layouts/accounts/headerLogo'
   %main.signin-main
     %section.l-signin-container
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         %h2.l-signin-head
           .login-no-account
             %p アカウントをお持ちでない方はこちら
-            =link_to '新規会員登録',users_sign_up_top_path, class: 'btn-default btn-blue'
+            = link_to '新規会員登録',users_sign_up_top_path, class: 'btn-default btn-blue'
         .l-signin-inner
           .l-signin-content
             .btn-group
-              =link_to user_facebook_omniauth_authorize_path do
+              = link_to user_facebook_omniauth_authorize_path do
                 %btn#facebook-login.btn-default.btn-sns.btn-sns-facebook
                   %i.icon-facebook.fab.fa-facebook-f
                   Facebookでログイン
             .btn-group
-              =link_to user_google_oauth2_omniauth_authorize_path do
+              = link_to user_google_oauth2_omniauth_authorize_path do
                 %btn#google-login.btn-default.btn-sns.btn-sns-google
                   %i.icon-google-plus.fab.fa-google-plus-g
                   Googleでログイン
@@ -31,4 +31,4 @@
             .form-group
               %a{href: "/"} パスワードをお忘れの方
   %footer.signin-footer
-    =render '/layouts/accounts/footer'
+    = render '/layouts/accounts/footer'
