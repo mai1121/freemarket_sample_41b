@@ -29,7 +29,7 @@
           %h2
             = link_to "ブランドから探す", '',class: 'header-innner__nav-root'
           %ul.header-innner__bland-nav
-            -@blands.each do |bland|
+            -Brand.recommend_items_i18n.invert.keys.each do |bland|
               %li.header-innner__bland-nav-list
                 %h3
                   = link_to "#{bland}", '',class: "header-innner__bland-nav-name"

@@ -13,6 +13,5 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "not signed in!!" unless @user
 
     @parent_categories = Category.roots()
-    @blands = Brand.recommend_items.keys
   end
 end
