@@ -28,8 +28,9 @@
         a:link{
           color: #333333;
           text-decoration: none;
-          margin: auto 15px;
           position: relative;
+          display: block;
+          padding: 16px;
         }
         li:hover {
           background: #fafafa;

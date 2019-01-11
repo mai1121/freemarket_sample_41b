@@ -1,0 +1,11 @@
+.profile-content
+  %section.profile-content__wrapper
+    %h2.profile-content__header プロフィール
+    = form_for @user, url: user_registration_path do |f|
+      .profile-content__profile-icon-area
+        %figure
+          =image_tag 'unsetted-user-image.jpg', size: '60x60'
+        = f.text_field :nickname, class: "input-default"
+      .profile-content__profile-text-area
+        = f.text_area :profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "textarea-default"
+        = f.submit "変更する", id: "SaveAccount", class: "btn-default btn-red"

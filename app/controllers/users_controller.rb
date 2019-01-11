@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  layout "mypage_layout", only: [:show, :logout]
+
+  layout "mypage_layout", only: [:show, :identification, :logout, :card, :profile]
+  before_action :set_layout, only:[:show, :identification, :card, :profile]
 
   def top
   end
@@ -7,12 +9,27 @@ class UsersController < ApplicationController
   def registration
   end
 
-  def show
-    @user = current_user
+  def identification
+  end
 
-    redirect_to root_path, notice: "not signed in!!" unless @user
+  def show
+
+    
+  end
+
+  def profile
+    
   end
 
   def logout
   end
+
+  def card
+  end
+
+  private
+    def set_layout
+      @user = current_user
+      redirect_to root_path, notice: "not signed in!!" unless @user
+    end
 end

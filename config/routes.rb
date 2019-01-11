@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   get 'users/sign_up_top' => 'users#top'
   get '/signup/registration' => 'users#registration'
   get '/users/mypage/' => 'users#show'
+  get '/users/mypage/identification' => 'users#identification'
   get '/users/mypage/logout' => 'users#logout'
+  get '/users/mypage/profile' => 'users#profile'
+  get '/users/mypage/card' => 'users#card'
 end
