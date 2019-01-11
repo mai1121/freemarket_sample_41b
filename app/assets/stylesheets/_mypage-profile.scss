@@ -1,0 +1,48 @@
+.profile-content{
+  background-color: #fff;
+  &__wrapper{
+    h2{
+      font-size: 24px;
+      padding: 8px 24px;
+      text-align: center;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    .profile-content__profile-icon-area{
+      background-image: url(/images/profile_image.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 72px 16px 24px;
+      text-align: center;
+      figure{
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 50%;
+        vertical-align: middle;
+        img{
+          vertical-align: middle;
+        }
+      }
+      .input-default{
+        margin: 0 0 0 8px;
+        vertical-align: middle;
+      }
+    }
+    .profile-content__profile-text-area{
+      padding: 40px 16px;
+      .textarea-default{
+        min-height: 216px;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .btn-default{
+        margin: 16px 0 0;
+      }
+    }
+  }
+}
