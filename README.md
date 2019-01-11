@@ -10,33 +10,32 @@
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |nickname|string|null: false|
-|phone_number|int|null: false|
-|phone_number_confirmed|boolean|null: false, default: false|
-|credit_card_num|int||
+|phone_number|string|null: false|
+|credit_card_num|string|null: false|
+|credit_card_expiration_month|string|null: false|
+|credit_card_expiration_year|string|null: false|
+|credit_card_security_num|string|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true |
 |profile|text||
 |icon_image|string||
+|postal_code|string||
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|building_name|string||
+|birth_year|int|null: false|
+|birth_month|int|null: false|
+|birth_day|int|null: false|
+|uid|string||
+|provider|string||
 
 
 ### Association
- - has_one :user_address
  - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
  - has_many :saling_items, foreign_key: "saler_id", class_name: "Item"
  - has_many :likes, dependent: :destroy
  - has_many :favorite_items, through: :likes, source: :item
-
-## user_addresses table
-|Column|Type|Options|
-|------|----|-------|
-|postal_code|int|null: false|
-|prefecture|int|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|building_name|string||
-
-### Association
- - belongs_to :user
 
 
 ## items table
