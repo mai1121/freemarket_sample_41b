@@ -26,5 +26,4 @@ class UsersController < ApplicationController
       @user = current_user
       redirect_to root_path, notice: "not signed in!!" unless @user
     end
-
 end
