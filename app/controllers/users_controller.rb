@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  layout "mypage_layout", only: [:show, :identification, :logout, :card]
-  before_action :set_layout, only:[:show, :identification, :card]
+  layout "mypage_layout", only: [:show, :identification, :logout, :card, :profile]
+  before_action :set_layout, only:[:show, :identification, :card, :profile]
 
   def top
   end
@@ -13,6 +13,12 @@ class UsersController < ApplicationController
   end
 
   def show
+
+    
+  end
+
+  def profile
+    
   end
 
   def logout
