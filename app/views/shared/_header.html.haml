@@ -38,7 +38,21 @@
     .header-innner__right
       %ul.header-innner__login-nav
         -if user_signed_in?
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %ul.header-innner__login-user
+            %li
+              =link_to users_mypage_path, class: 'header-innner__mypage'  do
+                .header-innner__mypage-link
+                  .header-innner__icon-image
+                    =image_tag '/images/unsetted-user-image.jpg', size: '32x32'
+                  .header-innner__mypage-text マイページ
+            %li
+              =link_to users_mypage_path, class: 'header-innner__notice' do
+                %i.far.fa-bell.like-icon.header-innner__icon-bell
+                %span お知らせ
+            %li
+              =link_to users_mypage_path do
+                %i.fas.fa-check.header-innner__icon-check
+                %span やることリスト
         -else
           %li
             = link_to "ログイン", new_user_session_path,class: 'header-innner__header-btn--login'
