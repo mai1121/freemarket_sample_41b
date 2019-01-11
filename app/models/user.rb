@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   validates :first_name, :last_name,:prefecture, :city, :address, :birth_year,:birth_month, :birth_day, presence: true
   validates :first_name_kana, :last_name_kana, presence: true, format: { with: /\A[\p{katakana}]+\z/}
   validates :phone_number, presence: true, format: { with: /\A0[5789]0\d{8}\z/ }, length: { is: 11}
@@ -14,7 +14,17 @@ class User < ApplicationRecord
   validates :password, confirmation: true, length: { minimum: 6 }, presence: true
   validates :email, uniqueness: true, presence: true
 
-
+  def self.find_for_omniauth(auth)
+    user = User.where(email: auth.info.email, provider: auth.provider).first
+    unless user
+      user = User.new(nickname:auth.info.name,
+                       provider: auth.provider,
+                       uid:      auth.uid,
+                       email:    auth.info.email,
+                       password: Devise.friendly_token[0,20],)
+    end
+    user
+  end
 
   enum status: { 北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,

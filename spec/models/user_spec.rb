@@ -8,8 +8,8 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "is valid without a profile, icon_image,postal_code, building_name" do
-      user = build(:user, profile: "", icon_image: "", postal_code:"", building_name: "")
+    it "is valid without a profile, icon_image,postal_code, building_name, uid, provider" do
+      user = build(:user, profile: "", icon_image: "", postal_code:"", building_name: "", uid:"", provider:"")
       expect(user).to be_valid
     end
 
