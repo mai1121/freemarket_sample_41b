@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/signup/registration' => 'users#registration'
   get '/users/mypage/' => 'users#show'
   get '/users/mypage/logout' => 'users#logout'
+  get '/users/mypage/card' => 'users#card'
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout "mypage_layout", only: [:show, :logout]
+  layout "mypage_layout", only: [:show, :logout, :card]
 
   def top
   end
@@ -14,5 +14,9 @@ class UsersController < ApplicationController
   end
 
   def logout
+  end
+
+  def card
+    @user = current_user
   end
 end
