@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  layout "mypage_layout", only: [:show, :identification]
+
+  layout "mypage_layout", only: [:show, :identification, :logout]
   before_action :set_layout, only:[:show, :identification]
 
   def top
@@ -13,16 +14,17 @@ class UsersController < ApplicationController
   end
 
   def show
+
     
   end
 
   def set_layout
-    @user = current_user if user_signed_in?
-    unless @user
-      redirect_to root_path, notice: "not signed in!!"
-    else
-      @parent_categories = Category.roots()
-      @blands = ['シャネル','ナイキ','ルイ　ヴィトン','シュプリーム','アディダス','ブランド一覧']
-    end
+    @user = current_user
+
+    redirect_to root_path, notice: "not signed in!!" unless @user
+  end
+
+  def logout
+
   end
 end

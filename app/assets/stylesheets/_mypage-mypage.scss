@@ -28,3 +28,130 @@
     }
   }
 }
+.mypage-tab-container-notification-todo{
+  width: 700px;
+}
+
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/2);
+  height: 72px;
+  background-color: #EEEEEE;
+  line-height: 72px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="user-info-tab-item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#notification:checked ~ #notification_content, #todo:checked ~ #todo_content, #selling_items:checked ~ #selling_items_content, #sold_items:checked ~ #sold_items_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #FFFFFF;
+  color: #333333;
+  border-top: 3px solid #CA5141;
+}
+
+input[name="items-info-tab-item"] {
+  display: none;
+}
+
+
+#notification_content{
+  li{
+    display: list-item;
+    position: relative;
+  }
+  figure{
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    img{
+      width: 48px;
+      height: 48px;
+      position: abs olute;
+      left:8px;
+    }
+  }
+  .mypage-item-body{
+    display: inline-block;
+    position: absolute;
+      &:after{
+        font-family: 'FontAwesome';
+        content: "\f105";
+        color: #888888;
+        position: absolute;
+        top: 50%;
+        right: -20px;
+        margin-top: -18px;
+      }
+  }
+}
+.mypage-item-list{
+  width: 100%;
+}
+
+.mypage-item-not-found{
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("/images/logo-gray-icon.svg");
+  background-origin: padding-box;
+  background-position: 50% 40px;
+  background-repeat: no-repeat;
+  background-size: 78px 85px;
+  border-color: $color-not-found;
+  border-style: none;
+  box-sizing: border-box;
+  color: $color-not-found;
+  cursor: auto;
+  display: list-item;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 160px 0px 60px;
+  position: relative;
+  text-align: center;
+}
+
+.items{
+  &-info{
+    position: relative;
+    width: 700px;
+    margin: 50px 0;
+    &-title{
+      background-color:#fafafa;
+      padding: 14px 14px;
+      line-height: 20px;
+      height: 50px;
+      width: 100%;
+      font-weight: 800;
+    }
+  }
+}
