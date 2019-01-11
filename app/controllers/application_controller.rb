@@ -16,10 +16,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, 
       :credit_card_num, :credit_card_expiration_month, :credit_card_expiration_year, :credit_card_security_num, 
-      :postal_code, :prefecture, :city, :address, :building_name, :birth_year, :birth_month, :birth_day, :uid, :provider])
+      :postal_code, :prefecture, :city, :address, :building_name, :birth_year, :birth_month, :birth_day, :uid, :provider, :profile])
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, 
       :credit_card_num, :credit_card_expiration_month, :credit_card_expiration_year, :credit_card_security_num, 
-      :postal_code, :prefecture, :city, :address, :building_name, :birth_year, :birth_month, :birth_day, :uid, :provider])
+      :postal_code, :prefecture, :city, :address, :building_name, :birth_year, :birth_month, :birth_day, :uid, :provider, :profile])
   end
 
   def after_sign_out_path_for(resource)
