@@ -1,0 +1,8 @@
+.user-card
+  .user-card__header
+    %h2 クレジットカード情報登録
+  .user-card__inner
+    = form_for @user, url: user_registration_path do |f|
+      = render 'devise/form/cardInfo', {f: f}
+      .user-card__inner--btn
+        = f.submit "追加する", class: "btn-default btn-red"

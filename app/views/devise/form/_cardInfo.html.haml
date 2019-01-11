@@ -9,12 +9,12 @@
   %br/
   .select-wrap
     .birthday-select-wrap
-      = f.select :credit_card_expiration_month, {}, {},{id: "expirationMonth",class: "input-default"}
+      = f.select :credit_card_expiration_month, options_for_select(["-"]+[ "01","02","03","04","05"]), {},{class: "input-default"}
     .birthday-select-wrap
       %span 月
       %br/
     .birthday-select-wrap
-      = f.select :credit_card_expiration_year, {}, {},{id: "expirationYear",class: "input-default"}
+      = f.select :credit_card_expiration_year, options_for_select(["-"]+(19..30).to_a), {},{ class: "input-default"}
     .birthday-select-wrap
       %span 年
 .form-group
@@ -22,3 +22,7 @@
   %span.form-require 必須
   %br/
   = f.text_field :credit_card_security_num, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default"
+  .signup-seqcode
+    .signup-seqcode-text
+      %span.form-question ?
+      カード裏面の番号とは？
