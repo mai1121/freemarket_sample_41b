@@ -16,14 +16,14 @@ FactoryBot.define do
 
   factory :item_with_an_image, parent: :item do
     after(:build) do |item|
-      item.item_images << build(:item_image)
+      item.item_images << build(:item_image, item: item)
     end
   end
 
   factory :item_with_images, parent: :item do
     after(:build) do |item|
-      item.item_images << build(:item_image)
-      item.item_images << build(:item_image)
+      item.item_images << build(:item_image, item: item)
+      item.item_images << build(:item_image, item: item)
     end
   end
 
