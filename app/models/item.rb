@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :price, presence: true
-  belongs_to :buyer, class_name: "User"
+  belongs_to :buyer, class_name: "User", optional: true
   belongs_to :saler, class_name: "User"
   validates :saler_id, presence: true
 
