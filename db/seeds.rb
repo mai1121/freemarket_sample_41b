@@ -7798,7 +7798,7 @@ test_array.each do |ele|
   end
 end
 
-item = Item.new(id:1, name: "魔法少女まどか☆マギカDVDボックス", description: "とても思い入れのある作品ですが、引っ越しに伴い手放すことにしました。保存状態良好です。", price: 15000, category_id: 581)
+item = Item.new(id:1, name: "魔法少女まどか☆マギカDVDボックス", description: "とても思い入れのある作品ですが、引っ越しに伴い手放すことにしました。保存状態良好です。", price: 15000, category_id: 581, saler_id: 1)
 image = item.item_images.new(item_id: 1, image: "item1_madomagi.jpeg")
 item.save!
 
