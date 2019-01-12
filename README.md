@@ -32,7 +32,7 @@
 
 
 ### Association
- - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+ - has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
  - has_many :saling_items, foreign_key: "saler_id", class_name: "Item"
  - has_many :likes, dependent: :destroy
  - has_many :favorite_items, through: :likes, source: :item
