@@ -1,0 +1,24 @@
+.item-detail{
+  padding: 24px 40px 40px;
+  margin: 40px auto;
+  background-color: #fff;
+  width: 700px;
+  &__title{
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  &__top-text{
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #888;
+    line-height: 1.5;
+    a{
+      text-decoration: none;
+      color: currentColor;
+    }
+  }
+  &__main-content{
+    margin: 16px 0 0;
+  }
+}
