@@ -50,4 +50,26 @@ describe ItemsController do
 
   end
 
+  describe 'GET #new' do
+    let(:user) { create(:user) }
+
+    context 'log in' do
+      before do
+       login_user user
+      end
+
+      it "renders the :new template with login" do
+        get :new
+        expect(response).to render_template :new
+      end
+
+    end
+    context 'not log in' do
+      it "redirects to new_user_session_path" do
+        get :new
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
 end
