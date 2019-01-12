@@ -11,6 +11,7 @@ FactoryBot.define do
     price                   {Faker::Commerce.price()}
     category_id             {3}
     brand_id                {3}
+    saler_id                {create(:user).id}
   end
 
   factory :item_with_an_image, parent: :item do

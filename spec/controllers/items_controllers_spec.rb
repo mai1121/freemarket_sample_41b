@@ -4,7 +4,8 @@ describe ItemsController do
   describe 'GET #index' do
     before do
       num_of_samples = 4
-      @items = create_list(:item_with_images, num_of_samples,)
+      create_list(:item_with_images, num_of_samples,)
+      @items = Item.all
       get :index
     end
 
