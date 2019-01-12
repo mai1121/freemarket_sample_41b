@@ -14,6 +14,9 @@ class User < ApplicationRecord
   validates :password, confirmation: true, length: { minimum: 6 }, presence: true, on: :create
   validates :email, uniqueness: true, presence: true
 
+  has_many :salling_items, class_name: "Item"
+  has_many :bought_items, class_name: "Item"
+
   def self.find_for_omniauth(auth)
     user = User.where(email: auth.info.email, provider: auth.provider).first
     unless user
