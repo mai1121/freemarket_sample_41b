@@ -36,10 +36,10 @@ class Item < ApplicationRecord
     two_XL_or_three_L: 7,
     three_XL_or_four_L: 8,
     four_XL_or_five_L_or_more: 9,
-    free: 10 
+    free: 10
   }
 
-  
+
   enum ships_from:{
     hokkaido: 1, aomori: 2, iwate: 3, miyagi: 4, akita: 5, yamagata: 6, fukushima: 7, ibaraki: 8,
     tochigi: 9, gunnma: 10, saitama: 11, chiba: 12, tokyo: 13, kanagawa: 14, nigata: 15, toyama: 16,
@@ -49,7 +49,7 @@ class Item < ApplicationRecord
     saga: 41,nagasaki: 42, kumamoto: 43, oita: 44, miyazaki: 45, kagoshima: 46, okinawa: 47
   }
 
-  
+
   enum delivery_method:{
     pending: 1,
     kuronekoyamato: 2,
