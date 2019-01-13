@@ -12,11 +12,14 @@
     の商品で、#{@item.ships_from}から#{@item.days_to_ship}されます。
   .item-detail__main-content.clearfix
     .item-detail__item-photo
-      .item-detail__item-photo-main
-        =image_tag "#{}"
-      .item-detail__item-photo-dots
+      %ul.slider.item-detail__item-photo-main
         -@item_images.each do |item_image|
-          =image_tag "#{item_image.image}"
+          %li.slider-list
+            =image_tag "#{item_image.image}", size: '300x300'
+      %ul.slider-nav.item-detail__item-photo-dots
+        -@item_images.each do |item_image|
+          %li.item-detail__item-photo-dot
+            =image_tag "#{item_image.image}", class: "item-detail__item-photo-bottom", size: '75x75'
 
 
     %table.item-detail__item-info
@@ -24,14 +27,14 @@
         %th 出品者
         %td
           =link_to "#{@saler.nickname}", ""
-          .item-detail__rating
-            .item-detail__rating--good
+          .item-detail__rating-area
+            .item-detail__rating.good
               %i.far.fa-grin
               %span 32
-            .item-detail__rating--normal
+            .item-detail__rating.normal
               %i.far.fa-meh
               %span 22
-            .item-detail__rating--bad
+            .item-detail__rating.bad
               %i.far.fa-frown
               %span 9
       %tr
@@ -75,10 +78,10 @@
     %span.item-detail__price-box-price #{@item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')}
     %span.item-detail__price-box-tax (税込)
     %span.item-detail__price-box-shipping-fee 送料込み
-  =link_to "購入画面に進む", class: "item-detail__buy-button" 
+  =link_to "購入画面に進む", "", class: "item-detail__buy-button" 
   .item-detail__item-description
     %p.item-detail__item-description-inner #{@item.description}
-  .item-detail__item-button
+  .item-detail__item-button.clearfix
     .item-detail__item-button-left
       =link_to "", class: "item-detail__like-button" do
         %i.far.fa-heart.like-icon
