@@ -1,4 +1,7 @@
-$('.slider-for').slick({
+$(document).on('turbolinks:load', function() {
+   $(function(){
+$('.slider').slick({
+  infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
@@ -6,10 +9,13 @@ $('.slider-for').slick({
   asNavFor: '.slider-nav'
 });
 $('.slider-nav').slick({
-  slidesToShow: 3,
+  infinite: true,
+  slidesToShow: 4,
   slidesToScroll: 1,
-  asNavFor: '.slider-for',
-  dots: true,
+  asNavFor: '.slider',
+  dots: false,
   centerMode: true,
   focusOnSelect: true
 });
+});
+ });
