@@ -57,22 +57,22 @@
             %div #{@brand.name}
       %tr
         %th 商品のサイズ
-        %td #{@item.size}
+        %td #{@item.size_i18n}
       %tr
         %th 商品の状態
-        %td #{@item.status}
+        %td #{@item.status_i18n}
       %tr
         %th 配送料の負担
-        %td #{@item.delivery_fee_method}
+        %td #{@item.delivery_fee_method_i18n}
       %tr
         %th 配送の方法
-        %td #{@item.delivery_method}
+        %td #{@item.delivery_method_i18n}
       %tr
         %th 配送元地域
-        %td #{@item.ships_from}
+        %td #{@item.ships_from_i18n}
       %tr
         %th 発送日の目安
-        %td #{@item.days_to_ship}
+        %td #{@item.days_to_ship_i18n}
 
   .item-detail__price-box
     %span.item-detail__price-box-price #{@item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')}

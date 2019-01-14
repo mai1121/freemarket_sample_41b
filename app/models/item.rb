@@ -14,30 +14,45 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
 
 
-  enum status: { 新品、未使用: 1,  未使用に近い: 2,  目立った傷や汚れなし: 3,  やや傷や汚れあり: 4,  傷や汚れあり: 5,  全体的に状態が悪い: 6}
+  enum status: { unused: 1,  close_to_unused: 2,  no_noticeable_scratch_or_dirt: 3,  slightly_scratch_or_dirt: 4,  scratch_or_dirt: 5,  bad_condition: 6}
 
-  enum delivery_fee_method: { "送料込み(出品者負担)" => 1, "着払い(購入者負担)" => 2  }
+  enum delivery_fee_method: { shipping_included: 1, cash_on_delivery: 2  }
 
   enum days_to_ship:{
-    "1~2日で発送" => 1,
-    "2~3日で発送" => 2,
-    "4~7日で発送" => 3
+    shipped_within_1_to_2_days: 1,
+    shipped_within_2_to_3_days: 2,
+    shipped_within_4_to_7_days: 3
   }
 
-  # 追加予定
+
   enum size: {
-    "XXS以下" => 1,
-    "XS(SS)" => 2
+    XXS_or_less: 1,
+    XXS_or_SS: 2,
+    S: 3,
+    M: 4,
+    L: 5,
+    XL_or_LL: 6,
+    two_XL_or_three_L: 7,
+    three_XL_or_four_L: 8,
+    four_XL_or_five_L_or_more: 9,
+    free: 10 
   }
 
-  # 追加予定
+  
   enum ships_from:{
-    北海道: 1, 青森: 2
+    hokkaido: 1, aomori: 2, iwate: 3, miyagi: 4, akita: 5, yamagata: 6, fukushima: 7, ibaraki: 8,
+    tochigi: 9, gunnma: 10, saitama: 11, chiba: 12, tokyo: 13, kanagawa: 14, nigata: 15, toyama: 16,
+    ishikawa: 17, fukui: 18, yamanashi: 19, nagano: 20, gifu: 21, sizuoka: 22, aichi: 23 ,mie: 24,
+    shiga: 25, kyoto: 26 ,osaka: 27 , hyogo: 28 ,nara: 29 ,wakayama: 30 ,tottori: 31,shimane: 32,
+    okayama: 33, hiroshima: 34, yamaguchi: 35 , tokushima: 36, kagawa: 37 ,ehime: 38 ,kochi: 39, fukuoka: 40,
+    saga: 41,nagasaki: 42, kumamoto: 43, oita: 44, miyazaki: 45, kagoshima: 46, okinawa: 47
   }
 
-  # 追加予定
+  
   enum delivery_method:{
-    クロネコヤマト: 1,
-    ゆうメール: 2
+    pending: 1,
+    kuronekoyamato: 2,
+    yu_pack: 3,
+    yu_mail: 4
   }
 end
