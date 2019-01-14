@@ -8,8 +8,12 @@
     『#{@item.name}』は、
     =link_to @saler.nickname, ""
     さんから出品されました。
-    =link_to "#{@brand.name}(#{@category.name}/#{@parent_category.name})", ""
-    の商品で、#{@item.ships_from_i18n}から#{@item.days_to_ship_i18n}されます。
+    - if @brand.present?
+      =link_to "#{@brand.name}(#{@category.name}/#{@parent_category.name})", ""
+      の商品で、#{@item.ships_from_i18n}から#{@item.days_to_ship_i18n}されます。
+    - else
+      =link_to "#{@category.name}/#{@parent_category.name})", ""
+      の商品で、#{@item.ships_from_i18n}から#{@item.days_to_ship_i18n}されます。
   .item-detail__main-content.clearfix
     .item-detail__item-photo
       %ul.slider.item-detail__item-photo-main
@@ -53,8 +57,9 @@
       %tr
         %th ブランド
         %td
-          =link_to do
-            =@brand.name
+          -if @brand.present?
+            =link_to do
+              =@brand.name
       %tr
         %th 商品のサイズ
         %td 
