@@ -32,13 +32,12 @@ class Item < ApplicationRecord
 
   # 追加予定
   enum ships_from:{
-    "北海道" => 1,
-    "青森" => 2
+    北海道: 1, 青森: 2
   }
 
   # 追加予定
   enum delivery_method:{
-    "クロネコヤマト" => 1,
-    "ゆうメール" => 2
+    クロネコヤマト: 1,
+    ゆうメール: 2
   }
 end
