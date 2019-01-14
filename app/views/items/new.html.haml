@@ -10,82 +10,10 @@
               %h2.l-item-new-head 商品の情報を入力
               %form.sell-form
                 = render '/items/form/item-images', {f: f}
-                .sell-content
-                  .form-group
-                    %label
-                      商品名
-                      %span.form-require 必須
-                    %div
-                      = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "input-default"
-                  .form-group
-                    %label
-                      商品の説明
-                      %span.form-require 必須
-                    = f.text_area :description, class: 'textarea-default', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: 5
-                .sell-content.clearfix
-                  %h3.sell-sub-head 商品の詳細
-                  .sell-form-box
-                    .form-group
-                      %label
-                        カテゴリー
-                        %span.form-require 必須
-                      %div
-                        .select-wrap#categories
-                          = select_tag 'root_categories', options_from_collection_for_select(Category.roots(), :id, :name), class: 'select-default select-category'
-                          %i.icon-arrow-bottom
-                    .form-group
-                      %label
-                        商品の状態
-                        %span.form-require 必須
-                      .select-wrap
-                        = f.select :status, ['---'] + Item.statuses.keys, {}, { class: "select-default" }
-                        %i.icon-arrow-bottom
-                .sell-content.clearfix
-                  %h3.sell-sub-head 配送について
-                  %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
-                  .sell-form-box
-                    .form-group
-                      %label
-                        配送料の負担
-                        %span.form-require 必須
-                      .select-wrap
-                        = f.select :delivery_fee_method, ['---'] + Item.delivery_fee_methods.keys, {}, { class: "select-default" }
-                        %i.icon-arrow-bottom
-                    .form-group
-                      %label
-                        発送元の地域
-                        %span.form-require 必須
-                      .select-wrap
-                        = f.select :ships_from, ['---'] + Item.ships_froms.keys, {}, { class: "select-default" }
-                        %i.icon-arrow-bottom
-                    .form-group
-                      %label
-                        発送までの日数
-                        %span.form-require 必須
-                      .select-wrap
-                        = f.select :days_to_ship, ['---'] + Item.days_to_ships.keys, {}, { class: "select-default" }
-                        %i.icon-arrow-bottom
-                .sell-content.clearfix
-                  %h3.sell-sub-head 販売価格(300〜9,999,999)
-                  %a.form-question{:href => "/jp/help_center/article/64/", :target => "_blank"} ?
-                  .sell-form-box
-                    %ul.sell-price
-                      %li.form-group
-                        .clearfix
-                          %label.l-left
-                            価格
-                            %span.form-require 必須
-                          .l-right.sell-price-input
-                            ¥
-                            %div
-                              = f.number_field :price, placeholder: '例）300', class: 'input-default'
-                      %li.clearfix
-                        .l-left
-                          販売手数料 (10%)
-                        .l-right -
-                      %li.clearfix.bold
-                        .l-left 販売利益
-                        .l-right -
+                = render '/items/form/item-overview', {f: f}
+                = render '/items/form/item-details', {f: f}
+                = render '/items/form/item-delivery', {f: f}
+                = render '/items/form/item-price', {f: f}
                 .modal{:role => "dialog", :tabindex => "-1"}
                   .modal-inner
                 .sell-content.sell-btn-box
@@ -103,10 +31,8 @@
                       また、出品をもちまして
                       %a{:href => "/jp/seller_terms/"} 加盟店規約
                       に同意したことになります。
-                  %button.btn-default.btn-red{:type => "submit"}
-                    出品する
+                  = f.submit '出品する', class: 'btn-default btn-red'
                   %a.btn-default.btn-gray もどる
-              .overlay
   %footer.item-new-footer
     = render '/layouts/accounts/footer'
   %template#image-list-item

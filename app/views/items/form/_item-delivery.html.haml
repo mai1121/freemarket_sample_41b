@@ -1,0 +1,25 @@
+.sell-content.clearfix
+  %h3.sell-sub-head 配送について
+  %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+  .sell-form-box
+    .form-group
+      %label
+        配送料の負担
+        %span.form-require 必須
+      .select-wrap
+        = f.select :delivery_fee_method, ['---'] + Item.delivery_fee_methods.keys, {}, { class: "select-default" }
+        %i.icon-arrow-bottom
+    .form-group
+      %label
+        発送元の地域
+        %span.form-require 必須
+      .select-wrap
+        = f.select :ships_from, ['---'] + Item.ships_froms.keys, {}, { class: "select-default" }
+        %i.icon-arrow-bottom
+    .form-group
+      %label
+        発送までの日数
+        %span.form-require 必須
+      .select-wrap
+        = f.select :days_to_ship, ['---'] + Item.days_to_ships.keys, {}, { class: "select-default" }
+        %i.icon-arrow-bottom

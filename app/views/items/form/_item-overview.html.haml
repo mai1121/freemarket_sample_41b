@@ -1,0 +1,12 @@
+.sell-content
+  .form-group
+    %label
+      商品名
+      %span.form-require 必須
+    %div
+      = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "input-default"
+  .form-group
+    %label
+      商品の説明
+      %span.form-require 必須
+    = f.text_area :description, class: 'textarea-default', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: 5
