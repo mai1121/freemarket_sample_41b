@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
    $(function(){
-      $('.slider').slick({
+      $('.slider').not('.slick-initialized').slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function() {
         fade: true,
         asNavFor: '.slider-nav'
       });
-      $('.slider-nav').slick({
+      $('.slider-nav').not('.slick-initialized').slick({
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
