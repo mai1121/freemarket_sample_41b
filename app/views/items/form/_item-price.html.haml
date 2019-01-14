@@ -1,0 +1,21 @@
+.sell-content.clearfix
+  %h3.sell-sub-head 販売価格(300〜9,999,999)
+  %a.form-question{:href => "/jp/help_center/article/64/", :target => "_blank"} ?
+  .sell-form-box
+    %ul.sell-price
+      %li.form-group
+        .clearfix
+          %label.l-left
+            価格
+            %span.form-require 必須
+          .l-right.sell-price-input
+            ¥
+            %div
+              = f.number_field :price, placeholder: '例）300', class: 'input-default'
+      %li.clearfix
+        .l-left
+          販売手数料 (10%)
+        .l-right#salesCommission -
+      %li.clearfix.bold
+        .l-left 販売利益
+        .l-right#saleProfit -
