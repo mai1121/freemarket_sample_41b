@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
   root 'items#index'
   resources :items, only: [:show, :index,:new, :create]
+
   get 'users/sign_up_top' => 'users#top'
   get '/signup/registration' => 'users#registration'
   get '/users/mypage/' => 'users#show'

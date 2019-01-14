@@ -14,7 +14,6 @@ class Item < ApplicationRecord
 
   belongs_to :brand, optional: true
 
-
   enum status: { unused: 1,  close_to_unused: 2,  no_noticeable_scratch_or_dirt: 3,  slightly_scratch_or_dirt: 4,  scratch_or_dirt: 5,  bad_condition: 6}
 
   enum delivery_fee_method: { shipping_included: 1, cash_on_delivery: 2  }

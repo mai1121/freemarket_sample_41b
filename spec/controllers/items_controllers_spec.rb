@@ -9,7 +9,9 @@ describe ItemsController do
       category = create(:category)
 
       num_of_samples = 4
-      @items = create_list(:item_with_images, num_of_samples, category_id: category.id, brand_id: brand.id, saler_id: saler.id, buyer_id: buyer.id)
+
+      create_list(:item_with_images, num_of_samples,)
+      @items = Item.all
       get :index
     end
 
