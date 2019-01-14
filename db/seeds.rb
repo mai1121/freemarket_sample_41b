@@ -7817,7 +7817,7 @@
 # image = item.item_images.new(item_id: 4, image: "item4_100million.jpeg")
 # item.save!
 
-item = Item.new(id:5, name: "ナイキトレーナー", description: "来年度から東海大学の公式スポンサーとなる、ナイキのパーカーです。東海大学カラーのネイビー ×白です。Mです。", size: "M", status: "新品、未使用", delivery_fee_method: "送料込み(出品者負担)", delivery_method: "ゆうゆうメルカリ便", ships_from: "神奈川県", price: 5500, category_id: 146, brand_id: 3813,saler_id: 9)
+item = Item.new(id:5, name: "ナイキトレーナー", description: "来年度から東海大学の公式スポンサーとなる、ナイキのパーカーです。東海大学カラーのネイビー ×白です。Mです。", size: 1 , status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 1 , days_to_ship: 2 ,price: 5500, category_id: 146, brand_id: 3813,saler_id: 9)
 image = item.item_images.new(item_id: 5, image: "nike_1.jpeg")
 item.save!
 
