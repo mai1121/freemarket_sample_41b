@@ -1,0 +1,118 @@
+%header.header-content
+  = render 'shared/header'
+
+%section.item-detail 
+  %h1.item-detail__title  
+    =@item.name 
+  %p.item-detail__top-text 
+    『#{@item.name}』は、
+    =link_to @saler.nickname, ""
+    さんから出品されました。
+    - if @brand.present?
+      =link_to "#{@brand.name}(#{@category.name}/#{@parent_category.name})", ""
+      の商品で、#{@item.ships_from_i18n}から#{@item.days_to_ship_i18n}されます。
+    - else
+      =link_to "#{@category.name}/#{@parent_category.name})", ""
+      の商品で、#{@item.ships_from_i18n}から#{@item.days_to_ship_i18n}されます。
+  .item-detail__main-content.clearfix
+    .item-detail__item-photo
+      %ul.slider.item-detail__item-photo-main
+        -@item_images.each do |item_image|
+          %li.slider-list
+            =image_tag "#{item_image.image}", size: '300x300'
+      %ul.slider-nav.item-detail__item-photo-dots
+        -@item_images.each do |item_image|
+          %li.item-detail__item-photo-dot
+            =image_tag "#{item_image.image}", class: "item-detail__item-photo-bottom", size: '75x75'
+
+
+    %table.item-detail__item-info
+      %tr
+        %th 出品者
+        %td
+          =link_to @saler.nickname, ""
+          .item-detail__rating-area
+            .item-detail__rating.good
+              %i.far.fa-grin
+              %span 32
+            .item-detail__rating.normal
+              %i.far.fa-meh
+              %span 22
+            .item-detail__rating.bad
+              %i.far.fa-frown
+              %span 9
+      %tr
+        %th カテゴリー 
+        %td 
+          =link_to do
+            =@grandparent_category.name
+          =link_to do
+            .item-detail__sub-category
+              %i.icon-arrow-right
+              =@parent_category.name
+          =link_to do
+            .item-detail__sub-category
+              %i.icon-arrow-right
+              =@category.name
+      %tr
+        %th ブランド
+        %td
+          -if @brand.present?
+            =link_to do
+              =@brand.name
+      %tr
+        %th 商品のサイズ
+        %td 
+          =@item.size_i18n
+      %tr
+        %th 商品の状態
+        %td 
+          =@item.status_i18n
+      %tr
+        %th 配送料の負担
+        %td 
+          =@item.delivery_fee_method_i18n
+      %tr
+        %th 配送の方法
+        %td 
+          =@item.delivery_method_i18n
+      %tr
+        %th 配送元地域
+        %td 
+          =@item.ships_from_i18n
+      %tr
+        %th 発送日の目安
+        %td 
+          =@item.days_to_ship_i18n
+
+  .item-detail__price-box
+    %span.item-detail__price-box-price 
+      =@item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+    %span.item-detail__price-box-tax (税込)
+    %span.item-detail__price-box-shipping-fee 送料込み
+  =link_to "購入画面に進む", "", class: "item-detail__buy-button" 
+  .item-detail__item-description
+    %p.item-detail__item-description-inner 
+    =@item.description
+  .item-detail__item-button.clearfix
+    .item-detail__item-button-left
+      =link_to "", class: "item-detail__like-button" do
+        %i.far.fa-heart.like-icon
+        %span いいね！
+        %span 14
+      =link_to "", class: "item-detail__flag-button" do
+        %i.far.fa-flag.flag-icon
+        %span 不適切な商品の報告
+    .item-detail__item-button-right
+      =link_to do
+        %i.fas.fa-lock.lock-icon
+        %span あんしん・あんぜんへの取り組み
+ 
+
+#aside.banner-content
+  = render 'shared/banner-content'
+
+#footer.footer-content
+  = render 'shared/footer'
+
+ 

@@ -6,7 +6,7 @@
     .items__box-contents.clearfix
       -@items.each do |item|
         %section.items__box-content
-          = link_to () do
+          = link_to item_path(item) do
             %figure.items__box-content-photo
               =image_tag "#{item.item_images[0][:image]}"
             .items__box-content-text
@@ -30,7 +30,7 @@
     .items__box-contents.clearfix
       -@items.each do |item|
         %section.items__box-content
-          = link_to () do
+          = link_to item_path(item) do
             %figure.items__box-content-photo
               =image_tag "#{item.item_images[0][:image]}"
             .items__box-content-text
