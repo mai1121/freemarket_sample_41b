@@ -1,0 +1,7 @@
+- Category.roots().each do |root_category|
+  %template{id: "child0fCategory#{root_category.id}"}
+    = select_tag '' , options_from_collection_for_select(Category.children_of(root_category), :id, :name), name: "root_category#{root_category.id}", class: 'select-default select-category'
+- Category.roots().each do |root_category|
+  - root_category.children().each do |parent_category|
+    %template{id: "child0fCategory#{parent_category.id}"}
+      = select_tag '', options_from_collection_for_select(Category.children_of(parent_category), :id, :name), name: "parent_category#{parent_category.id}", class: 'select-default'
