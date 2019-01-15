@@ -77,24 +77,3 @@ function addUploadImages(files){
   }
   $('#drop_zone').css({'box-shadow':'none','border': '1px dashed #ccc'});
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
