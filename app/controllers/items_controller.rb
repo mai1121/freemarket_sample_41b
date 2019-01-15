@@ -36,6 +36,6 @@ class ItemsController < ApplicationController
     end
 
     def set_brand_id
-      Brand.where('name = ?', params[:brand_id])
+      Brand.where('name = ?', params[:brand_name])
     end
 end
