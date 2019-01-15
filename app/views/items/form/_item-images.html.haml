@@ -1,4 +1,5 @@
 .sell-upload-box
+  #preview
   %h3.sell-upload-head
     出品画像
     %span.form-require 必須
@@ -7,10 +8,10 @@
     .sell-upload-items-container
       .sell-upload-items.have-item-0
         %ul
-    .sell-upload-drop-box#drop_zone
-      = f.fields_for :item_images do |i|
-        = file_field(i, :image , class: 'sell-upload-drop-file', multiple: true, style: 'display: none;')
-        %pre.visible-pc
-          :preserve
-            ドラッグアンドドロップ
-            またはクリックしてファイルをアップロード
+        .sell-upload-drop-box#drop_zone.clearfix
+          %pre
+            =preserve do
+              ドラッグアンドドロップ
+              またはクリックしてファイルをアップロード
+= f.fields_for :item_images do |i|
+  = i.file_field(:image , class: 'sell-upload-drop-file', multiple: true, style: 'display: none;')
