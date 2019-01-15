@@ -88,3 +88,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'enum_help'
+
+gem 'carrierwave'
+gem 'mini_magick'
