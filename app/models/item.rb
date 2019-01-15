@@ -6,8 +6,8 @@ class Item < ApplicationRecord
   belongs_to :saler, class_name: "User"
   validates :saler_id, presence: true
 
-  has_many :item_images, dependent: :destroy
-  # accepts_nested_attributes_for :item_images, allow_destroy: true
+  has_many :item_images, dependent: :destroy, inverse_of: :item
+  accepts_nested_attributes_for :item_images, allow_destroy: true
   validates :item_images, length: { minimum: 1 }
 
   belongs_to :category
