@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item_image do
-    image                  {Faker::Internet.url()}
-    item {nil}
+    image                  {File.open("#{Rails.root}/public/images/no_image.jpg")}
   end
 end
