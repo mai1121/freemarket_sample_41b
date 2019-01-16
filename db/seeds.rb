@@ -7804,19 +7804,19 @@ user = User.create(id:1,email:"bbb@gmail.com",password:"00000000",password_confi
 user = User.first
 
 item = Item.new(id:1, name: "魔法少女まどか☆マギカDVDボックス", description: "とても思い入れのある作品ですが、引っ越しに伴い手放すことにしました。保存状態良好です。", price: 15000, category_id: 581, saler_id: user.id)
-image = item.item_images.new(item_id: 1, image: File.open("#{Rails.root}/public/images/no_image.jpg"))
+image = item.item_images.new(item_id: 1, image: File.open("#{Rails.root}/public/images/item1_madomagi.jpeg"))
 item.save!
 
 item = Item.new(id:2, name: "新世紀ヱヴァンゲリヲン初号機フィギュア", description: "高さは50センチです。表面の色のハゲなどはありません。", price: 3000, category_id: 581, saler_id: user.id)
-image = item.item_images.new(item_id: 2, image: File.open("#{Rails.root}/public/images/no_image.jpg"))
+image = item.item_images.new(item_id: 2, image: File.open("#{Rails.root}/public/images/item2_eva.jpeg"))
 item.save!
 
 item = Item.new(id:3, name: "おやすみプンプン全巻セット", description: "セットでの販売です。", price: 3000, category_id: 534, saler_id: user.id)
-image = item.item_images.new(item_id: 3, image: File.open("#{Rails.root}/public/images/no_image.jpg"))
+image = item.item_images.new(item_id: 3, image: File.open("#{Rails.root}/public/images/item3_punpun.jpeg"))
 item.save!
 
 item = Item.new(id:4, name: "100万円の女達全巻セットああああああああああ", description: "ドラマ化した話題作です。", price: 2500, category_id: 534, saler_id: user.id)
-image = item.item_images.new(item_id: 4, image: File.open("#{Rails.root}/public/images/no_image.jpg"))
+image = item.item_images.new(item_id: 4, image: File.open("#{Rails.root}/public/images/item4_100million.jpeg"))
 
 item = Item.new(id:5, name: "ナイキトレーナー", description: "来年度から東海大学の公式スポンサーとなる、ナイキのパーカーです。東海大学カラーのネイビー ×白です。Mです。", size: 1 , status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 1 , days_to_ship: 2 ,price: 5500, category_id: 146, brand_id: 3813,saler_id: user.id)
 image = item.item_images.new(item_id: 5, image: File.open("#{Rails.root}/public/images/no_image.jpg"))
