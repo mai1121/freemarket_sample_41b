@@ -1,0 +1,36 @@
+.item-new-container
+  %header.item-new-header
+    = render '/layouts/accounts/headerLogo'
+  %main.item-new-main
+    = form_for(@item, url: items_path, method: :post, html:{class: 'sell-form'}) do |f|
+      %section.l-item-new-container.buy-item-container
+        #sell-container
+          %div
+            .sell-container-inner
+              %h2.l-item-new-head 商品の情報を入力
+              %form.sell-form
+                = render '/items/form/item-images', {f: f}
+                = render '/items/form/item-overview', {f: f}
+                = render '/items/form/item-details', {f: f}
+                = render '/items/form/item-delivery', {f: f}
+                = render '/items/form/item-price', {f: f}
+                .modal{:role => "dialog", :tabindex => "-1"}
+                  .modal-inner
+                .sell-content.sell-btn-box
+                  %div
+                  = render partial: '/items/alert-for-sale'
+                  = f.submit '出品する', class: 'btn-default btn-red'
+                  %a.btn-default.btn-gray もどる
+  %footer.item-new-footer
+    = render '/layouts/accounts/footer'
+  %template#image-list-item
+    %li.sell-upload-item
+      %figure.sell-upload-figure.landscape
+        .img{class: '', html:{ src:'', alt:''}}
+        .sell-upload-button
+          %a.sell-upload-edit 編集
+          %a.sell-upload-edit 削除
+  = render partial: '/items/category-template'
+
+
+

@@ -9,20 +9,23 @@ FactoryBot.define do
     ships_from              {1}
     days_to_ship            {1}
     price                   {Faker::Commerce.price()}
-    category_id             {3}
-    brand_id                {3}
+    category_id             {Category.first().id}
+    brand_id                {Brand.first().id}
+    saler_id                {User.first().id}
+    buyer_id                {User.first().id}
   end
 
   factory :item_with_an_image, parent: :item do
     after(:build) do |item|
-      item.item_images << build(:item_image)
+      item.item_images << build(:item_image, item: item)
     end
   end
 
+
   factory :item_with_images, parent: :item do
     after(:build) do |item|
-      item.item_images << build(:item_image)
-      item.item_images << build(:item_image)
+      item.item_images << build(:item_image, item: item)
+      item.item_images << build(:item_image, item: item)
     end
   end
 
