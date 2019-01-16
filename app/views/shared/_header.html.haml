@@ -1,7 +1,7 @@
 .header-innner
   .header-innner__clearfix
     %h1.header-innner__left
-      = link_to image_tag('/images/mercari.png', size: '134x36'), '',class: 'header-innner__link'
+      = link_to image_tag('/images/mercari.png', size: '134x36'), root_path,class: 'header-innner__link'
     %form(action='' class='header-innner__form')
       %input(type='search' name='keyword' placeholder='キーワードから探す' class='header-innner__input')
         =fa_icon "search", class: 'header-innner__search-icon'
