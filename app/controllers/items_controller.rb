@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save!
+    @item.save
     redirect_to root_path
   end
 
