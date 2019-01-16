@@ -29,13 +29,15 @@ $(document).on('turbolinks:load', function() {
   });
 
   var dropZone = document.getElementById("drop_zone");
-  dropZone.addEventListener("drop", function(e) {
-    e.stopPropagation();
-    e.preventDefault();
+  if(dropZone){
+    dropZone.addEventListener("drop", function(e) {
+      e.stopPropagation();
+      e.preventDefault();
 
-    var files = e.dataTransfer.files;
-    addUploadImages(files)
-  }, false);
+      var files = e.dataTransfer.files;
+      addUploadImages(files)
+    }, false);
+  };
 });
 
 
