@@ -23,8 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
-    Item.create!(item_params)
+    @item = Item.new(item_params)
+    @item.save!
   end
 
   private
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
       :ships_from,
       :days_to_ship,
       :price,
-      item_images_attributes: [:image]
+      item_images_attributes:[:image]
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
   end
 
