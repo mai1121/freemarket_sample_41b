@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  layout "mypage_layout", only: [:show, :identification, :logout, :card, :profile]
-  before_action :set_layout, only:[:show, :identification, :card, :profile]
+  layout "mypage_layout", only: [:show, :identification, :logout, :card, :profile, :items]
+  before_action :set_layout, only:[:show, :identification, :card, :profile, :items]
 
   def top
   end
@@ -14,17 +14,21 @@ class UsersController < ApplicationController
 
   def show
 
-    
+
   end
 
   def profile
-    
+
   end
 
   def logout
   end
 
   def card
+  end
+
+  def items
+    @items = Item.where(saler_id: @user.id)
   end
 
   private

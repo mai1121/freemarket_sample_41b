@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/users/mypage/logout' => 'users#logout'
   get '/users/mypage/profile' => 'users#profile'
   get '/users/mypage/card' => 'users#card'
+  get '/users/mypage/items' => 'users#items'
 end
