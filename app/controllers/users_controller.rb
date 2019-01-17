@@ -27,13 +27,23 @@ class UsersController < ApplicationController
   def card
   end
 
+  def item
+    @item = Item.includes(:item_images).find(params[:id])
+  end
+
   def items
     @items = Item.includes(:item_images).where(saler_id: @user.id)
   end
 
   private
-    def set_layout
-      @user = current_user
-      redirect_to root_path, notice: "not signed in!!" unless @user
-    end
+  def set_layout
+    @user = current_user
+    redirect_to root_path, notice: "not signed in!!" unless @user
+  end
+
+  def set_category
+    @category = @item.category
+    @parent_category = @category.parent
+    @grandparent_category = @category.root
+  end
 end

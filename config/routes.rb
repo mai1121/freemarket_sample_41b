@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   get '/users/mypage/profile' => 'users#profile'
   get '/users/mypage/card' => 'users#card'
   get '/users/mypage/items' => 'users#items'
+  get '/users/mypage/salingitem/:id' => 'users#item'
 end
