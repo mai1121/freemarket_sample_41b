@@ -4,7 +4,6 @@ $(document).on('turbolinks:load', function() {
     var form = $("#charge-form");
     $("#charge-form").submit(function(e) {
     e.preventDefault();
-    Payjp.setPublicKey('pk_test_22c2a57433e9edff6552f953');
 
     var num = $("#num").val(); 
     var cvc = $("#cvc").val();
