@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
 
   def purchase_top
     @item = Item.find(params[:id])
-    @item_price = @item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
     @item_image = @item.item_images.first
   end
 

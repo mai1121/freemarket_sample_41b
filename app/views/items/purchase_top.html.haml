@@ -13,16 +13,16 @@
             = @item.name
           .purchase_top__main-item-buy
             %p.purchase_top__main-item-price
-              = @item_price
+              = item_price(@item.price)
               %span.purchase_top__main-item-shipping-fee 送料込み
             %ul.purchase_top__main-item-table
               %li
                 .purchase_top__main-item-pay-text 支払い金額
                 .purchase_top__main-item-pay-price
                   %span 
-                    = @item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+                    = item_price(@item.price)
             = form_tag(purchase_item_path, method: :post, id: "charge-form") do
-              %script{:src => "https://js.pay.jp/", :type => "text/javascript"}
+              %script{src: "https://js.pay.jp/", type: "text/javascript"}
               %span.charge-errors
               %h4 
               %label 
