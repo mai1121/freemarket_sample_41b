@@ -7,14 +7,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-
-    @item_images = @item.item_images
+    set_item
     @saler = @item.saler
     @category = @item.category
     @parent_category = @category.parent
     @grandparent_category = @category.root
     @brand = @item.brand
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    redirect_to :show
   end
 
   def new
@@ -24,14 +27,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.save
+    Item.create(item_params)
     redirect_to root_path
   end
 
   def edit
-    @item = Item.includes(:item_images).find(params[:id])
-    @item_images = @item.item_images
+    set_item
     @parent_category = Category.find(@item.category_id).parent
     @root_category = @parent_category.parent
     @item_image_length = "have-item#{@item.item_images.length}"
@@ -60,5 +61,10 @@ class ItemsController < ApplicationController
 
   def set_brand_id
     Brand.where('name = ?', params[:brand_name])
+  end
+
+  def set_item
+    @item = Item.includes(:item_images).find(params[:id])
+    @item_images = @item.item_images
   end
 end
