@@ -8,10 +8,8 @@ class ItemsController < ApplicationController
 
   def show
     set_item
+    set_category
     @saler = @item.saler
-    @category = @item.category
-    @parent_category = @category.parent
-    @grandparent_category = @category.root
     @brand = @item.brand
   end
 
@@ -33,8 +31,7 @@ class ItemsController < ApplicationController
 
   def edit
     set_item
-    @parent_category = Category.find(@item.category_id).parent
-    @root_category = @parent_category.parent
+    set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end
 
@@ -66,5 +63,11 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.includes(:item_images).find(params[:id])
     @item_images = @item.item_images
+  end
+
+  def set_category
+    @category = @item.category
+    @parent_category = @category.parent
+    @grandparent_category = @category.root
   end
 end
