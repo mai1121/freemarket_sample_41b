@@ -31,9 +31,10 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.includes(:item_images).find(params[:id])
+    @item_images = @item.item_images
     @parent_category = Category.find(@item.category_id).parent
     @root_category = @parent_category.parent
-    @item_image_length = "have-item-#{@item.item_images.length}"
+    @item_image_length = "have-item#{@item.item_images.length}"
   end
 
   private
