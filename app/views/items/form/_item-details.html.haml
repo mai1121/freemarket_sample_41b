@@ -1,0 +1,17 @@
+.sell-content.clearfix
+  %h3.sell-sub-head 商品の詳細
+  .sell-form-box
+    .form-group
+      %label
+        カテゴリー
+        %span.form-require 必須
+      %div
+        .select-wrap#categories
+          = select_tag 'root_categories', options_from_collection_for_select(Category.roots(), :id, :name), class: 'select-default select-category'
+          %i.icon-arrow-bottom
+    .form-group
+      %label
+        商品の状態
+        %span.form-require 必須
+      .select-wrap
+        = f.select :status, options_for_select(Item.statuses_i18n.invert), {}, { class: "select-default" }

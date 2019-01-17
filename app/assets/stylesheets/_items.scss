@@ -25,7 +25,7 @@
     }
     &__box-content{
       width: 213px;
-      margin: 0 0 0 20px;
+      margin: 10px 0 0 20px;
       float: left;
       background-color: #fff;
       a{
@@ -37,7 +37,7 @@
           overflow: hidden;
           position: relative;
           img{
-            vertical-align: middle; 
+            vertical-align: middle;
             position: absolute;
             top: 0;
             right: 0;
@@ -102,4 +102,89 @@
         color: #0099e8;
       }
     }
+}
+
+.sell-upload-items{
+  float: left;
+  li, img, figure, a,div{
+    display: inline-block;
+  }
+  ul{
+    float: left;
+    li{
+      width: 140px;
+      display:inline-block;
+      position: relative;
+      height: 160px;
+      margin: 0 5px;
+      background-color: #F5F5F5;
+      width: 130px;
+      figure{
+        height: 100%;
+        text-align: center;
+        margin: auto;
+      }
+      img{
+        text-align: center;
+        width: 100%;
+        background-color: #000000;
+        margin: auto;
+      }
+      .sell-upload-button{
+        background-color: #F5F5F5;
+        width: 100%;
+        margin: auto;
+        height: 20px;
+        text-align: center;
+        a{
+          display:inline-block;
+          margin: 5px;
+          width: 30%;
+          line-height: 10px;
+          border-left: solid;
+        }
+        a:first-child{
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+#drop_zone{
+  background-color: #F5F5F5;
+  box-shadow:none;
+  border: 1px dashed #ccc;
+  position: relative;
+  height: 180px;
+  display: flex;
+  justify-content: center; /*左右中央揃え*/
+  align-items: center;
+  width: 580px;
+  float: right;
+}
+.have-item0{
+  #drop_zone{
+    width: 580px;
+  }
+}
+.have-item1{
+  #drop_zone{
+    width: 440px;
+  }
+}
+.have-item2{
+  #drop_zone{
+    width: 300px;
+  }
+}
+.have-item3{
+  #drop_zone{
+    width: 160px;
+  }
+}
+.have-item4{
+  #drop_zone{
+    display: none;
+  }
 }

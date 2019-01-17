@@ -20,7 +20,7 @@
   = f.label :prefecture, "都道府県"
   %span.form-require 必須
   %br/
-  = f.select :prefecture, User.statuses.keys, {}, { class: "input-default" }
+  = f.select :prefecture, User.prefectures.keys, {}, { class: "input-default" }
 .form-group
   = f.label :city, "市区町村"
   %span.form-require 必須
