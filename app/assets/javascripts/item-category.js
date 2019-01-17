@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
       $(this.parentElement).append(template.html());
   });
 
-  $('#item_price').on('keyup',function(){
+  $('#item_price').on('load keyup',function(){
     var price = ($(this).val());
     if (price >= 300){
       $('#salesCommission').html( '¥' + price / 10);
