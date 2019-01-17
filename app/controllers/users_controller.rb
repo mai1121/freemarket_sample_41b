@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def items
-    @items = Item.where(saler_id: @user.id)
+    @items = Item.includes(:item_images).where(saler_id: @user.id)
   end
 
   private
