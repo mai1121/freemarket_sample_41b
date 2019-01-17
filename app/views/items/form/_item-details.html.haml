@@ -7,11 +7,11 @@
         %span.form-require 必須
       %div
         .select-wrap#categories
-          = select_tag 'root_categories', options_from_collection_for_select(Category.roots(), :id, :name, @root_category&.id), class: 'select-default select-category'
+          = select_tag 'root_categories', options_from_collection_for_select(Category.roots(), :id, :name, @grandparent_category&.id), class: 'select-default select-category'
           - if controller.action_name == 'edit'
-            = select_tag 'root_categories', options_from_collection_for_select(@root_category.children, :id, :name, @parent_category&.id), class: 'select-default select-category'
+            = select_tag 'root_categories', options_from_collection_for_select(@grandparent_category.children, :id, :name, @parent_category&.id), class: 'select-default select-category'
 
-            = select_tag 'root_categories', options_from_collection_for_select(@parent_category.children, :id, :name, @item.category_id), class: 'select-default select-category'
+            = select_tag 'root_categories', options_from_collection_for_select(@parent_category.children, :id, :name, @category.id), class: 'select-default select-category'
     .form-group
       %label
         商品の状態
