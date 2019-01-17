@@ -15,7 +15,11 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    redirect_to :show
+    if @item.update(item_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   def new
@@ -31,6 +35,9 @@ class ItemsController < ApplicationController
 
   def edit
     set_item
+    @item_images.each do |item_image|
+      item_image.image.cache!
+    end
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end
@@ -52,7 +59,7 @@ class ItemsController < ApplicationController
       :ships_from,
       :days_to_ship,
       :price,
-      item_images_attributes:[:image]
+      item_images_attributes:[:id, :image,:image_cache]
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
   end
 
