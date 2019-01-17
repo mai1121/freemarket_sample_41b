@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    email                        {"aaa@gmail.com"}
+    email                        {Faker::Internet.email}
     password                     {"00000000"}
     password_confirmation        {"00000000"}
     first_name                   {"綾波"}
@@ -28,7 +28,7 @@ FactoryBot.define do
   end
 
   factory :saler, class: User do
-    email                        {"ccc@gmail.com"}
+    email                        {Faker::Internet.email}
     password                     {"00000000"}
     password_confirmation        {"00000000"}
     first_name                   {"葛城"}
@@ -56,7 +56,7 @@ FactoryBot.define do
   end
 
   factory :buyer, class: User do
-    email                        {"bbb@gmail.com"}
+    email                        {Faker::Internet.email}
     password                     {"00000000"}
     password_confirmation        {"00000000"}
     first_name                   {"碇"}

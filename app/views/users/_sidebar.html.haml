@@ -2,7 +2,7 @@
 %nav.mypage-nav
   %ul.mypage-nav-list
     %li
-      = link_to "マイページ", '#', class: "mypage-nav-list-item"
+      = link_to "マイページ", users_mypage_path, class: "mypage-nav-list-item"
     %li
       = link_to "お知らせ", '#', class: "mypage-nav-list-item"
       %span.mypage-nav-number
@@ -13,7 +13,7 @@
     %li
       = link_to "出品する", '#', class: "mypage-nav-list-item"
     %li
-      = link_to "出品中", '#', class: "mypage-nav-list-item"
+      = link_to "出品中", users_mypage_items_path, class: "mypage-nav-list-item"
     %li
       = link_to "取引中", '#', class: "mypage-nav-list-item"
     %li

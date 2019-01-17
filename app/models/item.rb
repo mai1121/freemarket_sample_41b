@@ -6,13 +6,13 @@ class Item < ApplicationRecord
   belongs_to :saler, class_name: "User"
   validates :saler_id, presence: true
 
-  has_many :item_images
+  has_many :item_images, dependent: :destroy, inverse_of: :item
+  accepts_nested_attributes_for :item_images, allow_destroy: true
   validates :item_images, length: { minimum: 1 }
 
   belongs_to :category
 
   belongs_to :brand, optional: true
-
 
   enum status: { unused: 1,  close_to_unused: 2,  no_noticeable_scratch_or_dirt: 3,  slightly_scratch_or_dirt: 4,  scratch_or_dirt: 5,  bad_condition: 6}
 
@@ -35,10 +35,10 @@ class Item < ApplicationRecord
     two_XL_or_three_L: 7,
     three_XL_or_four_L: 8,
     four_XL_or_five_L_or_more: 9,
-    free: 10 
+    free: 10
   }
 
-  
+
   enum ships_from:{
     hokkaido: 1, aomori: 2, iwate: 3, miyagi: 4, akita: 5, yamagata: 6, fukushima: 7, ibaraki: 8,
     tochigi: 9, gunnma: 10, saitama: 11, chiba: 12, tokyo: 13, kanagawa: 14, nigata: 15, toyama: 16,
@@ -48,7 +48,7 @@ class Item < ApplicationRecord
     saga: 41,nagasaki: 42, kumamoto: 43, oita: 44, miyazaki: 45, kagoshima: 46, okinawa: 47
   }
 
-  
+
   enum delivery_method:{
     pending: 1,
     kuronekoyamato: 2,

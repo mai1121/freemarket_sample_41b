@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
 
   before_action :authenticate_user!, only: [:purchase_top,:purchase]
 
+  before_action :require_login, only: [:new, :create]
+
   def index
     @items = Item.includes(:item_images).all
     @parent_categories = Category.roots()
@@ -9,7 +11,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    
+
     @item_images = @item.item_images
     @saler = @item.saler
     @category = @item.category
@@ -30,6 +32,42 @@ class ItemsController < ApplicationController
     @purchase = Payjp::Charge.create(currency: 'jpy', amount: @item.price, card: params['payjpToken'] )
     @item.update(buyer_id: current_user.id)
     redirect_to root_path
+  end
+
+  def new
+    @item = Item.new
+    @item_images = @item.item_images.build
+  end
+
+  def create
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to root_path
+  end
+
+  private
+  def require_login
+    redirect_to new_user_session_url unless user_signed_in?
+  end
+
+  def item_params
+    params.require(:item).permit(
+      :name,
+      :description,
+      :category_id,
+      :size,
+      :status,
+      :delivery_fee_method,
+      :delivery_method,
+      :ships_from,
+      :days_to_ship,
+      :price,
+      item_images_attributes:[:image]
+      ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
+  end
+
+  def set_brand_id
+    Brand.where('name = ?', params[:brand_name])
   end
 
 end

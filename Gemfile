@@ -91,3 +91,7 @@ gem 'enum_help'
 
 gem 'payjp'
 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+

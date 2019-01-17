@@ -28,12 +28,17 @@
     }
   }
 }
-.mypage-tab-container-notification-todo{
-  width: 700px;
+.mypage-tab-container{
+  &-notification-todo{
+    width: 700px;
+  }
+  &-items-status{
+    width: 700px;
+  }
 }
 
 /*タブのスタイル*/
-.tab_item {
+.tab_item_2 {
   width: calc(100%/2);
   height: 72px;
   background-color: #EEEEEE;
@@ -46,9 +51,33 @@
   text-align: center;
   font-weight: bold;
   transition: all 0.2s ease;
+  h3{
+    font-weight: bold;
+  }
+}
+/*タブのスタイル*/
+.tab_item_3 {
+  width: calc(100%/3);
+  height: 72px;
+  background-color: #EEEEEE;
+  line-height: 72px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  h3{
+    font-weight: bold;
+  }
 }
 
-.tab_item:hover {
+.tab_item_2:hover {
+  opacity: 0.75;
+}
+.tab_item_3:hover {
   opacity: 0.75;
 }
 
@@ -72,7 +101,13 @@ input[name="user-info-tab-item"] {
 }
 
 /*選択されているタブのスタイルを変える*/
-.tabs input:checked + .tab_item {
+.tabs input:checked + .tab_item_2 {
+  background-color: #FFFFFF;
+  color: #333333;
+  border-top: 3px solid #CA5141;
+}
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item_3 {
   background-color: #FFFFFF;
   color: #333333;
   border-top: 3px solid #CA5141;
@@ -116,6 +151,35 @@ input[name="items-info-tab-item"] {
 }
 .mypage-item-list{
   width: 100%;
+  li{
+    border-bottom: solid #F5f5f5;
+    position: relative;
+    &:after{
+      font-family: 'FontAwesome';
+      content: "\f105";
+      color: #CCCCCC;
+      position: absolute;
+      top: 50%;
+      right: 9px;
+      margin-top: -25px;
+    }
+  }
+  img{
+    max-width: 64px;
+    max-height: 64px;
+  }
+  a:link{
+    color: #333333;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 16px;
+  }
+  li:hover {
+    background: #fafafa;
+    text-decoration: none;
+    opacity: 1;
+  }
 }
 
 .mypage-item-not-found{
@@ -155,3 +219,19 @@ input[name="items-info-tab-item"] {
     }
   }
 }
+
+.saling-items{
+  &-info{
+    position: relative;
+    width: 700px;
+    &-title{
+      background-color:#fafafa;
+      padding: 14px 14px;
+      line-height: 20px;
+      height: 50px;
+      width: 100%;
+      font-weight: 800;
+    }
+  }
+}
+
