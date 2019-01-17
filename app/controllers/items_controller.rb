@@ -28,6 +28,10 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @item = Item.includes(:item_images).find(params[:id])
+  end
+
   private
   def require_login
     redirect_to new_user_session_url unless user_signed_in?
