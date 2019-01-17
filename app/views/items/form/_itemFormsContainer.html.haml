@@ -2,7 +2,7 @@
   %header.item-new-header
     = render '/layouts/accounts/headerLogo'
   %main.item-new-main
-    = form_for(item, url: items_path, method: :post, html:{class: 'sell-form'}) do |f|
+    = form_for(item, html:{class: 'sell-form'}) do |f|
       %section.l-item-new-container.buy-item-container
         #sell-container
           %div

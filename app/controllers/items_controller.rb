@@ -10,13 +10,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-
-    @item_images = @item.item_images
+    set_item
+    set_category
     @saler = @item.saler
-    @category = @item.category
-    @parent_category = @category.parent
-    @grandparent_category = @category.root
     @brand = @item.brand
   end
 
@@ -36,6 +32,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
+  end
+
   def new
     @item = Item.new
     @item_images = @item.item_images.build
@@ -43,16 +48,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.save
+    Item.create(item_params)
     redirect_to root_path
   end
 
   def edit
-    @item = Item.includes(:item_images).find(params[:id])
-    @item_images = @item.item_images
-    @parent_category = Category.find(@item.category_id).parent
-    @root_category = @parent_category.parent
+    set_item
+    @item_images.each do |item_image|
+      item_image.image.cache!
+    end
+    set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end
 
@@ -73,12 +78,23 @@ class ItemsController < ApplicationController
       :ships_from,
       :days_to_ship,
       :price,
-      item_images_attributes:[:image]
+      item_images_attributes:[:id, :image,:image_cache]
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
   end
 
   def set_brand_id
     Brand.where('name = ?', params[:brand_name])
+  end
+
+  def set_item
+    @item = Item.includes(:item_images).find(params[:id])
+    @item_images = @item.item_images
+  end
+
+  def set_category
+    @category = @item.category
+    @parent_category = @category.parent
+    @grandparent_category = @category.root
   end
 
 end

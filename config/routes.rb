@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root 'items#index'
-  resources :items, only: [:show, :index, :new, :create, :edit] do
+
+  resources :items, only: [:show, :index, :new, :create, :edit, :update] do
     member do
       get :purchase_top
       post :purchase

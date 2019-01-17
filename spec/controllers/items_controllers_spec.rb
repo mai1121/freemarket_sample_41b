@@ -121,4 +121,30 @@ describe ItemsController do
 
   end
 
+  describe 'PATCH #update' do
+    let(:user) { create(:user) }
+    let(:item) { create(:item_with_images)}
+
+    before do
+     login_user user
+    end
+
+    context 'can save' do
+      it 'locates the requersted @item' do
+        patch :update, params: {id: item, item: attributes_for(:item)}
+        expect(assigns(:item)).to eq item
+      end
+
+      it "changes @item's attributes" do
+        patch :update, params: {id: item, item: attributes_for(:item, status: 'close_to_unused',delivery_fee_method: 'cash_on_delivery',days_to_ship: 'shipped_within_2_to_3_days',size: 'XXS_or_SS',ships_from: 'aomori',delivery_method: 'kuronekoyamato')}
+        item.reload
+        expect(item.status).to eq('close_to_unused')
+        expect(item.delivery_fee_method).to eq('cash_on_delivery')
+        expect(item.days_to_ship).to eq('shipped_within_2_to_3_days')
+        expect(item.size).to eq('XXS_or_SS')
+        expect(item.ships_from).to eq('aomori')
+        expect(item.delivery_method).to eq('kuronekoyamato')
+      end
+    end
+  end
 end
