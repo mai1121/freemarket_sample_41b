@@ -55,7 +55,6 @@ describe ItemsController do
 
   end
 
-<<<<<<< HEAD
   describe 'GET #purchase_top' do
 
     context 'log in' do
