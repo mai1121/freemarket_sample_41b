@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item_images = @item.item_images.build
-    @item_image_length = "have-item-0"
+    @item_image_length = "have-item0"
   end
 
   def create
