@@ -8,10 +8,13 @@
     .sell-upload-items-container
       %div{class: "sell-upload-items #{@item_image_length}"}
         %ul
-
+          - if controller.action_name == 'edit'
+            = render partial: '/items/form/singleImage', locals: {item_images: @item_images}
         .sell-upload-drop-box#drop_zone.clearfix
           %pre
             =preserve do
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
-= f.file_field :item_images, multiple: true, name: "item[item_images_attributes][][image]",class: 'sell-upload-drop-file', style: 'display: none;', id: 'item_image'
+= f.fields_for(:item_images) do |i|
+  = i.file_field :image, class: 'sell-upload-drop-file', style: 'display: none', id: 'item_image'
+
