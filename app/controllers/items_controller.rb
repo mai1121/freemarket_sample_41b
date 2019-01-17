@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     if current_user.purchase(@item,@token)
       redirect_to root_path
     else
-      new_user_session_path
+      redirect_to new_user_session_path
     end
   end
 
