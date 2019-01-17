@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root 'items#index'
-  resources :items, only: [:show, :index] 
+  resources :items, only: [:show, :index] do
+    member do
+      get :purchase_top
+      post :purchase
+    end
+  end
   get 'users/sign_up_top' => 'users#top'
   get '/signup/registration' => 'users#registration'
   get '/users/mypage/' => 'users#show'
