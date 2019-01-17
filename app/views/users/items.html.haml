@@ -1,0 +1,30 @@
+.saling-items-info
+  .saling-items-info-title
+    %h3 出品した商品
+  .tabs
+    %input#selling_items{type: "radio", name: "items-info-tab-item",checked:"checked"}
+    %label.tab_item_3{for: "selling_items"}
+      %h3
+        出品中
+    %input#during_tradings{type: "radio", name: "items-info-tab-item"}
+    %label.tab_item_3{for: "during_tradings"}
+      %h3
+        取引中
+    %input#sold_items{type: "radio", name: "items-info-tab-item"}
+    %label.tab_item_3{for: "sold_items"}
+      %h3
+        売却済み
+    .tab_content#selling_items_content
+      %ul#mypage-tab-selling_items.mypage-item-list.tab-pane
+        - @items.each do |item|
+          %li
+            = link_to edit_item_path(item.id) do
+              = image_tag "#{item.item_images[0].image}"
+              = item.name
+    .tab_content#during_tradings_content
+      %ul#mypage-tab-during_tradings.mypage-item-list.tab-pane
+        %li.mypage-item-not-found.bold 過去に取引した商品がありません
+    .tab_content#sold_items_content
+      %ul#mypage-tab-sold_items.mypage-item-list.tab-pane
+        %li.mypage-item-not-found.bold 過去に取引した商品がありません
+

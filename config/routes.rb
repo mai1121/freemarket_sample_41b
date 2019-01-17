@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root 'items#index'
-  resources :items, only: [:show, :index,:new, :create]
+  resources :items, only: [:show, :index,:new, :create, :edit]
 
   get 'users/sign_up_top' => 'users#top'
   get '/signup/registration' => 'users#registration'
@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/users/mypage/logout' => 'users#logout'
   get '/users/mypage/profile' => 'users#profile'
   get '/users/mypage/card' => 'users#card'
+  get '/users/mypage/items' => 'users#items'
 end
