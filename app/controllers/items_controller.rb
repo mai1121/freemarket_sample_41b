@@ -39,12 +39,21 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item_images = @item.item_images.build
+    @item_image_length = "have-item0"
   end
 
   def create
     @item = Item.new(item_params)
     @item.save
     redirect_to root_path
+  end
+
+  def edit
+    @item = Item.includes(:item_images).find(params[:id])
+    @item_images = @item.item_images
+    @parent_category = Category.find(@item.category_id).parent
+    @root_category = @parent_category.parent
+    @item_image_length = "have-item#{@item.item_images.length}"
   end
 
   private
