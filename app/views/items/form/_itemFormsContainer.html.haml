@@ -24,10 +24,5 @@
   %footer.item-new-footer
     = render '/layouts/accounts/footer'
   %template#image-list-item
-    %li.sell-upload-item
-      %figure.sell-upload-figure.landscape
-        .img{class: '', html:{ src:'', alt:''}}
-        .sell-upload-button
-          %a.sell-upload-edit 編集
-          %a.sell-upload-edit 削除
+    = render '/items/form/single-image', {item: @item}
   = render partial: '/items/category-template'
