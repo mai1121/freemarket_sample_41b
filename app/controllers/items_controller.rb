@@ -22,16 +22,19 @@ class ItemsController < ApplicationController
 
   def purchase_top
     @item = Item.find(params[:id])
+    @item_price = @item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
     @item_image = @item.item_images.first
   end
 
   def purchase
     @item = Item.find(params[:id])
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    @token = params['payjpToken']
 
-    @purchase = Payjp::Charge.create(currency: 'jpy', amount: @item.price, card: params['payjpToken'] )
-    @item.update(buyer_id: current_user.id)
-    redirect_to root_path
+    if current_user.purchase(@item,@token)
+      redirect_to root_path
+    else
+      new_user_session_path
+    end
   end
 
   def new
