@@ -7,11 +7,13 @@
       margin: 40px 0 0;
       display: inline-block;
       a{
-        width: 185px;
-        height: 49px;
         line-height: 49px;
         display: inline-block;
         margin: 0 8px 0 0;
+        img{
+          width: 185px;
+          height: 49px;
+        }
       }
     }
   }
@@ -38,8 +40,9 @@
         margin: 0 auto;
         max-width: 320px;
       }
-      &-image{
-
+      img{
+        width: 148px;
+        height: 148px;
       }
       &-name{
         margin: 8px 0 0;
@@ -156,6 +159,10 @@
       p.purchase_top__method-card-year{
         display: inline-block;
       }
+      img{
+        width: 49px;
+        height: 15px;
+      }
       a{
         color: #0099e8;
         display: block;
@@ -196,6 +203,10 @@
       width: 80px;
       height: 65px;
       margin: 40px auto 0;
+      img{
+        width: 80px;
+        height: 65px;
+      }
     }
     p{
       margin: 8px 0 0;
