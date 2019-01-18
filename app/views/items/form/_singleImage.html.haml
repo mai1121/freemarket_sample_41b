@@ -1,0 +1,8 @@
+- if controller.action_name == 'edit'
+  - @item_images.each do |item_image|
+    %li.sell-upload-item
+      %figure.sell-upload-figure.landscape
+        = image_tag "#{item_image.image}"
+      .sell-upload-button
+        %a.sell-upload-edit 編集
+        %a 削除

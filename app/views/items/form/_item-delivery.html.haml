@@ -7,26 +7,26 @@
         配送料の負担
         %span.form-require 必須
       .select-wrap
-        = f.select :delivery_fee_method, options_for_select(Item.delivery_fee_methods_i18n.invert), {}, { class: "select-default" }
+        = f.select :delivery_fee_method, options_for_select(Item.delivery_fee_methods_i18n.invert, @item.delivery_fee_method), {prompt: "選択してください"} , { class: "select-default" }
         %i.icon-arrow-bottom
     .form-group#delivery_method{style: "display:none"}
       %label
         配送の方法
         %span.form-require 必須
       .select-wrap
-        = f.select :delivery_method, options_for_select(Item.delivery_methods_i18n.invert), {}, { class: "select-default" }
+        = f.select :delivery_method, options_for_select(Item.delivery_methods_i18n.invert, @item.delivery_method), {}, { class: "select-default" }
         %i.icon-arrow-bottom
     .form-group
       %label
         発送元の地域
         %span.form-require 必須
       .select-wrap
-        = f.select :ships_from, options_for_select(Item.ships_froms_i18n.invert), {}, { class: "select-default" }
+        = f.select :ships_from, options_for_select(Item.ships_froms_i18n.invert, @item.ships_from), {}, { class: "select-default" }
         %i.icon-arrow-bottom
     .form-group
       %label
         発送までの日数
         %span.form-require 必須
       .select-wrap
-        = f.select :days_to_ship, options_for_select(Item.days_to_ships_i18n.invert), {}, { class: "select-default" }
+        = f.select :days_to_ship, options_for_select(Item.days_to_ships_i18n.invert, @item.days_to_ship), {}, { class: "select-default" }
         %i.icon-arrow-bottom

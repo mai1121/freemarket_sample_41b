@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe ItemsController do
+
+  let(:user) { create(:user) }
+
   describe 'GET #index' do
     before do
       saler = create(:saler)
@@ -52,6 +55,49 @@ describe ItemsController do
 
   end
 
+  describe 'GET #purchase_top' do
+
+    context 'log in' do
+      before :each do
+        login user
+
+        saler = create(:saler)
+        buyer = create(:buyer)
+        brand = create(:brand)
+        category = create(:category)
+
+        @item = create(:item_with_images, category_id: category.id, brand_id: brand.id, saler_id: saler.id, buyer_id: buyer.id)
+        get :purchase_top, params: {id: @item}
+      end
+
+      it "assigns the requested item to @item" do
+        expect(assigns(:item)).to eq @item
+      end
+
+      it "renders the :purchase_top template" do
+        expect(response).to render_template :purchase_top
+      end
+    end
+
+    context 'not log in' do
+      before do
+        saler = create(:saler)
+        buyer = create(:buyer)
+        brand = create(:brand)
+        category = create(:category)
+
+        @item = create(:item_with_images, category_id: category.id, brand_id: brand.id, saler_id: saler.id, buyer_id: buyer.id)
+        get :purchase_top, params: {id: @item}
+      end
+
+      it "renders to new_user_session_path" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+  end
+
+
   describe 'GET #new' do
     let(:user) { create(:user) }
 
@@ -72,6 +118,33 @@ describe ItemsController do
         expect(response).to redirect_to(new_user_session_path)
       end
     end
+
   end
 
+  describe 'PATCH #update' do
+    let(:user) { create(:user) }
+    let(:item) { create(:item_with_images)}
+
+    before do
+     login_user user
+    end
+
+    context 'can save' do
+      it 'locates the requersted @item' do
+        patch :update, params: {id: item, item: attributes_for(:item)}
+        expect(assigns(:item)).to eq item
+      end
+
+      it "changes @item's attributes" do
+        patch :update, params: {id: item, item: attributes_for(:item, status: 'close_to_unused',delivery_fee_method: 'cash_on_delivery',days_to_ship: 'shipped_within_2_to_3_days',size: 'XXS_or_SS',ships_from: 'aomori',delivery_method: 'kuronekoyamato')}
+        item.reload
+        expect(item.status).to eq('close_to_unused')
+        expect(item.delivery_fee_method).to eq('cash_on_delivery')
+        expect(item.days_to_ship).to eq('shipped_within_2_to_3_days')
+        expect(item.size).to eq('XXS_or_SS')
+        expect(item.ships_from).to eq('aomori')
+        expect(item.delivery_method).to eq('kuronekoyamato')
+      end
+    end
+  end
 end

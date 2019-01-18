@@ -6,11 +6,16 @@
   %p 最大4枚までアップロードできます
   .sell-dropbox-container.clearfix.state-image-number-4
     .sell-upload-items-container
-      .sell-upload-items.have-item-0
+      %div{class: "sell-upload-items #{@item_image_length}"}
         %ul
+          - if controller.action_name == 'edit'
+            = render partial: '/items/form/singleImage', locals: {item_images: @item_images}
         .sell-upload-drop-box#drop_zone.clearfix
           %pre
             =preserve do
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
-= f.file_field "item_image", multiple: true, name: "item[item_images_attributes][][image]",class: 'sell-upload-drop-file', style: 'display: none;', id: 'item_image'
+= f.fields_for(:item_images) do |i|
+  = i.file_field :image, class: 'sell-upload-drop-file', style: 'display: none', id: 'item_image'
+  = i.hidden_field :image_cache
+
