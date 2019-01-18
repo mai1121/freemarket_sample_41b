@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   before_action :require_login, only: [:new, :create]
   before_action :set_item, only: [:show, :edit, :destroy]
-  before_action :check_user_id, only: [:show, :edit, :destroy]
+  before_action :check_user_id, only: [:edit, :destroy]
 
   before_action :find_item, only: [:purchase_top, :purchase, :update]
 
@@ -61,6 +61,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if @item.destroy
+      redirect_to root_path
+    end
   end
 
   private
