@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
   root 'items#index'
 
-  resources :items, only: [:show, :index, :new, :create, :edit, :update] do
+  resources :items, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     member do
       get :purchase_top
       post :purchase

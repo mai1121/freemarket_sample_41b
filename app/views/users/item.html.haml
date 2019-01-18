@@ -1,0 +1,14 @@
+%header.header-content
+  = render 'shared/header'
+%section.item-detail
+  = render 'shared/item-detail'
+  %p.item-detail__item-description-inner
+  = @item.description
+  = link_to "商品の編集", edit_item_path(@item), class: "item-detail__buy-button"
+  %p or
+  = link_to "この商品を削除する", "/item/#{@item.id}", method: :delete, class: "item-detail__buy-button-gray"
+#aside.banner-content
+  = render 'shared/banner-content'
+
+#footer.footer-content
+  = render 'shared/footer'

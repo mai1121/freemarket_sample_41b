@@ -29,6 +29,9 @@ class UsersController < ApplicationController
 
   def item
     @item = Item.includes(:item_images).find(params[:id])
+    @item_images = @item.item_images
+    @saler = current_user
+    set_category
   end
 
   def items
