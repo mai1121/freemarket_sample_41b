@@ -1,5 +1,9 @@
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
+end
+
+crumb :mypages do
+  link "マイページ", users_mypage_path
 end
 
 # crumb :projects do
