@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
+
+  before_action :authenticate_user!, only: [:purchase_top,:purchase]
+
   before_action :require_login, only: [:new, :create]
+
+  before_action :find_item, only: [:purchase_top, :purchase, :update]
 
   def index
     @items = Item.includes(:item_images).all
@@ -13,8 +18,21 @@ class ItemsController < ApplicationController
     @brand = @item.brand
   end
 
+  def purchase_top
+    @item_image = @item.item_images.first
+  end
+
+  def purchase
+    @token = params['payjpToken']
+
+    if current_user.purchase(@item,@token)
+      redirect_to root_path
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to action: :show
     else
@@ -77,4 +95,9 @@ class ItemsController < ApplicationController
     @parent_category = @category.parent
     @grandparent_category = @category.root
   end
+
+  def find_item
+    @item = Item.find(params[:id])
+  end
+
 end

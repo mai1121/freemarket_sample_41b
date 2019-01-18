@@ -1,0 +1,81 @@
+.purchase_top
+  %header.purchase_top__header
+    %h1
+      = link_to image_tag('/images/mercari_gray.png'),root_path
+  %main.purchase_top__main
+    %section.purchase_top__main-container
+      %h2.purchase_top__main-header 購入を確定しますか？
+      %section.purchase_top__main-item
+        .purchase_top__main-item-inner
+          %h3.purchase_top__main-item-image
+            = image_tag "#{@item_image.image}"
+          %p.purchase_top__main-item-name
+            = @item.name
+          .purchase_top__main-item-buy
+            %p.purchase_top__main-item-price
+              = item_price(@item.price)
+              %span.purchase_top__main-item-shipping-fee 送料込み
+            %ul.purchase_top__main-item-table
+              %li
+                .purchase_top__main-item-pay-text 支払い金額
+                .purchase_top__main-item-pay-price
+                  %span 
+                    = item_price(@item.price)
+            = form_tag(purchase_item_path, method: :post, id: "charge-form") do
+              %script{src: "https://js.pay.jp/", type: "text/javascript"}
+              %span.charge-errors
+              %h4  
+              %input.number{ value: "#{current_user.credit_card_num}", name: "number", type: "text", id: "num",type: "hidden"}/
+              %input.cvc{ maxlength: "3", name: "cvc", value: "#{current_user.credit_card_security_num}", type: "text", id: "cvc",type: "hidden"}/
+              %input.exp_month{ maxlength: "2", name: "exp_month", value: "#{current_user.credit_card_expiration_month}", type: "text", id: "exp_month",type: "hidden"}/
+              %input.exp_year{ maxlength:"4", name: "exp_year", value: "20#{current_user.credit_card_expiration_year}", type: "text", id: "exp_year",type: "hidden"}/
+              %input.token{type: "hidden", name: "payjpToken", id: "token",type: "hidden"}/
+              %input{type: "submit", class: "submit_button btn-red", value: "購入する"} 
+    
+      %section.purchase_top__user-info
+        .purchase_top__user-info-inner
+          %h3 配送先
+          .purchase_top__user-address
+            .purchase_top__user-address--postal_code
+              = current_user.postal_code
+            %p.purchase_top__user-address--city
+              = current_user.city
+            %p.purchase_top__user-address--address
+              = current_user.address
+            %p.purchase_top__user-address--building-name
+              = current_user.building_name
+          .purchase_top__user-name
+            %p.purchase_top__user-name--first
+              = current_user.first_name
+            %p.purchase_top__user-name--last
+              = current_user.last_name
+          = link_to "" do
+            変更する
+            %i.icon-arrow-right
+      %section.purchase_top__method
+        .purchase_top__method-inner
+          %h3 支払い方法
+          %p.purchase_top__method-card-num
+            = current_user.credit_card_num
+          %p.purchase_top__method-card-month
+            = current_user.credit_card_expiration_month
+          %p.purchase_top__method-card-bar /
+          %p.purchase_top__method-card-year
+            = current_user.credit_card_expiration_year
+          %figure
+            = image_tag '/images/visa.png'
+          = link_to "" do
+            変更する
+            %i.icon-arrow-right  
+
+  %footer.purchase_top__footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to "プライバシーポリシー",""
+        %li.footer-list
+          = link_to "メルカリ利用規約",""
+        %li.footer-list
+          = link_to "特定商取引に関する表記",""
+    = link_to image_tag('/images/mercari_footer_gray.png'), root_path, class: "footer-image"
+    %p © 2019 Mercari
