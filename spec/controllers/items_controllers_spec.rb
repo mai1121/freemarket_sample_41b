@@ -59,7 +59,7 @@ describe ItemsController do
 
     context 'log in' do
       before :each do
-        login user
+        login_user user
 
         saler = create(:saler)
         buyer = create(:buyer)
@@ -123,7 +123,7 @@ describe ItemsController do
 
   describe 'PATCH #update' do
     let(:user) { create(:user) }
-    let(:item) { create(:item_with_images)}
+    let(:item) { create(:item_with_images, saler_id: user.id)}
 
     before do
      login_user user
@@ -144,6 +144,38 @@ describe ItemsController do
         expect(item.size).to eq('XXS_or_SS')
         expect(item.ships_from).to eq('aomori')
         expect(item.delivery_method).to eq('kuronekoyamato')
+      end
+    end
+  end
+
+  describe 'delete #destroy' do
+    let(:user) { create(:user) }
+    before do
+      login_user user
+    end
+
+    context 'call from correct user' do
+
+      it "deletes the article" do
+        item = create(:item_with_images, saler_id: user.id)
+        expect{
+          delete :destroy, id: item
+        }.to change(Item,:count).by(-1)
+      end
+
+      it "redirects to root_path" do
+        item = create(:item_with_images, saler_id: user.id)
+        delete :destroy, id: item
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context 'call from incorrect user' do
+      it "redirects to new_user_session_path" do
+        different_user = create(:user)
+        item = create(:item_with_images, saler_id: different_user.id)
+        delete :destroy, id: item
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

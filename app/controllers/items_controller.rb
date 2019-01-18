@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:purchase_top,:purchase]
 
   before_action :require_login, only: [:new, :create]
+  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :check_user_id, only: [:edit, :destroy]
 
   before_action :find_item, only: [:purchase_top, :purchase, :update]
 
@@ -12,7 +14,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     set_category
     @saler = @item.saler
     @brand = @item.brand
@@ -52,12 +53,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    set_item
     @item_images.each do |item_image|
       item_image.image.cache!
     end
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    end
   end
 
   private
@@ -100,4 +106,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def check_user_id
+     redirect_to  new_user_session_url unless @item.saler_id == current_user.id
+  end
 end
