@@ -34,6 +34,33 @@
     position: relative;
     margin: 0 auto;
     background: #fafafa;
+    img{
+      height: 300px;
+      width: 300px;
+    }
+    .slider-list-sold{
+      border-top: 50px solid red;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 50px solid red;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      height: 50px;
+      width: 50px;
+      p{
+        position: absolute;
+        top: -30px;
+        left: -40px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px;
+        z-index: 3;
+      }
+    }
     ul.slider-nav{
       .slick-list{
         padding: 0 !important;
@@ -131,6 +158,17 @@
       font-size: 50px;
       font-weight: 500;
     }
+  }
+  &__sold-button{
+    height: 60px;
+    line-height: 60px;
+    display: block;
+    margin: 16px 0 0;
+    background: gray;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
   }
   &__buy-button{
     height: 60px;
