@@ -36,6 +36,29 @@
           height: 220px;
           overflow: hidden;
           position: relative;
+          .items__box-content-sold{
+            border-top: 50px solid red;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 50px solid red;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            height: 50px;
+            width: 50px;
+            p{
+              position: absolute;
+              top: -20px;
+              left: -40px;
+              color: #fff;
+              font-weight: bold;
+              font-size: 20px;
+              z-index: 3;
+            }
+          }
           img{
             vertical-align: middle;
             position: absolute;

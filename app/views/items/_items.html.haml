@@ -8,13 +8,18 @@
         %section.items__box-content
           = link_to item_path(item) do
             %figure.items__box-content-photo
-              =image_tag "#{item.item_images[0].image}"
+              - if item.buyer_id
+                .items__box-content-sold
+                  %p sold
+                =image_tag "#{item.item_images[0].image}"
+              - else
+                =image_tag "#{item.item_images[0].image}"
             .items__box-content-text
               %h3.item__box-content-text-name
                 =item.name
               .items__box-content-text-num.clearfix
                 .items__box-content-text-price
-                  =item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+                  = item_price(item.price)
                 .items__box-content-text-likes
                   %i.far.fa-heart.like-icon
                   %span 22
@@ -32,13 +37,18 @@
         %section.items__box-content
           = link_to item_path(item) do
             %figure.items__box-content-photo
-              =image_tag "#{item.item_images[0][:image]}"
+              - if item.buyer_id
+                .items__box-content-sold
+                  %p sold
+                =image_tag "#{item.item_images[0].image}"
+              - else
+                =image_tag "#{item.item_images[0].image}"
             .items__box-content-text
               %h3.item__box-content-text-name
                 =item.name
               .items__box-content-text-num.clearfix
                 .items__box-content-text-price
-                  =item.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,').insert(0,'¥ ')
+                  = item_price(item.price)
                 .items__box-content-text-likes
                   %i.far.fa-heart.like-icon
                   %span 22
