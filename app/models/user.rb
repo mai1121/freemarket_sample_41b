@@ -17,6 +17,16 @@ class User < ApplicationRecord
   has_many :salling_items, class_name: "Item"
   has_many :bought_items, class_name: "Item"
 
+
+  def purchase(item,token)
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+
+    @purchase = Payjp::Charge.create(currency: 'jpy', amount: item.price, card: token )
+    item.update(buyer_id: id)
+  end
+
+
+
   def self.find_for_omniauth(auth)
     user = User.where(email: auth.info.email, provider: auth.provider).first
     unless user
