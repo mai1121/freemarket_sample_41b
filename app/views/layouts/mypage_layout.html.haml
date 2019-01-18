@@ -11,10 +11,7 @@
   %body
     %header.header-content
       = render 'shared/header'
-      .header-breadcrumb
-        .header-innner
-          - breadcrumb controller.action_name.to_sym
-          = breadcrumbs separator: " &rsaquo; "
+      = render 'shared/breadCrumbs'
     .mypage-container.clearfix
       %main.mypage-content
         = yield
