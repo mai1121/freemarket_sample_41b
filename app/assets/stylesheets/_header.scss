@@ -50,7 +50,7 @@
    }
  }
  &__navbox{
-   margin: 8px 0 0;	
+   margin: 8px 0 0;
  }
  &__left{
    float: left;
@@ -100,7 +100,7 @@
         padding: 0 16px;
         @include nav-text;
       }
-    }       
+    }
   }
   &--grand-child-wrap{
     @include nav-wrapper;
@@ -110,7 +110,7 @@
         @include nav-text;
       }
     }
-  }      
+  }
 }
 &__nav-bland{
   height: 38px;
@@ -128,7 +128,7 @@
       @include nav-text;
     }
   }
-}  
+}
 &__right{
  float: right;
  ul{
