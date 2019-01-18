@@ -13,7 +13,7 @@
       = render 'shared/header'
       .header-breadcrumb
         .header-innner
-          - breadcrumb :mypages
+          - breadcrumb controller.action_name.to_sym
           = breadcrumbs separator: " &rsaquo; "
     .mypage-container.clearfix
       %main.mypage-content

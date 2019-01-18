@@ -2,8 +2,43 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :mypages do
+crumb :show do
   link "マイページ", users_mypage_path
+end
+
+crumb :profile do
+  link "プロフィール", users_mypage_profile_path
+  parent :show
+end
+
+crumb :identification do
+  link "本人情報の登録", users_mypage_identification_path
+  parent :show
+end
+
+crumb :logout do
+  link "ログアウト", users_mypage_logout_path
+  parent :show
+end
+
+crumb :profile do
+  link "プロフィール", users_mypage_profile_path
+  parent :show
+end
+
+crumb :card do
+  link "支払い方法", users_mypage_card_path
+  parent :show
+end
+
+crumb :items do
+  link "出品した商品-出品中", users_mypage_items_path
+  parent :show
+end
+
+crumb :item do
+  link "出品確認画面" , "/users/mypage/salingitem/:id(.:format)"
+  parent :myitems
 end
 
 # crumb :projects do
