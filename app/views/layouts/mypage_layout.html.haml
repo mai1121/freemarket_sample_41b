@@ -11,6 +11,10 @@
   %body
     %header.header-content
       = render 'shared/header'
+      .header-breadcrumb
+        .header-innner
+          - breadcrumb :mypages
+          = breadcrumbs separator: " &rsaquo; "
     .mypage-container.clearfix
       %main.mypage-content
         = yield
