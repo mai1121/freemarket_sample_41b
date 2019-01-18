@@ -5,7 +5,7 @@
   =link_to @saler.nickname, ""
   さんから出品されました。
   - if @brand.present?
-    =link_to "#{@brand.name}(#{@category.name}/#{@parent_category.name})", ""
+    =link_to "#{@brand.name}(#{@category.name}/#{@parent_category.name})", '#'
     の商品で、#{@item.ships_from_i18n}から#{@item.days_to_ship_i18n}されます。
   - else
     =link_to "#{@category.name}/#{@parent_category.name})", ""
