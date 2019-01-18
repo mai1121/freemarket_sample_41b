@@ -1,6 +1,10 @@
 %header.header-content
   = render 'shared/header'
-
+  .header-breadcrumb
+    .header-innner
+      - breadcrumb "#{controller.controller_name}_#{controller.action_name}".to_sym,
+        @item
+      = breadcrumbs separator: " &rsaquo; "
 %section.item-detail
   = render 'shared/item-detail'
   =link_to "購入画面に進む", "", class: "item-detail__buy-button"
