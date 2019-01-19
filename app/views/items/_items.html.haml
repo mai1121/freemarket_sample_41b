@@ -2,18 +2,18 @@
   %h2.items__head ピックアップカテゴリー
   %section.items__box.clearfix
     %h3.items__title-text
-      = link_to 'レディース新着アイテム'
+      = link_to '新着アイテム', categories_path
     .items__box-contents.clearfix
       -@items.each do |item|
         = render '/items/form/item-box', item: item
     .items__view-all
-      = link_to "すべての商品を見る"
+      = link_to "すべての商品を見る", categories_path
 
 %section.items
   %h2.items__head ピックアップブランド
   %section.items__box.clearfix
     %h3.items__title-text
-      = link_to 'シャネル新着アイテム'
+      = link_to '新着アイテム'
     .items__box-contents.clearfix
       -@items.each do |item|
         = render '/items/form/item-box', item: item

@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
+
     $('.header-innner__nav-root').hover(function(){
       $(this).css('color','#0099e8');
       },function(){
@@ -41,4 +42,5 @@ $(document).on('turbolinks:load', function() {
       $(this).find('a').css('color','');
     });
   });
+  // $(document).off();
 });
