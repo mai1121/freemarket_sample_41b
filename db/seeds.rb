@@ -7841,12 +7841,37 @@ user = User.first
 # image = item.item_images.new(item_id: 11, image: File.open("#{Rails.root}/public/images/bag.jpeg"))
 # item.save!
 
-item = Item.new(id:12, name: "サンダル", description: "女性用のサンダルです。底が剥がれそうです。助けてください。", size: 1 , status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 3000, category_id: 59, saler_id: user.id)
-image = item.item_images.new(item_id: 12, image: File.open("#{Rails.root}/public/images/sandaru.jpeg"))
+# item = Item.new(id:12, name: "サンダル", description: "女性用のサンダルです。底が剥がれそうです。助けてください。", size: 1 , status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 3000, category_id: 59, saler_id: user.id)
+# image = item.item_images.new(item_id: 12, image: File.open("#{Rails.root}/public/images/sandaru.jpeg"))
 
+# item.save!
 
+item = Item.new(id:13, name: "シャネル口紅", description: "リップです", status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 3000, category_id: 696,brand_id: 2447, saler_id: user.id)
+image = item.item_images.new(item_id: 13, image: File.open("#{Rails.root}/public/images/chanel_lip.jpeg"))
 
+item.save!
 
+item = Item.new(id:14, name: "シャネル香水", description: "香水。", status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 5000, category_id: 719, brand_id: 2447,saler_id: user.id)
+image = item.item_images.new(item_id: 14, image: File.open("#{Rails.root}/public/images/chanel_kosui.jpeg"))
+
+item.save!
+
+item = Item.new(id:15, name: "シャネル財布", description: "財布", status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 3000, category_id: 117,brand_id: 2447, saler_id: user.id)
+image = item.item_images.new(item_id: 15, image: File.open("#{Rails.root}/public/images/chanel.jpeg"))
+
+item.save!
+
+item = Item.new(id:16, name: "ヴィトン財布", description: "財布", status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 3000, category_id: 117,brand_id: 2447, saler_id: user.id)
+image = item.item_images.new(item_id: 16, image: File.open("#{Rails.root}/public/images/louisvuitton.jpeg"))
+
+item.save!
+
+item = Item.new(id:17, name: "ぼうし", description: "キャップ", status: 1 , delivery_fee_method: 1 , delivery_method: 2 , ships_from: 21 , days_to_ship: 2 ,price: 250000, category_id: 80, brand_id: 2468,saler_id: user.id)
+image = item.item_images.new(item_id: 17, image: File.open("#{Rails.root}/public/images/supreme_cap.jpeg"))
+item.save!
+
+item = Item.new(id:18, name: "Tシャツ", description: "半袖", size: 1 , status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 3 , days_to_ship: 1 ,price: 30000, category_id: 140, brand_id: 2468,saler_id: user.id)
+image = item.item_images.new(item_id: 18, image: File.open("#{Rails.root}/public/images/supreme_tshirt.jpeg"))
 item.save!
 
 
