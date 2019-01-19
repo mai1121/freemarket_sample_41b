@@ -93,7 +93,8 @@ class ItemsController < ApplicationController
   end
 
   def set_item_images(item)
-    images = params.require(:item).require(:item_images_attributes).require(:image)
+    binding.pry
+    images = params[:item][:item_images_attributes]
     images.each do |image|
       item.item_images.build(image: image)
     end
