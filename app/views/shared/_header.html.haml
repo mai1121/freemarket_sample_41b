@@ -27,12 +27,12 @@
 
         %li.header-innner__nav-bland
           %h2
-            = link_to "ブランドから探す", '',class: 'header-innner__nav-root'
+            = link_to "ブランドから探す", brands_path,class: 'header-innner__nav-root'
           %ul.header-innner__bland-nav
-            -Brand.recommend_items_i18n.invert.keys.each do |bland|
+            -Brand.recommend_items_i18n.invert.keys.each do |brand|
               %li.header-innner__bland-nav-list
                 %h3
-                  = link_to "#{bland}", '',class: "header-innner__bland-nav-name"
+                  = link_to "#{brand}", brand_path(brand),class: "header-innner__bland-nav-name"
 
 
     .header-innner__right
