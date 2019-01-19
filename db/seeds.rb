@@ -7861,7 +7861,7 @@ image = item.item_images.new(item_id: 15, image: File.open("#{Rails.root}/public
 
 item.save!
 
-item = Item.new(id:16, name: "ヴィトン財布", description: "財布", status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 3000, category_id: 117,brand_id: 2447, saler_id: user.id)
+item = Item.new(id:16, name: "ヴィトン財布", description: "財布", status: 1 , delivery_fee_method: 1 , delivery_method: 1 , ships_from: 4 , days_to_ship: 2 ,price: 3000, category_id: 117,brand_id: 6155, saler_id: user.id)
 image = item.item_images.new(item_id: 16, image: File.open("#{Rails.root}/public/images/louisvuitton.jpeg"))
 
 item.save!
