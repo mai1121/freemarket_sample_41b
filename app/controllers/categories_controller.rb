@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
   def index
-    
+    @root_categories = Category.roots()
   end
+  
   def show
     # 選択したカテゴリー
     @category = Category.find(params[:id])
