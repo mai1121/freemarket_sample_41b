@@ -26,6 +26,10 @@
       text-decoration: none;
       background-color: #fff;
     }
+    a:hover{
+      color: #fff;
+      background-color: #ea352d;
+    }
   }
   &__list-boxes{
     margin: 30px auto;
@@ -99,5 +103,4 @@
       }
     }
   }
-
 }

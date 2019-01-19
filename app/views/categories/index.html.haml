@@ -7,7 +7,7 @@
       %h2 カテゴリー一覧
     .category-index__nav.clearfix
       - @root_categories.each do |root_category|
-        = link_to root_category.name, category_path(root_category)
+        = link_to root_category.name, category_path(root_category), class: "root_category_link" 
     .category-index__list-boxes
       - @root_categories.each do |root_category|
         .category-index__list-box
