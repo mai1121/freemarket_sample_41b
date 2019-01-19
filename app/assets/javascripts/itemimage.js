@@ -12,13 +12,16 @@ $(document).on('turbolinks:load', function() {
   });
 
   $("input[type=file]").on('change',function(){
-    var fr = new FileReader();
-    fr.onload = function(fr) {
-        var ul = $('.sell-upload-items ul');
-        ul.append(buildListItem(this.result));
-        changeUploadImagesClass(ul)
-    };
-    fr.readAsDataURL(this.files[0]);
+    var files = this.files;
+    for (var i = 0; i < files.length; i++) {
+      var fr = new FileReader();
+        fr.onload = function(fr) {
+            var ul = $('.sell-upload-items ul');
+            ul.append(buildListItem(this.result));
+            changeUploadImagesClass(ul)
+        };
+      fr.readAsDataURL(files[i]);
+    }
   })
 
   $dropZone.on('dragleave',function(e){
@@ -35,7 +38,11 @@ $(document).on('turbolinks:load', function() {
       e.preventDefault();
 
       var files = e.dataTransfer.files;
+      debugger;
       addUploadImages(files)
+      var formData = document.querySelector('.sell-form')
+      行けたらいいな
+      image_container.appendChild(files)
     }, false);
   };
 });
