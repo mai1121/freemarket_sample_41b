@@ -48,9 +48,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(item_params)
-    set_item_images(item)
-    if item.save!
+    @item = Item.new(item_params)
+    params[:item]['item_images_attributes']['0']['image'].each do |a|
+       @item.item_images.build(:image => a, :item_id => @item.id)
+    end
+    if @item.save!
       redirect_to root_path
     else
       render action: :new
@@ -93,11 +95,12 @@ class ItemsController < ApplicationController
   end
 
   def set_item_images(item)
-    binding.pry
-    images = params[:item][:item_images_attributes]
+    images = params[:item][:item_images_attributes]["0"]
+    item_images = []
     images.each do |image|
-      item.item_images.build(image: image)
+      item_images << item.item_images.build(image: image)
     end
+    return item_images
   end
 
   def set_brand_id
