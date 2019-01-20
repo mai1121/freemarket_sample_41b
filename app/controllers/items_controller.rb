@@ -113,6 +113,7 @@ class ItemsController < ApplicationController
   end
 
   def set_category
+    @root_categories = Category.roots
     @category = @item.category
     @parent_category = @category.parent
     @grandparent_category = @category.root
