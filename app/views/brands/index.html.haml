@@ -1,0 +1,32 @@
+%header.header-content
+  = render 'shared/header'
+
+.brands-index
+  .brands-index__container
+    .brands-index__title
+      %h2 ブランド一覧
+      .brands-index__initial
+        - @initial_strings.each do |initial_string|
+          = link_to "#{initial_string}|", "#initial#{initial_string}"
+
+      .brands-index__lists
+        .brands-index__list-title
+          .brands-index__list-initial
+            - @indicate_brands.each do |indicate_brand|
+              %h4{id: "initial#{indicate_brand[0]}"}
+                = indicate_brand[0]
+                .brands-index__list-contents.clearfix
+                  - indicate_brand[1].each do |brand|
+                    .brands-index__brand-box
+                      %p
+                        = link_to brand.name, brand_path(brand)
+
+
+#aside.banner-content
+  = render 'shared/banner-content'
+
+#footer.footer-content
+  = render 'shared/footer'
+
+%a(class='sell-btn' href='/items/new')
+  = render 'shared/sell-btn'

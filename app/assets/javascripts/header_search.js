@@ -9,6 +9,7 @@ $(document).on('turbolinks:load', function() {
     $('.header-innner__nav-category').hover(function(){
       $(this).children('ul').toggle();
     });
+    
     $('.header-innner__category-nav--parent').hover(function(){
       $(this).css('background','red');
       $(this).find('a.header-innner__category-nav--parent-name').css('color','#fff');
@@ -42,5 +43,4 @@ $(document).on('turbolinks:load', function() {
       $(this).find('a').css('color','');
     });
   });
-  // $(document).off();
 });
