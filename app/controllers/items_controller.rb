@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:item_images).all
     @parent_categories = Category.roots()
+    @brand_items = @items.where.not(brand_id: nil)
   end
 
   def show

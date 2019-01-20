@@ -15,8 +15,8 @@
     %h3.items__title-text
       = link_to '新着アイテム'
     .items__box-contents.clearfix
-      -@items.each do |item|
-        = render '/items/form/item-box', item: item
+      -@brand_items.each do |brand_item|
+        = render '/items/form/item-box', item: brand_item
     .items__view-all
       = link_to "すべての商品を見る"
 
