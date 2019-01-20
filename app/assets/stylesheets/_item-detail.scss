@@ -3,6 +3,10 @@
   margin: 40px auto;
   background-color: #fff;
   width: 700px;
+  p {
+    margin-top: 10px;
+    text-align: center;
+  }
   &__title{
     font-size: 24px;
     text-align: center;
@@ -148,7 +152,7 @@
       }
     }
     }
-    
+
   }
   &__price-box{
     margin: 24px 0 0;
@@ -176,6 +180,17 @@
     display: block;
     margin: 16px 0 0;
     background: #ea352d;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  &__buy-button-gray{
+    height: 60px;
+    line-height: 60px;
+    display: block;
+    margin: 16px 0 0;
+    background: #8F8F8F;
     color: #fff;
     text-align: center;
     font-weight: 600;
@@ -216,7 +231,7 @@
         text-decoration: none;
       }
     }
-  }        
+  }
 
 }
 

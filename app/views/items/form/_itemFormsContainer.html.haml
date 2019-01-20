@@ -25,4 +25,5 @@
     = render '/layouts/accounts/footer'
   %template#image-list-item
     = render '/items/form/singleImage', {item: @item}
-  = render partial: '/items/category-template'
+  - cache "new_item_category_template", expires_in: 20.minutes do
+    = render partial: '/items/category-template'

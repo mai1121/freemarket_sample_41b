@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
   root 'items#index'
 
-  resources :items, only: [:show, :index, :new, :create, :edit, :update] do
+  resources :items, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     member do
       get :purchase_top
       post :purchase
@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get '/users/mypage/profile' => 'users#profile'
   get '/users/mypage/card' => 'users#card'
   get '/users/mypage/items' => 'users#items'
+  get '/users/mypage/salingitem/:id' => 'users#item'
 end

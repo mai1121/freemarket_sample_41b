@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:purchase_top,:purchase]
 
   before_action :require_login, only: [:new, :create]
+  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :check_user_id, only: [:edit, :destroy]
 
   before_action :find_item, only: [:purchase_top, :purchase, :update]
 
@@ -13,7 +15,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     set_category
     @saler = @item.saler
     @brand = @item.brand
@@ -48,17 +49,29 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
-    redirect_to root_path
+    @item = Item.new(item_params)
+    params[:item]['item_images_attributes']['0']['image'].each do |a|
+       @item.item_images.build(:image => a, :item_id => @item.id)
+    end
+    if @item.save!
+      redirect_to root_path
+    else
+      render action: :new
+    end
   end
 
   def edit
-    set_item
     @item_images.each do |item_image|
       item_image.image.cache!
     end
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    end
   end
 
   private
@@ -67,7 +80,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(
+    item_params = params.require(:item).permit(
       :name,
       :description,
       :category_id,
@@ -78,8 +91,17 @@ class ItemsController < ApplicationController
       :ships_from,
       :days_to_ship,
       :price,
-      item_images_attributes:[:id, :image,:image_cache]
+      :item_images_attributes
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
+  end
+
+  def set_item_images(item)
+    images = params[:item][:item_images_attributes]["0"]
+    item_images = []
+    images.each do |image|
+      item_images << item.item_images.build(image: image)
+    end
+    return item_images
   end
 
   def set_brand_id
@@ -92,6 +114,7 @@ class ItemsController < ApplicationController
   end
 
   def set_category
+    @root_categories = Category.roots
     @category = @item.category
     @parent_category = @category.parent
     @grandparent_category = @category.root
@@ -101,4 +124,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def check_user_id
+     redirect_to  new_user_session_url unless @item.saler_id == current_user.id
+  end
 end
