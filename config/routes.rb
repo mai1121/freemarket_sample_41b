@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show, :index]
 
+
   resources :brands, only: [:show, :index]
 
   get 'users/sign_up_top' => 'users#top'
