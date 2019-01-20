@@ -1,12 +1,12 @@
-.items-index{
+.brands-show{
   margin: 40px auto 0;
   width: 1020px;
   padding: 0 0 40px;
   display: block;
-  &__container{
+  &__contents{
     width: 100%;
     float: right;
-    ul.items-index__nav{
+    ul.brands-show__nav{
       list-style: none;
       margin: 0;
       li{
@@ -18,15 +18,20 @@
         }
       }
     }
-    .items-index__items-area{
+    .brands-show__item-area{
+      margin-top: 40px;
+      padding-top: 10px;
       h1{
-        margin: 24px 0 8px;
+        margin: 5px 10px 8px 10px;
         font-size: 22px;
         line-height: 1.4;
+        display: inline-block;
+      }
+      p.brands-show__item-brand{
+        font-size: 22px;
+        font-weight: bold;
+        display: inline-block;
       } 
-    }
-    &__item-boxes{
-      margin: 0 auto;
     }
   }
 }

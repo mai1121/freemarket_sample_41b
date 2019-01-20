@@ -1,0 +1,25 @@
+%header.header-content
+  = render 'shared/header'
+
+.brands-show.clearfix
+  .brands-show__contents
+    %ul.brands-show__nav
+      - @categories.each do |category|
+        %li
+          =link_to category.name, category_path(category)
+    %section.brands-show__item-area
+      - @brands.each do |brand|
+        %h1 #{brand.name}
+      %p.brands-show__item-brand の商品一覧
+      .brands-show__item-boxes.clearfix
+        -@items.each do |item|
+          = render '/items/form/item-box', item: item
+
+#aside.banner-content
+  = render 'shared/banner-content'
+
+#footer.footer-content
+  = render 'shared/footer'
+
+%a(class='sell-btn' href='/items/new')
+  = render 'shared/sell-btn'
