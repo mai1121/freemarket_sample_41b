@@ -22,5 +22,12 @@ class Brand < ApplicationRecord
   end
 
 
-
+  def self.brand_lists(brands,initial_strings)
+    brand_lists = []
+    initial_strings.each do |initial_string|
+      brand_list = Brand.where('name LIKE(?)',"#{initial_string}%")
+      brand_lists << brand_list
+    end
+    return brand_lists
+  end
 end
