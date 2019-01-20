@@ -48,8 +48,15 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
-    redirect_to root_path
+    @item = Item.new(item_params)
+    params[:item]['item_images_attributes']['0']['image'].each do |a|
+       @item.item_images.build(:image => a, :item_id => @item.id)
+    end
+    if @item.save!
+      redirect_to root_path
+    else
+      render action: :new
+    end
   end
 
   def edit
@@ -72,7 +79,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(
+    item_params = params.require(:item).permit(
       :name,
       :description,
       :category_id,
@@ -83,8 +90,17 @@ class ItemsController < ApplicationController
       :ships_from,
       :days_to_ship,
       :price,
-      item_images_attributes:[:id, :image,:image_cache]
+      :item_images_attributes
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
+  end
+
+  def set_item_images(item)
+    images = params[:item][:item_images_attributes]["0"]
+    item_images = []
+    images.each do |image|
+      item_images << item.item_images.build(image: image)
+    end
+    return item_images
   end
 
   def set_brand_id
@@ -97,6 +113,7 @@ class ItemsController < ApplicationController
   end
 
   def set_category
+    @root_categories = Category.roots
     @category = @item.category
     @parent_category = @category.parent
     @grandparent_category = @category.root

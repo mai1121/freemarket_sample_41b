@@ -16,6 +16,6 @@
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
 = f.fields_for(:item_images) do |i|
-  = i.file_field :image, class: 'sell-upload-drop-file', style: 'display: none', id: 'item_image'
-  = i.hidden_field :image_cache
+  = i.file_field :image, multiple: true, class: 'sell-upload-drop-file', style: 'display: none', id: 'item_image'
+  = i.hidden_field :image_cache, multiple: true
 

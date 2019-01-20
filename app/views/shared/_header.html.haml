@@ -12,18 +12,19 @@
           %h2
             = link_to "カテゴリーから探す", class: 'header-innner__nav-root'
           %ul.header-innner__category-nav
-            - Category.roots().each do |parent_category|
-              %li.header-innner__category-nav--parent
-                %h3
-                  = link_to "#{parent_category.name}", '',class: "header-innner__category-nav--parent-name"
-                %ul.header-innner__category-nav--child-wrap
-                  -parent_category.children.each do |child_category|
-                    %li.header-innner__category-nav--child
-                      = link_to "#{child_category.name}",''
-                      %ul.header-innner__category-nav--grand-child-wrap
-                        -child_category.children.each do |grand_child_category|
-                          %li.header-innner__category-nav--grand-child
-                            = link_to "#{grand_child_category.name}",''
+            - cache "index_category_template", expires_in: 20.minutes do
+              - Category.roots().each do |parent_category|
+                %li.header-innner__category-nav--parent
+                  %h3
+                    = link_to "#{parent_category.name}", '',class: "header-innner__category-nav--parent-name"
+                  %ul.header-innner__category-nav--child-wrap
+                    -parent_category.children.each do |child_category|
+                      %li.header-innner__category-nav--child
+                        = link_to "#{child_category.name}",''
+                        %ul.header-innner__category-nav--grand-child-wrap
+                          -child_category.children.each do |grand_child_category|
+                            %li.header-innner__category-nav--grand-child
+                              = link_to "#{grand_child_category.name}",''
 
         %li.header-innner__nav-bland
           %h2
