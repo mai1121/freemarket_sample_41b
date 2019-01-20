@@ -1,15 +1,21 @@
 $(document).on('turbolinks:load', function() {
 
   var $dropZone = $('#drop_zone');
+  //ドラッグ時のドロップフィールド見た目
   $dropZone.on('dragover',function(e){
     e.stopPropagation();
     e.preventDefault();
     $dropZone.css({'box-shadow':'0px 0px 10px',
      'border':'1px solid #000'});
   });
-  $dropZone.on("click", function() {
-    $("input[type=file]").click();
+
+  $dropZone.on('dragleave',function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $dropZone.css({'box-shadow':'none',
+     'border': '1px dashed #ccc'})
   });
+
 
   $("input[type=file]").on('change',function(){
     var files = this.files;
@@ -24,12 +30,10 @@ $(document).on('turbolinks:load', function() {
     }
   })
 
-  $dropZone.on('dragleave',function(e){
-    e.stopPropagation();
-    e.preventDefault();
-    $dropZone.css({'box-shadow':'none',
-     'border': '1px dashed #ccc'})
+  $dropZone.on("click", function() {
+    $("input[type=file]").click();
   });
+
 
   var dropZone = document.getElementById("drop_zone");
   if(dropZone){
@@ -46,6 +50,11 @@ $(document).on('turbolinks:load', function() {
     }, false);
   };
 });
+
+function deleteItemImage(i){
+  $('li.sell-upload-item')[i].remove();
+  changeUploadImagesClass($('.sell-upload-items ul'));
+}
 
 
 function buildListItem(src){
