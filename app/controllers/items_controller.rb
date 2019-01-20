@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     if @item.update(item_params)
       redirect_to action: :show
     else
@@ -44,7 +43,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item_images = @item.item_images.build
+    @item_image_new = ItemImage.new(item_id: @item.id)
     @item_image_length = "have-item0"
   end
 
@@ -61,6 +60,7 @@ class ItemsController < ApplicationController
     @item_images.each do |item_image|
       item_image.image.cache!
     end
+    @item_image_new = ItemImage.new(item_id: @item.id)
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end

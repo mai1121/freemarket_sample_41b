@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function() {
   })
 
   $dropZone.on("click", function() {
-    $("input[type=file]").click();
+    $("#item_image").click();
   });
 
 
