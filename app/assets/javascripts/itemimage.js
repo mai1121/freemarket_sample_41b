@@ -42,7 +42,6 @@ $(document).on('turbolinks:load', function() {
       e.preventDefault();
 
       var files = e.dataTransfer.files;
-      debugger;
       addUploadImages(files)
       var formData = document.querySelector('.sell-form')
       行けたらいいな

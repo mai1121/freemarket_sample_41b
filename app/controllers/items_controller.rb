@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    binding.pry
     if @item.update(item_params)
       redirect_to action: :show
     else
@@ -49,9 +50,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    params[:item]['item_images_attributes']['0']['image'].each do |a|
-       @item.item_images.build(:image => a, :item_id => @item.id)
-    end
     if @item.save!
       redirect_to root_path
     else
@@ -79,18 +77,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    item_params = params.require(:item).permit(
-      :name,
-      :description,
-      :category_id,
-      :size,
-      :status,
-      :delivery_fee_method,
-      :delivery_method,
-      :ships_from,
-      :days_to_ship,
-      :price,
-      :item_images_attributes
+    item_params = params.require(:item).permit(:name,:description,:category_id,:size,:status,:delivery_fee_method,:delivery_method,:ships_from,:days_to_ship,:price, item_images_attributes:[:id,:image,:image_cache]
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
   end
 
