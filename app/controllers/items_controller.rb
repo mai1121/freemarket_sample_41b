@@ -43,15 +43,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item_images = @item.item_images.build
+    @item_image_new = ItemImage.new(item_id: @item.id)
     @item_image_length = "have-item0"
   end
 
   def create
     @item = Item.new(item_params)
-    params[:item]['item_images_attributes']['0']['image'].each do |a|
-       @item.item_images.build(:image => a, :item_id => @item.id)
-    end
     if @item.save!
       redirect_to root_path
     else
@@ -63,6 +60,7 @@ class ItemsController < ApplicationController
     @item_images.each do |item_image|
       item_image.image.cache!
     end
+    @item_image_new = ItemImage.new(item_id: @item.id)
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end
@@ -79,18 +77,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    item_params = params.require(:item).permit(
-      :name,
-      :description,
-      :category_id,
-      :size,
-      :status,
-      :delivery_fee_method,
-      :delivery_method,
-      :ships_from,
-      :days_to_ship,
-      :price,
-      :item_images_attributes
+    item_params = params.require(:item).permit(:name,:description,:category_id,:size,:status,:delivery_fee_method,:delivery_method,:ships_from,:days_to_ship,:price, item_images_attributes:[:id,:image,:image_cache, :_destroy]
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
   end
 

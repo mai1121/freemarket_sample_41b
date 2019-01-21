@@ -15,7 +15,13 @@
             =preserve do
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
-= f.fields_for(:item_images) do |i|
-  = i.file_field :image, multiple: true, class: 'sell-upload-drop-file', style: 'display: none', id: 'item_image'
-  = i.hidden_field :image_cache, multiple: true
+= f.fields_for(@item_image_new) do |i|
+  = i.file_field :image, multiple: true, class: 'sell-upload-drop-file', style: 'display: none', id: 'item_image', name:"item[item_images_attributes][][image]"
+  = i.hidden_field :id, name:"item[item_images_attributes][][id]"
+  = i.hidden_field :image_cache, name:"item[item_images_attributes][][image_cache]"
+= f.fields_for(:item_images) do |t|
+  = t.file_field :image, class: 'sell-single-image-file', style: 'display: none', name:"item[item_images_attributes][][image]", id: "imageAttrOf#{t.object.id}"
+  = t.hidden_field :id, name:"item[item_images_attributes][][id]", id: "idAttrOf#{t.object.id}"
+  = t.hidden_field :image_cache, name:"item[item_images_attributes][][image_cache]", id: "cacheAttrOf#{t.object.id}"
+  = t.hidden_field :_destroy, name:"item[item_images_attributes][][_destroy]", id: "destroyAttrOf#{t.object.id}"
 
