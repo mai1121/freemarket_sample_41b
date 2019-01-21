@@ -1,0 +1,30 @@
+%header.header-content
+  = render 'shared/header'
+  .header-breadcrumb
+    .header-innner
+      - breadcrumb :categories_show, @category
+      = breadcrumbs separator: " &rsaquo; "
+
+
+%main.items-index.clearfix
+  .items-index__container
+    %ul.items-index__nav.clearfix
+      -@child_categories.each do |child_category|
+        %li
+          =link_to child_category.name, category_path(child_category)
+      
+    %section.items-index__items-area
+      %h1.items-index__items-area-title #{@category.name}の商品一覧
+
+      .items-index__item-boxes.clearfix
+        -@items.each do |item|
+          = render '/items/form/item-box', item: item
+
+#aside.banner-content
+  = render 'shared/banner-content'
+
+#footer.footer-content
+  = render 'shared/footer'
+
+=link_to new_item_path, class: 'sell-btn' do
+  = render 'shared/sell-btn'

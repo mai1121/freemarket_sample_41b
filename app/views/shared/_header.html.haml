@@ -1,7 +1,7 @@
 .header-innner
   .header-innner__clearfix
     %h1.header-innner__left
-      = link_to image_tag('/images/mercari.png', size: '134x36'), root_path,class: 'header-innner__link'
+      = link_to image_tag('/images/mercari.png'), root_path,class: 'header-innner__link'
     %form(action='' class='header-innner__form')
       %input(type='search' name='keyword' placeholder='キーワードから探す' class='header-innner__input')
         =fa_icon "search", class: 'header-innner__search-icon'
@@ -10,31 +10,33 @@
       %ul.header-innner__nav
         %li.header-innner__nav-category
           %h2
-            = link_to "カテゴリーから探す", class: 'header-innner__nav-root'
+            = link_to "カテゴリーから探す", categories_path, class: 'header-innner__nav-root'
           %ul.header-innner__category-nav
             - cache "index_category_template", expires_in: 20.minutes do
               - Category.roots().each do |parent_category|
                 %li.header-innner__category-nav--parent
                   %h3
-                    = link_to "#{parent_category.name}", '',class: "header-innner__category-nav--parent-name"
+                    = link_to "#{parent_category.name}", category_path(parent_category),class: "header-innner__category-nav--parent-name"
                   %ul.header-innner__category-nav--child-wrap
                     -parent_category.children.each do |child_category|
                       %li.header-innner__category-nav--child
-                        = link_to "#{child_category.name}",''
+                        = link_to "#{child_category.name}",category_path(child_category)
                         %ul.header-innner__category-nav--grand-child-wrap
                           -child_category.children.each do |grand_child_category|
                             %li.header-innner__category-nav--grand-child
-                              = link_to "#{grand_child_category.name}",''
+                              = link_to "#{grand_child_category.name}",category_path(grand_child_category)
 
         %li.header-innner__nav-bland
           %h2
-            = link_to "ブランドから探す", '',class: 'header-innner__nav-root'
+            = link_to "ブランドから探す", brands_path,class: 'header-innner__nav-root'
           %ul.header-innner__bland-nav
-            -Brand.recommend_items_i18n.invert.keys.each do |bland|
+            -Brand.recommend_items_i18n.invert.keys.each do |brand|
               %li.header-innner__bland-nav-list
                 %h3
-                  = link_to "#{bland}", '',class: "header-innner__bland-nav-name"
-
+                  = link_to "#{brand}", brand_path(brand, name: brand),class: "header-innner__bland-nav-name"
+            %li.header-innner__bland-nav-list
+              %h3
+                = link_to "ブランド一覧", brands_path,class: "header-innner__bland-nav-name"
 
     .header-innner__right
       %ul.header-innner__login-nav
@@ -44,7 +46,7 @@
               =link_to users_mypage_path, class: 'header-innner__mypage'  do
                 .header-innner__mypage-link
                   .header-innner__icon-image
-                    =image_tag '/images/unsetted-user-image.jpg', size: '32x32'
+                    =image_tag '/images/unsetted-user-image.jpg'
                   .header-innner__mypage-text マイページ
             %li
               =link_to users_mypage_path, class: 'header-innner__notice' do
