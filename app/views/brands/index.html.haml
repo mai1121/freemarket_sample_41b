@@ -13,14 +13,15 @@
       .brands-index__lists
         .brands-index__list-title
           .brands-index__list-initial
-            - @indicate_brands.each do |indicate_brand|
-              %h4{id: "initial#{indicate_brand[0]}"}
-                = indicate_brand[0]
-                .brands-index__list-contents.clearfix
-                  - indicate_brand[1].each do |brand|
-                    .brands-index__brand-box
-                      %p
-                        = link_to brand.name, brand_path(brand)
+            - cache "index_brand_template", expires_in: 20.minutes do
+              - @indicate_brands.each do |indicate_brand|
+                %h4{id: "initial#{indicate_brand[0]}"}
+                  = indicate_brand[0]
+                  .brands-index__list-contents.clearfix
+                    - indicate_brand[1].each do |brand|
+                      .brands-index__brand-box
+                        %p
+                          = link_to brand.name, brand_path(brand)
 
 
 #aside.banner-content
