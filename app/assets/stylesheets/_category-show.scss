@@ -1,0 +1,32 @@
+.items-index{
+  margin: 40px auto 0;
+  width: 1020px;
+  padding: 0 0 40px;
+  display: block;
+  &__container{
+    width: 100%;
+    float: right;
+    ul.items-index__nav{
+      list-style: none;
+      margin: 0;
+      li{
+        float: left;
+        margin: 16px 16px 0 0;
+        a{
+          color: #0099e8;
+          text-decoration: none;
+        }
+      }
+    }
+    .items-index__items-area{
+      h1{
+        margin: 24px 0 8px;
+        font-size: 22px;
+        line-height: 1.4;
+      } 
+    }
+    &__item-boxes{
+      margin: 0 auto;
+    }
+  }
+}

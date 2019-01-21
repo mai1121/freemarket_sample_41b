@@ -1,0 +1,42 @@
+%header.header-content
+  = render 'shared/header'
+  = render 'shared/breadCrumbs'
+
+.category-index
+  .category-index__innner
+    .category-index__header
+      %h2 カテゴリー一覧
+    .category-index__nav.clearfix
+      - @root_categories.each do |root_category|
+        = link_to root_category.name, category_path(root_category), class: "root_category_link" 
+    .category-index__list-boxes
+      - @root_categories.each do |root_category|
+        .category-index__list-box
+          .category-index__category-name
+            %h3 
+              = root_category.name 
+          .category-index__category-lists
+            %p
+              = link_to "すべて", category_path(root_category)
+            - root_category.children.each do |child_category|
+              .category-index__category-title
+                %h4
+                  = child_category.name
+              .category-index__individual-box.clearfix
+                .category-index__all
+                  %p
+                    = link_to "すべて", category_path(child_category)
+                - child_category.children.each do |grandchild_category|
+                  .category-index__grandchild-category
+                    %p
+                      = link_to grandchild_category.name, category_path(grandchild_category)
+
+
+#aside.banner-content
+  = render 'shared/banner-content'
+
+#footer.footer-content
+  = render 'shared/footer'
+
+=link_to new_item_path, class: 'sell-btn' do
+  = render 'shared/sell-btn'

@@ -4,10 +4,9 @@ ja:
       recommend_item:
         CHANEL: "シャネル"
         NIKE: "ナイキ"
-        LOUISVUITTON: "ルイ　ヴィトン"
-        Supreme: "シュプリーム"
+        LOUISVUITTON: "ルイ ヴィトン"
+        Supreme: "シュープリーム"
         Adidas: "アディダス"
-        brandslist: "ブランド一覧"
     item:
         status:
           unused: "新品、未使用"
