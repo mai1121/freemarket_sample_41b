@@ -1,5 +1,10 @@
 %header.header-content
   = render 'shared/header'
+  .header-breadcrumb
+    .header-innner
+      - breadcrumb :categories_show, @category
+      = breadcrumbs separator: " &rsaquo; "
+
 
 %main.items-index.clearfix
   .items-index__container

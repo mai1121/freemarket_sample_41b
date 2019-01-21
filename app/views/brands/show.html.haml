@@ -1,5 +1,9 @@
 %header.header-content
   = render 'shared/header'
+  .header-breadcrumb
+    .header-innner
+      - breadcrumb :brands_show, @brands
+      = breadcrumbs separator: " &rsaquo; "
 
 .brands-show.clearfix
   .brands-show__contents
