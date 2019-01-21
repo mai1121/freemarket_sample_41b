@@ -7,9 +7,10 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brands = Brand.where('name LIKE(?)',"#{params[:id]}%")
-    @items = Brand.indicate_items(@brands)
-    unless @brands[0]
+    if params.has_key?(:name)
+      @brands = Brand.where('name LIKE(?)',"#{params[:name]}%")
+      @items = Brand.indicate_items(@brands)
+    else
       @brands = []
       @brand = Brand.find(params[:id])
       @items = @brand.items
