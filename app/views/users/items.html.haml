@@ -18,7 +18,7 @@
       %ul#mypage-tab-selling_items.mypage-item-list.tab-pane
         - @items.each do |item|
           %li
-            = link_to users_mypage_salingitem_path(item.id) do
+            = link_to "/users/mypage/salingitem/#{item.id}" do
               = image_tag "#{item.item_images[0].image}"
               = item.name
     .tab_content#during_tradings_content

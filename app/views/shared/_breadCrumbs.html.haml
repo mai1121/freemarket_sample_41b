@@ -1,0 +1,5 @@
+.header-breadcrumb
+  .header-innner
+    - breadcrumb "#{controller.controller_name}_#{controller.action_name}".to_sym
+    = breadcrumbs separator: " &rsaquo; "
+    

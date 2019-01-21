@@ -11,6 +11,7 @@
   %body
     %header.header-content
       = render 'shared/header'
+      = render 'shared/breadCrumbs'
     .mypage-container.clearfix
       %main.mypage-content
         = yield
@@ -22,5 +23,4 @@
     #footer.footer-content
       = render 'shared/footer'
 
-    %a(class='sell-btn' href='')
-      = render 'shared/sell-btn'
+    = render 'shared/sell-btn'

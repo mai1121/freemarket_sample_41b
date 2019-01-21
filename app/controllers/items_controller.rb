@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:item_images).all
     @parent_categories = Category.roots()
+    @brand_items = @items.where.not(brand_id: nil)
   end
 
   def show
@@ -43,19 +44,24 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item_images = @item.item_images.build
+    @item_image_new = ItemImage.new(item_id: @item.id)
     @item_image_length = "have-item0"
   end
 
   def create
-    Item.create(item_params)
-    redirect_to root_path
+    @item = Item.new(item_params)
+    if @item.save!
+      redirect_to root_path
+    else
+      render action: :new
+    end
   end
 
   def edit
     @item_images.each do |item_image|
       item_image.image.cache!
     end
+    @item_image_new = ItemImage.new(item_id: @item.id)
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end
@@ -72,19 +78,17 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(
-      :name,
-      :description,
-      :category_id,
-      :size,
-      :status,
-      :delivery_fee_method,
-      :delivery_method,
-      :ships_from,
-      :days_to_ship,
-      :price,
-      item_images_attributes:[:id, :image,:image_cache]
+    item_params = params.require(:item).permit(:name,:description,:category_id,:size,:status,:delivery_fee_method,:delivery_method,:ships_from,:days_to_ship,:price, item_images_attributes:[:id,:image,:image_cache, :_destroy]
       ).merge(saler_id: current_user.id).merge(brand_id: set_brand_id)
+  end
+
+  def set_item_images(item)
+    images = params[:item][:item_images_attributes]["0"]
+    item_images = []
+    images.each do |image|
+      item_images << item.item_images.build(image: image)
+    end
+    return item_images
   end
 
   def set_brand_id
@@ -97,6 +101,7 @@ class ItemsController < ApplicationController
   end
 
   def set_category
+    @root_categories = Category.roots
     @category = @item.category
     @parent_category = @category.parent
     @grandparent_category = @category.root
