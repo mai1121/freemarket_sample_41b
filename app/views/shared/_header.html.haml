@@ -33,7 +33,7 @@
             -Brand.recommend_items_i18n.invert.keys.each do |brand|
               %li.header-innner__bland-nav-list
                 %h3
-                  = link_to "#{brand}", brand_path(brand, name: brand),name: "シャネル",class: "header-innner__bland-nav-name"
+                  = link_to "#{brand}", brand_path(brand, name: brand),class: "header-innner__bland-nav-name"
             %li.header-innner__bland-nav-list
               %h3
                 = link_to "ブランド一覧", brands_path,class: "header-innner__bland-nav-name"
