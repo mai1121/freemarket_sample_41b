@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :saler_id, presence: true
 
   has_many :item_images, dependent: :destroy, inverse_of: :item
-  accepts_nested_attributes_for :item_images, allow_destroy: true
+  accepts_nested_attributes_for :item_images, allow_destroy: true, reject_if: proc { |attributes| attributes['image'].blank? && attributes['image_cache'].blank?}
   validates :item_images, length: { minimum: 1 }
 
   belongs_to :category
