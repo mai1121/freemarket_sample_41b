@@ -1,5 +1,12 @@
 $(document).on('turbolinks:load', function() {
 
+  $(document).on('click','.sell-upload-delete',function(){
+    $(this).closest('li');
+    var id = $(this).closest('li').attr('id');
+    $('#destroyAttrOf' + id.substr(id.indexOf('_')+1)).val(true);
+    $(this).closest('li').remove();
+  })
+
   var $dropZone = $('#drop_zone');
   //ドラッグ時のドロップフィールド見た目
   $dropZone.on('dragover',function(e){
@@ -65,11 +72,12 @@ function buildListItem(src){
             </figure>
             <div class="sell-upload-button">
               <a href="" class="sell-upload-edit">編集</a>
-              <a href="">削除</a>
+              <a href="" class="sell-upload-delete">削除</a>
             </div>
           </li>`;
   return html;
 }
+
 
 function changeUploadImagesClass(ul){
   $imagesBox = $('.sell-upload-items');
