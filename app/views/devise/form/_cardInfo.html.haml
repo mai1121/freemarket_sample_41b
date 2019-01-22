@@ -2,26 +2,26 @@
   = f.label :credit_card_num, "カード番号"
   %span.form-require 必須
   %br/
-  = f.text_field :credit_card_num, placeholder: "半角数字のみ", class: "input-default"
+  = f.text_field :credit_card_num, placeholder: "半角数字のみ", class: "input-default validate[required, custom[onlyNumberSp]]"
 .form-group
   = f.label :credit_card_expiration, "有効期限"
   %span.form-require 必須
   %br/
   .select-wrap
     .birthday-select-wrap
-      = f.select :credit_card_expiration_month, options_for_select(["-"]+[ "01","02","03","04","05"]), {},{class: "input-default"}
+      = f.select :credit_card_expiration_month, options_for_select(["-"]+ (1..12).to_a.map {|m|format('%02d', m) }), {},{class: "input-default"}
     .birthday-select-wrap
       %span 月
       %br/
     .birthday-select-wrap
-      = f.select :credit_card_expiration_year, options_for_select(["-"]+(19..30).to_a), {},{ class: "input-default"}
+      = f.select :credit_card_expiration_year, options_for_select(["-"]+ (1..31).to_a.map {|m|format('%02d', m) }), {},{ class: "input-default"}
     .birthday-select-wrap
       %span 年
 .form-group
   = f.label :credit_card_security_num, "セキュリティコード"
   %span.form-require 必須
   %br/
-  = f.text_field :credit_card_security_num, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default"
+  = f.text_field :credit_card_security_num, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default validate[required, custom[onlyNumberSp]]"
   .signup-seqcode
     .signup-seqcode-text
       %span.form-question ?

@@ -1,5 +1,6 @@
 .form-group
   = f.label :phone_number, "携帯電話の番号"
   %br/
-  = f.telephone_field :phone_number, placeholder: "携帯電話の番号を入力", class: "input-default"
+  = f.telephone_field :phone_number, placeholder: "携帯電話の番号を入力", class: "input-default validate[required, minSize[11]]"
+%br
 %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。

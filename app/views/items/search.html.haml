@@ -1,0 +1,25 @@
+%header.header-content
+  = render 'shared/header'
+  .header-breadcrumb
+    .header-innner
+      - breadcrumb :items_search, @keyword
+      = breadcrumbs separator: " &rsaquo; "
+
+#main.search-container.clearfix
+  .search-container__item-content.clearfix
+    %h2.search-container__header 検索結果#{@items.length}件
+    .search-container__items.clearfix
+      -@items.each do |item|
+        = render 'items/form/item-box', item: item
+
+  .search-container__side-content
+
+
+#aside.banner-content
+  = render 'shared/banner-content'
+
+#footer.footer-content
+  = render 'shared/footer'
+
+=link_to new_item_path, class: 'sell-btn' do
+  = render 'shared/sell-btn'
