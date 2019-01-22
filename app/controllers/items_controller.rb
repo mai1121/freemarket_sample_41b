@@ -73,7 +73,8 @@ class ItemsController < ApplicationController
   end
 
   def search
-    items_search_item_name = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    @keyword = params[:keyword]
+    items_search_item_name = Item.where('name LIKE(?)', "%#{@keyword}%").limit(20)
 
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
 
