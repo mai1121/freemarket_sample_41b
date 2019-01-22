@@ -59,10 +59,9 @@ class Item < ApplicationRecord
   def self.items_search_brand(brands)
     items_search_brand_name = []
     brands.each do |brand|
-      items = brand.items
-      items_search_brand_name << items
+      items_search_brand_name << brand.items
     end
-    return items_search_brand_name
+    items_search_brand_name
   end
 
 end
