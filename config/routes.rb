@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get :purchase_top
       post :purchase
     end
+    collection do
+      get :search
+    end
   end
 
   resources :categories, only: [:show, :index]

@@ -179,4 +179,26 @@ describe ItemsController do
       end
     end
   end
+
+  describe 'GET #search' do
+
+    before :each do
+      saler = create(:saler)
+      buyer = create(:buyer)
+      brand = create(:brand)
+      category = create(:category)
+
+      @items = create_list(:item_with_images, 3,category_id: category.id, brand_id: brand.id, saler_id: saler.id, buyer_id: buyer.id)
+      get :search
+    end
+
+    it "assigns the requested items to @items" do
+      expect(assigns(:items)).to match(@items)
+    end
+
+    it "renders the :search template" do
+      expect(response).to render_template :search
+    end
+
+  end
 end
