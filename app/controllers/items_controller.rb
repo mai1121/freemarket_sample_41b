@@ -72,6 +72,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    
+  end
+
   private
   def require_login
     redirect_to new_user_session_url unless user_signed_in?
