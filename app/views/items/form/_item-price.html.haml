@@ -12,6 +12,9 @@
             ¥
             %div
               = f.number_field :price, placeholder: '例）300', class: 'input-default'
+
+          - if @item.errors.messages[:price].any?
+            .item-error-message 入力してください
       %li.clearfix
         .l-left
           販売手数料 (10%)
