@@ -74,15 +74,18 @@ class ItemsController < ApplicationController
 
   def search
     @keyword = params[:keyword]
-    items_search_item_name = Item.where('name LIKE(?)', "%#{@keyword}%").limit(20)
+    # 検索値をアイテム名に含むitem
+    items_search_by_item_name = Item.where('name LIKE(?)', "%#{@keyword}%").limit(20)
 
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
 
     if @brands.present?
-      items_search_brand = Item.items_search_brand(@brands)
-      @items = items_search_item_name | items_search_brand[0] 
+      # 検索値をブランド名に含むitem
+      items_search_by_brand = Item.items_search_by_brand(@brands)
+      # 最終的に表示するitem
+      @items = items_search_by_item_name | items_search_by_brand[0] 
     else
-      @items = items_search_item_name
+      @items = items_search_by_item_name
     end  
   end
 

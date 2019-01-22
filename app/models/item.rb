@@ -56,7 +56,7 @@ class Item < ApplicationRecord
     yu_mail: 4
   }
 
-  def self.items_search_brand(brands)
+  def self.items_search_by_brand(brands)
     brands.map {|brand| brand.items}
   end
 
