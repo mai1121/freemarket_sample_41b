@@ -57,11 +57,7 @@ class Item < ApplicationRecord
   }
 
   def self.items_search_brand(brands)
-    items_search_brand_name = []
-    brands.each do |brand|
-      items_search_brand_name << brand.items
-    end
-    items_search_brand_name
+    brands.map {|brand| brand.items}
   end
 
 end
