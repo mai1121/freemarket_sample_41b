@@ -37,6 +37,9 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to action: :show
     else
+      @item_image_new = ItemImage.new(item_id: @item.id)
+      set_category
+      @item_image_length = "have-item#{@item.item_images.length}"
       render :edit
     end
   end
@@ -49,9 +52,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to root_path
     else
+      @item_image_new = ItemImage.new(item_id: @item.id)
+      @item_image_length = "have-item0"
       render action: :new
     end
   end
