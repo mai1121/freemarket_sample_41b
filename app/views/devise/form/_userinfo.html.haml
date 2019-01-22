@@ -2,22 +2,22 @@
   = f.label :nickname,"ニックネーム"
   %span.form-require 必須
   %br/
-  = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎", autocomplete: "nickname", class: "input-default"
+  = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎", autocomplete: "nickname", class: "input-default validate[required]"
 .form-group
   = f.label :email, "メールアドレス"
   %span.form-require 必須
   %br/
-  = f.email_field :email, autofocus: true, placeholder: "PC・携帯どちらでも可", autocomplete: "email", class: "input-default"
+  = f.email_field :email, autofocus: true, placeholder: "PC・携帯どちらでも可", autocomplete: "email", class: "input-default validate[required,custom[email]]"
 .form-group
   = f.label :password, "パスワード"
   %span.form-require 必須
   %br/
-  = f.text_field :password, placeholder: "6文字以上", autocomplete: "new-password", class: "input-default"
+  = f.password_field :password, placeholder: "6文字以上", autocomplete: "new-password", class: "input-default validate[required, minSize[6]]", id: "passwd"
 .form-group
   = f.label :password_confirmation, "パスワード（確認)"
   %span.form-require 必須
   %br/
-  = f.password_field :password_confirmation, placeholder: "6文字以上", autocomplete: "new-password", class: "input-default"
+  = f.password_field :password_confirmation, placeholder: "6文字以上", autocomplete: "new-password", class: "input-default validate[required,minSize[6], equals[passwd]]",id: "re_passwd"
   = f.text_field :uid, type: "hidden"
   = f.text_field :provider, type: "hidden"
 .form-group
