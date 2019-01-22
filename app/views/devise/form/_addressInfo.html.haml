@@ -1,21 +1,21 @@
 .form-group
   = f.label :name, "お名前"
   %span.form-require 必須
-  = f.text_field :last_name, placeholder: "例) 山田", class: "input-default"
+  = f.text_field :last_name, placeholder: "例) 山田", class: "input-default validate[required]"
   %br/
-  = f.text_field :first_name, placeholder: "例) 綾", class: "input-default"
+  = f.text_field :first_name, placeholder: "例) 綾", class: "input-default validate[required]"
 .form-group
   = f.label :name_kana, "お名前カナ"
   %span.form-require 必須
   %br/
-  = f.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "input-default"
+  = f.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "input-default validate[required]"
   %br/
-  = f.text_field :first_name_kana, placeholder: "例) アヤ", class: "input-default"
+  = f.text_field :first_name_kana, placeholder: "例) アヤ", class: "input-default validate[required]"
 .form-group
   = f.label :postal_code, "郵便番号"
   %span.form-require 必須
   %br/
-  = f.text_field :postal_code, placeholder: "例) 1234567", class: "input-default"
+  = f.text_field :postal_code, placeholder: "例) 1234567", class: "input-default validate[required,custom[integer]]"
 .form-group
   = f.label :prefecture, "都道府県"
   %span.form-require 必須
@@ -25,12 +25,12 @@
   = f.label :city, "市区町村"
   %span.form-require 必須
   %br/
-  = f.text_field :city, placeholder: "例) 横浜市緑区", class: "input-default"
+  = f.text_field :city, placeholder: "例) 横浜市緑区", class: "input-default validate[required]"
 .form-group
   = f.label :address, "番地"
   %span.form-require 必須
   %br/
-  = f.text_field :address, placeholder: "例) 青山1-1-1", class: "input-default"
+  = f.text_field :address, placeholder: "例) 青山1-1-1", class: "input-default validate[required]"
 .form-group
   = f.label :building_name, "建物名"
   %span.form-arbitrary 任意
@@ -42,14 +42,14 @@
   %br/
   .select-wrap
     .birthday-select-wrap
-      = f.select :birth_year, options_for_select(["-"]+(1950..2018).to_a, selected: @user.birth_year),{},{id: "",class: "input-default"}
+      = f.select :birth_year, options_for_select(select_birth_year, selected: @user.birth_year),{},{class: "input-default validate[required]"}
     .birthday-select-wrap
       %span 年
     .birthday-select-wrap
-      = f.select :birth_month, options_for_select(["-"]+(01..12).to_a, selected: @user.birth_month),{},{id: "",class: "input-default"}
+      = f.select :birth_month, options_for_select(select_birth_month, selected: @user.birth_month),{},{class: "input-default validate[required]"}
     .birthday-select-wrap
       %span 月
     .birthday-select-wrap
-      = f.select :birth_day, options_for_select(["-"]+(01..31).to_a, selected: @user.birth_day),{},{id: "",class: "input-default"}
+      = f.select :birth_day, options_for_select(select_birth_day, selected: @user.birth_day),{},{class: "input-default validate[required]"}
     .birthday-select-wrap
       %span 日

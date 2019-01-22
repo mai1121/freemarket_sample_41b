@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :brands, only: [:show, :index]
 
   get 'users/sign_up_top' => 'users#top'
+  get '/users/after_signup' => 'users#after_signup'
   get '/signup/registration' => 'users#registration'
   get '/users/mypage/' => 'users#show'
   get '/users/mypage/identification' => 'users#identification'
