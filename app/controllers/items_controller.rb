@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
     @item_images.each do |item_image|
       item_image.image.cache!
     end
-    @item_image_new = ItemImage.new(item_id: @item.id)
+    @item_image_new = ItemImage.new(item_id: @item.id) 
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end
@@ -73,7 +73,16 @@ class ItemsController < ApplicationController
   end
 
   def search
-    
+    items_search_item_name = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
+
+    if @brands.present?
+      items_search_brand = Item.items_search_brand(@brands)
+      @items = items_search_item_name | items_search_brand[0] 
+    else
+      @items = items_search_item_name
+    end  
   end
 
   private

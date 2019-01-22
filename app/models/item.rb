@@ -55,4 +55,14 @@ class Item < ApplicationRecord
     yu_pack: 3,
     yu_mail: 4
   }
+
+  def self.items_search_brand(brands)
+    items_search_brand_name = []
+    brands.each do |brand|
+      items = brand.items
+      items_search_brand_name << items
+    end
+    return items_search_brand_name
+  end
+
 end
