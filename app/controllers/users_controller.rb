@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def top
   end
 
+  def after_signup
+  end
+
   def registration
   end
 
