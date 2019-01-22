@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ./cable.js
+//= require ./slick.min.js
+//= require_directory ./jqueryValidate
 //= require_directory ./jqueryValidate
 //= require_directory ./apps
