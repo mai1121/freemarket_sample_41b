@@ -7,7 +7,10 @@
       = breadcrumbs separator: " &rsaquo; "
 %section.item-detail
   = render 'shared/item-detail'
-  =link_to "購入画面に進む", "", class: "item-detail__buy-button"
+  - if @item.buyer_id 
+    =link_to "売り切れました", "", class: "item-detail__buy-button-gray"
+  - else
+    =link_to "購入画面に進む", purchase_top_item_path, class: "item-detail__buy-button"
   .item-detail__item-description
     %p.item-detail__item-description-inner
     =@item.description
