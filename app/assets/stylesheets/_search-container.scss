@@ -1,0 +1,32 @@
+.search-container{
+  position: relative;
+  margin: 40px auto 0;
+  width: 1020px;
+  padding: 0 0 40px;
+  display: block;
+  &__item-content{
+    float: right;
+    width: 750px;
+    h2.search-container__header{
+      margin: 0 0 8px;
+    }
+  }
+  &__items{
+    width: auto;
+    margin: 0 auto;
+    .items__box-content{
+      width: 160px;
+      margin: 0 0 20px 20px;
+      figure{
+        width: 160px;
+        height: 160px;
+      }
+        h3{
+        height: 48px;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: 1;
+        }
+    }
+  }
+}

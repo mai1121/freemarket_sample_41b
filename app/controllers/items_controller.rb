@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
     @item_images.each do |item_image|
       item_image.image.cache!
     end
-    @item_image_new = ItemImage.new(item_id: @item.id)
+    @item_image_new = ItemImage.new(item_id: @item.id) 
     set_category
     @item_image_length = "have-item#{@item.item_images.length}"
   end
@@ -75,6 +75,23 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     end
+  end
+
+  def search
+    @keyword = params[:keyword]
+    # 検索値をアイテム名に含むitem
+    items_search_by_item_name = Item.where('name LIKE(?)', "%#{@keyword}%").limit(20)
+
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
+
+    if @brands.present?
+      # 検索値をブランド名に含むitem
+      items_search_by_brand = Item.items_search_by_brand(@brands)
+      # 最終的に表示するitem
+      @items = items_search_by_item_name | items_search_by_brand[0] 
+    else
+      @items = items_search_by_item_name
+    end  
   end
 
   private
